@@ -80,7 +80,7 @@
             this.btnPackage.Name = "btnPackage";
             this.btnPackage.Size = new System.Drawing.Size(214, 58);
             this.btnPackage.TabIndex = 4;
-            this.btnPackage.Text = "&Packages";
+            this.btnPackage.Text = "^_^";
             this.btnPackage.UseVisualStyleBackColor = false;
             this.btnPackage.Click += new System.EventHandler(this.frmPackage_Click);
             // 
