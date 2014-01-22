@@ -74,7 +74,7 @@
             // btnPackage
             // 
             this.btnPackage.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonMenu;
-            this.btnPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnPackage.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPackage.Location = new System.Drawing.Point(145, 54);
             this.btnPackage.Name = "btnPackage";
