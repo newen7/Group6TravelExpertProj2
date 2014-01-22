@@ -68,7 +68,7 @@
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(214, 58);
             this.btnProduct.TabIndex = 5;
-            this.btnProduct.Text = "P&roducts";
+            this.btnProduct.Text = "P&roducts_-_-";
             this.btnProduct.UseVisualStyleBackColor = false;
             // 
             // btnPackage
