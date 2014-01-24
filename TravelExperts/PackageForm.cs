@@ -29,6 +29,8 @@ namespace TravelExperts
             result = ProductInPackageForm.ShowDialog();
             if (result == DialogResult.OK)
             {
+                //EditProductsDB.UpdateProducts(pkgId, ProductInPackageForm.ProductList); //Updates list in database
+                //right now this just updates the list
                 lstProduct.Items.Clear();
                 foreach (Product p in ProductInPackageForm.ProductList)
                 {
