@@ -40,15 +40,19 @@ namespace TravelExperts
             //load all products
             cboProduct.Items.Clear();
             lstSupport.Items.Clear();
-            foreach (Product p in EditProductsDB.GetAllProducts())
+            foreach (Product p in ProductList) //adds all productList from first form into product list in this one
+            {
+                lstProductSupplier.Items.Add(p);
+            }
+            foreach (Product p in EditProductsDB.GetAllProducts()) //populates combo box with all products
             {
                 cboProduct.Items.Add(p);
             }
-            foreach (Supplier s in EditProductsDB.GetSuppliersOfProduct(cboProduct.SelectedText))
+            cboProduct.SelectedIndex = 0;//sets it to select the first item
+            foreach (Supplier s in EditProductsDB.GetSuppliersOfProduct(cboProduct.SelectedText)) //gets all suppliers of first product
             {
                 lstSupport.Items.Add(s);
             }
-            cboProduct.SelectedIndex = 0;//sets it to select the first item
         }
 
         private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboPkgName = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.rtxtDesc = new System.Windows.Forms.RichTextBox();
             this.lblAgencyAdmission = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.lstAllPackage = new System.Windows.Forms.ListBox();
             this.btnModPkg = new System.Windows.Forms.Button();
             this.btnAddPkg = new System.Windows.Forms.Button();
-            this.cboPkgName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,16 @@
             this.groupBox1.TabIndex = 41;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Package Information";
+            // 
+            // cboPkgName
+            // 
+            this.cboPkgName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPkgName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.cboPkgName.FormattingEnabled = true;
+            this.cboPkgName.Location = new System.Drawing.Point(174, 99);
+            this.cboPkgName.Name = "cboPkgName";
+            this.cboPkgName.Size = new System.Drawing.Size(213, 28);
+            this.cboPkgName.TabIndex = 62;
             // 
             // button3
             // 
@@ -249,10 +259,6 @@
             this.lstProduct.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.lstProduct.FormattingEnabled = true;
             this.lstProduct.ItemHeight = 20;
-            this.lstProduct.Items.AddRange(new object[] {
-            "Air --- CHAT / TRAVELLINE",
-            "CANADA AIR --- NEW CONCEPTS",
-            "Cruise --- CUNARD LINES Cruise"});
             this.lstProduct.Location = new System.Drawing.Point(444, 192);
             this.lstProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstProduct.Name = "lstProduct";
@@ -319,16 +325,6 @@
             this.btnAddPkg.UseVisualStyleBackColor = false;
             this.btnAddPkg.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cboPkgName
-            // 
-            this.cboPkgName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPkgName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.cboPkgName.FormattingEnabled = true;
-            this.cboPkgName.Location = new System.Drawing.Point(174, 99);
-            this.cboPkgName.Name = "cboPkgName";
-            this.cboPkgName.Size = new System.Drawing.Size(213, 28);
-            this.cboPkgName.TabIndex = 62;
-            // 
             // frmPackage
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDownGrid;
@@ -344,6 +340,7 @@
             this.Name = "frmPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Package  ";
+            this.Load += new System.EventHandler(this.frmPackage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
