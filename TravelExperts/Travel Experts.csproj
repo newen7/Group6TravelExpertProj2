@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TravelExperts</RootNamespace>
-    <AssemblyName>TravelExperts</AssemblyName>
+    <AssemblyName>Travel Experts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,43 +44,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPackage.cs">
+    <Compile Include="AddPackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPackage.Designer.cs">
-      <DependentUpon>AddPackage.cs</DependentUpon>
+    <Compile Include="AddPackageForm.Designer.cs">
+      <DependentUpon>AddPackageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Package.cs">
+    <Compile Include="Package.cs" />
+    <Compile Include="PackageDB.cs" />
+    <Compile Include="PackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Package.Designer.cs">
-      <DependentUpon>Package.cs</DependentUpon>
+    <Compile Include="PackageForm.Designer.cs">
+      <DependentUpon>PackageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductInPackage.cs">
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductInPackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductInPackage.Designer.cs">
-      <DependentUpon>ProductInPackage.cs</DependentUpon>
+    <Compile Include="ProductInPackageForm.Designer.cs">
+      <DependentUpon>ProductInPackageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddPackage.resx">
-      <DependentUpon>AddPackage.cs</DependentUpon>
+    <Compile Include="TravelExpertsDB.cs" />
+    <Compile Include="Validator.cs" />
+    <EmbeddedResource Include="AddPackageForm.resx">
+      <DependentUpon>AddPackageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Package.resx">
-      <DependentUpon>Package.cs</DependentUpon>
+    <EmbeddedResource Include="PackageForm.resx">
+      <DependentUpon>PackageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductInPackage.resx">
-      <DependentUpon>ProductInPackage.cs</DependentUpon>
+    <EmbeddedResource Include="ProductInPackageForm.resx">
+      <DependentUpon>ProductInPackageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -90,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

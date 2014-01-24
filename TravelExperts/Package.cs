@@ -1,39 +1,80 @@
-﻿using System;
+﻿// ------------------------------------------------------------------
+// Pitsini Suwandechochai
+// Student ID: 000625877
+// Description: Package Class
+// ------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace TravelExperts
 {
-    public partial class frmPackage : Form
+    // -----------------------------
+    // Pitsini Suwandechochai
+    // -----------------------------
+    public class Package
     {
-        public frmPackage()
+        // private data
+        private int packageId;
+        private string pkgName;
+        private DateTime pkgStartDate;
+        private DateTime pkgEndDate;
+        private string pkgDesc;
+        private decimal pkgBasePrice;
+        private decimal pkgAgencyCommission;
+        //public List<Product> ProductList = new List<Product>();
+
+        // public properties to access to variable
+        public int PackageId
         {
-            InitializeComponent();
+            get { return packageId; }
+            set { packageId = value; }
+        }
+        public string PkgName
+        {
+            get { return pkgName; }
+            set { pkgName = value; }
+        }
+        public DateTime PkgStartDate
+        {
+            get { return pkgStartDate; }
+            set { pkgStartDate = value; }
+        }
+        public DateTime PkgEndDate
+        {
+            get { return pkgEndDate; }
+            set { pkgEndDate = value; }
+        }
+        public string PkgDesc
+        {
+            get { return pkgDesc; }
+            set { pkgDesc = value; }
+        }
+        public decimal PkgBasePrice
+        {
+            get { return pkgBasePrice; }
+            set { pkgBasePrice = value; }
+        }
+        public decimal PkgAgencyCommission
+        {
+            get { return pkgAgencyCommission; }
+            set { pkgAgencyCommission = value; }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            DialogResult result;
-            frmProductInPackage ProductInPackageForm = new frmProductInPackage();
-            result = ProductInPackageForm.ShowDialog();
-        }
+        // constructor
+        public Package() { }
 
-        private void button2_Click(object sender, EventArgs e)
+        public Package(int newPkgId, string newPkgName, DateTime newPkgStartDate, DateTime newPkgEndDate, string newPkgDesc, decimal newPkgBasePrice, decimal newPkgAgencyCommission)
         {
-            DialogResult result;
-            frmAddPackage AddPackageForm = new frmAddPackage();
-            result = AddPackageForm.ShowDialog();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            packageId = newPkgId;
+            pkgName = newPkgName;
+            pkgStartDate = newPkgStartDate;
+            pkgEndDate = newPkgEndDate;
+            pkgDesc = newPkgDesc;
+            pkgBasePrice = newPkgBasePrice;
+            pkgAgencyCommission = newPkgAgencyCommission;
         }
     }
 }
