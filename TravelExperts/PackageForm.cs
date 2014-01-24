@@ -19,9 +19,18 @@ namespace TravelExperts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //opens editproducts and sends back list
             DialogResult result;
             frmProductInPackage ProductInPackageForm = new frmProductInPackage();
             result = ProductInPackageForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                lstProduct.Items.Clear();
+                foreach (Product p in ProductInPackageForm.ProductList)
+                {
+                    lstProduct.Items.Add(p);
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
