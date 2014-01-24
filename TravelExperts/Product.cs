@@ -1,4 +1,8 @@
-﻿using System;
+﻿// To --> Jon / Paul / Porkodi, I created cause I needed for my Package Class
+// I just copied from our final Workshop project.
+// You can erase it if you have your part ready! :)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +10,12 @@ using System.Threading.Tasks;
 
 namespace TravelExperts
 {
-    public class Product //allows encapsulation of all the properties accociated with the 'Products'
+    class Product //allows encapsulation of all the properties accociated with the 'Products'
     {//Paul Teixiera
         private int productId;
         private string prodName;
         private string supplierName; //by design i added the name and Id of the supplier, so the product object knows who supplies them to the package
         private int productSupplierId;
-        public Product(int newproductId, string newprodName)
-        {
-            productId = newproductId;
-            prodName = newprodName;
-        }
         public Product(int newproductId, string newprodName, string newsupplierName, int newProductSupplierId)
         { //constructor fills all pedigree information in
             productId = newproductId;
@@ -45,17 +44,9 @@ namespace TravelExperts
             get { return productSupplierId; }
             set { productSupplierId = value; }
         }
-        public string JustNames()
-        {
-            return prodName;
-        }
         public override string ToString()
         {
             return supplierName + " " + prodName;
-        }
-        public override bool Equals(object obj) //run by listbox.contains to check if it exists this overides the REFERENCE checking with name checking (i want to check if different object references but same name exist or dont exist)
-        {
-            return ((Product)obj).ToString() == this.ToString();
         }
     }
 }

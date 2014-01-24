@@ -62,12 +62,14 @@
             // 
             this.cboProduct.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.cboProduct.FormattingEnabled = true;
+            this.cboProduct.Items.AddRange(new object[] {
+            "Air",
+            "Train"});
             this.cboProduct.Location = new System.Drawing.Point(26, 69);
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(264, 28);
             this.cboProduct.TabIndex = 34;
             this.cboProduct.Text = "Air";
-            this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -85,6 +87,9 @@
             this.lstSupport.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.lstSupport.FormattingEnabled = true;
             this.lstSupport.ItemHeight = 20;
+            this.lstSupport.Items.AddRange(new object[] {
+            "CANADA Air",
+            "WestJet Airline"});
             this.lstSupport.Location = new System.Drawing.Point(25, 139);
             this.lstSupport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstSupport.Name = "lstSupport";
@@ -119,6 +124,10 @@
             this.lstProductSupplier.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.lstProductSupplier.FormattingEnabled = true;
             this.lstProductSupplier.ItemHeight = 20;
+            this.lstProductSupplier.Items.AddRange(new object[] {
+            "Air --- CHAT / TRAVELLINE",
+            "CANADA AIR --- NEW CONCEPTS",
+            "Cruise --- CUNARD LINES Cruise"});
             this.lstProductSupplier.Location = new System.Drawing.Point(23, 45);
             this.lstProductSupplier.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstProductSupplier.Name = "lstProductSupplier";
@@ -135,7 +144,6 @@
             this.btnDelete.TabIndex = 50;
             this.btnDelete.Text = "Remove";
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -147,7 +155,6 @@
             this.btnAdd.TabIndex = 49;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
@@ -188,7 +195,6 @@
             this.Name = "frmProductInPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Products in Package";
-            this.Load += new System.EventHandler(this.frmProductInPackage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
