@@ -46,10 +46,10 @@ namespace TravelExperts
             }
             foreach (Product p in EditProductsDB.GetAllProducts()) //populates combo box with all products
             {
-                cboProduct.Items.Add(p);
+                cboProduct.Items.Add(p.JustNames());
             }
             cboProduct.SelectedIndex = 0;//sets it to select the first item
-            foreach (Supplier s in EditProductsDB.GetSuppliersOfProduct(cboProduct.SelectedText)) //gets all suppliers of first product
+            foreach (Supplier s in EditProductsDB.GetSuppliersOfProduct((string)cboProduct.SelectedItem)) //gets all suppliers of first product
             {
                 lstSupport.Items.Add(s);
             }
@@ -58,7 +58,8 @@ namespace TravelExperts
         private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             //load all suppliers of that prodcut
-            foreach(Supplier s in EditProductsDB.GetSuppliersOfProduct(cboProduct.SelectedText))
+            lstSupport.Items.Clear();
+            foreach (Supplier s in EditProductsDB.GetSuppliersOfProduct((string)cboProduct.SelectedItem))
             {
                 lstSupport.Items.Add(s);
             }
