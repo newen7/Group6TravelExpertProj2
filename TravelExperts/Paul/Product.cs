@@ -55,7 +55,11 @@ namespace TravelExperts
         }
         public override bool Equals(object obj) //run by listbox.contains to check if it exists this overides the REFERENCE checking with name checking (i want to check if different object references but same name exist or dont exist)
         {
-            return ((Product)obj).ToString() == this.ToString();
+            if (obj != System.DBNull.Value)
+            {
+                return ((Product)obj).ToString() == this.ToString();
+            }
+            else return false;
         }
     }
 }
