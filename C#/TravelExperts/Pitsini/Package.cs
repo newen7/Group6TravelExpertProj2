@@ -1,6 +1,5 @@
 ﻿// ------------------------------------------------------------------
 // Pitsini Suwandechochai
-// Student ID: 000625877
 // Description: Package Class
 // ------------------------------------------------------------------
 using System;
@@ -11,9 +10,6 @@ using System.Threading.Tasks;
 
 namespace TravelExperts
 {
-    // -----------------------------
-    // Pitsini Suwandechochai
-    // -----------------------------
     public class Package
     {
         // private data
@@ -24,7 +20,7 @@ namespace TravelExperts
         private string pkgDesc;
         private decimal pkgBasePrice;
         private decimal pkgAgencyCommission;
-        //public List<Product> ProductList = new List<Product>();
+        public List<Package> PackageList = new List<Package>();
 
         // public properties to access to variable
         public int PackageId
@@ -65,6 +61,12 @@ namespace TravelExperts
 
         // constructor
         public Package() { }
+
+        public Package(int newPkgId, string newPkgName)
+        {
+            packageId = newPkgId;
+            pkgName = newPkgName;
+        }
 
         public Package(int newPkgId, string newPkgName, DateTime newPkgStartDate, DateTime newPkgEndDate, string newPkgDesc, decimal newPkgBasePrice, decimal newPkgAgencyCommission)
         {

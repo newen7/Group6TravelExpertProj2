@@ -240,7 +240,7 @@
             this.btnEditProduct.TabIndex = 43;
             this.btnEditProduct.Text = "&Edit Products";
             this.btnEditProduct.UseVisualStyleBackColor = false;
-            this.btnEditProduct.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // lblDesc
             // 
@@ -301,6 +301,7 @@
             this.lstAllPackage.Name = "lstAllPackage";
             this.lstAllPackage.Size = new System.Drawing.Size(745, 224);
             this.lstAllPackage.TabIndex = 45;
+            this.lstAllPackage.SelectedIndexChanged += new System.EventHandler(this.lstAllPackage_SelectedIndexChanged);
             // 
             // btnModPkg
             // 

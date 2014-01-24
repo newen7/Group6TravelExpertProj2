@@ -9,12 +9,58 @@ using System.Data.SqlClient;
 namespace TravelExperts
 {
     public static class PackageDB
-    {
+    {   // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: use packageID to get one package info from DB
+        // Method to used: GetListOfPackage() 
+        // ------------------------------------------------------------------
+        public static List<Package> GetListOfPackage()
+        {
+            SqlConnection connectDB = TravelExpertsDB.GetConnection();
+
+            string selectStatement = "SELECT * " +
+                                     "FROM Packages ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
+
+            // makes new list to collect list of package names
+            List<Package> PackageList = new List<Package>();
+
+            // executes commmand
+            try
+            {
+                connectDB.Open();
+                //create pkgreaderObj from SqlDataReader Class and execute sql
+                SqlDataReader pkgReaderObj = selectCommand.ExecuteReader();
+
+                if (pkgReaderObj.HasRows) // if geting a row successful
+                {
+                    while (pkgReaderObj.Read()) //while pkgReaderObj has lines to read, go through each one 
+                    {
+                        //add to package list all of the products found
+                        PackageList.Add(new Package((int)pkgReaderObj[0], (string)pkgReaderObj[1]));
+                    }
+
+                    return PackageList; //return the list that have been created
+                }
+                else // if coun't find data in DB
+                {
+                    return null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connectDB.Close();  //close connection
+            }
+
+        }
         // ------------------------------------------------------------------
         // Pitsini Suwandechochai
-        // Student ID: 000625877
+        // Description: use packageID to get one package info from DB
         // Method to used: GetPackage(ID) 
-        // Description: use packageID to select a package info from DB
         // ------------------------------------------------------------------
         public static Package GetPackage(int PackageId)
         {
@@ -22,7 +68,7 @@ namespace TravelExperts
 
             // @PackageID is the variable that we pass the value from textbox
             string selectStatement = "SELECT * " +
-                                     "FROM Packages " + 
+                                     "FROM Packages " +
                                      "WHERE PackageId = @PackageID ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
 
@@ -63,7 +109,7 @@ namespace TravelExperts
             {
                 connectDB.Close();
             }
-            
+
         }
 
         //public static List<Package> GetPackageNProductList(int PackageId)
