@@ -44,10 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPackageForm.cs">
+    <Compile Include="Pitsini\AddPackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPackageForm.Designer.cs">
+    <Compile Include="Pitsini\AddPackageForm.Designer.cs">
       <DependentUpon>AddPackageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -56,12 +56,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Package.cs" />
-    <Compile Include="PackageDB.cs" />
-    <Compile Include="PackageForm.cs">
+    <Compile Include="Pitsini\Package.cs" />
+    <Compile Include="Pitsini\PackageDB.cs" />
+    <Compile Include="Pitsini\PackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PackageForm.Designer.cs">
+    <Compile Include="Pitsini\PackageForm.Designer.cs">
       <DependentUpon>PackageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Paul\EditProductsDB.cs" />
@@ -77,13 +77,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelExpertsDB.cs" />
     <Compile Include="Validator.cs" />
-    <EmbeddedResource Include="AddPackageForm.resx">
+    <EmbeddedResource Include="Pitsini\AddPackageForm.resx">
       <DependentUpon>AddPackageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PackageForm.resx">
+    <EmbeddedResource Include="Pitsini\PackageForm.resx">
       <DependentUpon>PackageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Paul\ProductInPackageForm.resx">
