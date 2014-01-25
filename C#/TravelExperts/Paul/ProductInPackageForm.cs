@@ -12,7 +12,7 @@ namespace TravelExperts
 {
     public partial class frmProductInPackage : Form
     {
-        public List<Product> ProductList = new List<Product>();
+        public int PkgId;
         public frmProductInPackage()
         {
             InitializeComponent();
@@ -20,11 +20,12 @@ namespace TravelExperts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ProductList.Clear();//clearout product list
+            List<Product> NewProductList = new List<Product>();
             foreach (Product p in lstProductSupplier.Items)
             {
-                ProductList.Add(p); //add all prodcuts to list
+                NewProductList.Add(p); //add all prodcuts to list
             }
+            EditProductsDB.UpdateProducts(PkgId, NewProductList);
             MessageBox.Show("Successful!");
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -40,7 +41,7 @@ namespace TravelExperts
             //load all products
             cboProduct.Items.Clear();
             lstSupport.Items.Clear();
-            foreach (Product p in ProductList) //adds all productList from first form into product list in this one
+            foreach (Product p in EditProductsDB.GetProducts(PkgId)) //adds all productList from first form into product list in this one
             {
                 lstProductSupplier.Items.Add(p);
             }

@@ -41,21 +41,19 @@ namespace TravelExperts
             //opens editproducts and sends back list
             DialogResult result;
             frmProductInPackage ProductInPackageForm = new frmProductInPackage();
-            foreach (Product p in ListOfProducts)   //takes prodcuts in list and puts it in my from            
+            if (txtPkgId.Text.Length>0) //is there any other checks for this? can we make pkgID nullable type?
             {
-                ProductInPackageForm.ProductList.Add(p);
-            }  
-            result = ProductInPackageForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                //EditProductsDB.UpdateProducts(pkgId, ProductInPackageForm.ProductList); //Updates list in database
-                //right now this just updates the list
-                lstProduct.Items.Clear();
-                foreach (Product p in ProductInPackageForm.ProductList)
+                //ProductInPackageForm.PkgId = chosenPkgId; //chosenPkgId is not working?
+                ProductInPackageForm.PkgId = Convert.ToInt32(txtPkgId.Text); //this needs checking if I am doing validation on pkgform
+                result = ProductInPackageForm.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    lstProduct.Items.Add(p);
+                  //New's clear and reload functions 
+                  DisplayListOfPackage(); //this does not reset selector
+                  cboPkgName.SelectedIndex = ProductInPackageForm.PkgId-1; //fake reselector but does not adjust well for pckNumber != index
                 }
             }
+            else MessageBox.Show("Package not selected");
         }
 
         private void btnAddPkg_Click(object sender, EventArgs e)
@@ -181,7 +179,7 @@ namespace TravelExperts
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            f (IsValidData())
+            if(IsValidData())
             {
                 try
                 {

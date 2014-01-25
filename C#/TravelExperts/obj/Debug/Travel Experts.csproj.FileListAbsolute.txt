@@ -10,3 +10,15 @@ C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\De
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.exe
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.pdb
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csprojResolveAssemblyReference.cache
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\bin\Debug\Travel Experts.exe.config
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.exe
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.pdb
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csprojResolveAssemblyReference.cache
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmAddPackage.resources
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmMain.resources
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmPackage.resources
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmProductInPackage.resources
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.Properties.Resources.resources
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csproj.GenerateResource.Cache
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\bin\Debug\Travel Experts.exe
+C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\bin\Debug\Travel Experts.pdb

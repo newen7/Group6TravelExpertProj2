@@ -8,23 +8,23 @@ namespace TravelExperts
 {
     public class Supplier //allows encapsulation of supplier info, really its only the id and name, but it allows very verbose use of this info
     {//Paul Teixeira 653708
-        private int supplierId;
+        private int ProductSupplierId;
         private string supName;
         
-        public Supplier(int newId, string Name) //this time i put the list into the consructor, because the normal use of this object is AFTER you get the products of the id
+        public Supplier(int newId, string Name)
         {
-            supplierId = newId;
+            ProductSupplierId = newId;
             supName = Name;
         }
         public int SuplierId
         {
             get
             {
-                return supplierId;
+                return ProductSupplierId;
             }
             set
             {
-                supplierId = value;
+                ProductSupplierId = value;
             }
         }
         public string SupName
