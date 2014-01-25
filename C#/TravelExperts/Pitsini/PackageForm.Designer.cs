@@ -30,7 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboPkgName = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.rtxtDesc = new System.Windows.Forms.RichTextBox();
             this.lblAgencyAdmission = new System.Windows.Forms.Label();
             this.txtAgencyAdmission = new System.Windows.Forms.TextBox();
@@ -59,7 +59,7 @@
             this.groupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDownGrid;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox1.Controls.Add(this.cboPkgName);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.rtxtDesc);
             this.groupBox1.Controls.Add(this.lblAgencyAdmission);
             this.groupBox1.Controls.Add(this.txtAgencyAdmission);
@@ -92,19 +92,20 @@
             this.cboPkgName.Location = new System.Drawing.Point(167, 99);
             this.cboPkgName.Name = "cboPkgName";
             this.cboPkgName.Size = new System.Drawing.Size(213, 28);
-            this.cboPkgName.TabIndex = 62;
+            this.cboPkgName.TabIndex = 2;
             this.cboPkgName.SelectedIndexChanged += new System.EventHandler(this.cboPkgName_SelectedIndexChanged);
             // 
-            // button3
+            // btnSearch
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(273, 54);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 34);
-            this.button3.TabIndex = 61;
-            this.button3.Text = "&Search";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnSearch.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(273, 54);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(107, 34);
+            this.btnSearch.TabIndex = 61;
+            this.btnSearch.Text = "&Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // rtxtDesc
             // 
@@ -113,7 +114,7 @@
             this.rtxtDesc.Name = "rtxtDesc";
             this.rtxtDesc.ReadOnly = true;
             this.rtxtDesc.Size = new System.Drawing.Size(320, 96);
-            this.rtxtDesc.TabIndex = 60;
+            this.rtxtDesc.TabIndex = 12;
             this.rtxtDesc.Text = "";
             // 
             // lblAgencyAdmission
@@ -134,7 +135,7 @@
             this.txtAgencyAdmission.Name = "txtAgencyAdmission";
             this.txtAgencyAdmission.ReadOnly = true;
             this.txtAgencyAdmission.Size = new System.Drawing.Size(213, 28);
-            this.txtAgencyAdmission.TabIndex = 54;
+            this.txtAgencyAdmission.TabIndex = 11;
             // 
             // lblBasePrice
             // 
@@ -154,7 +155,7 @@
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.ReadOnly = true;
             this.txtBasePrice.Size = new System.Drawing.Size(213, 28);
-            this.txtBasePrice.TabIndex = 52;
+            this.txtBasePrice.TabIndex = 10;
             // 
             // lblEndDate
             // 
@@ -174,7 +175,7 @@
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.ReadOnly = true;
             this.txtEndDate.Size = new System.Drawing.Size(213, 28);
-            this.txtEndDate.TabIndex = 50;
+            this.txtEndDate.TabIndex = 9;
             // 
             // lblStartDate
             // 
@@ -194,7 +195,7 @@
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.ReadOnly = true;
             this.txtStartDate.Size = new System.Drawing.Size(213, 28);
-            this.txtStartDate.TabIndex = 48;
+            this.txtStartDate.TabIndex = 8;
             // 
             // lblPkgName
             // 
@@ -224,7 +225,7 @@
             this.txtPkgId.Location = new System.Drawing.Point(167, 58);
             this.txtPkgId.Name = "txtPkgId";
             this.txtPkgId.Size = new System.Drawing.Size(100, 28);
-            this.txtPkgId.TabIndex = 44;
+            this.txtPkgId.TabIndex = 1;
             // 
             // btnEditProduct
             // 
@@ -233,7 +234,7 @@
             this.btnEditProduct.Location = new System.Drawing.Point(436, 334);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(264, 34);
-            this.btnEditProduct.TabIndex = 43;
+            this.btnEditProduct.TabIndex = 3;
             this.btnEditProduct.Text = "&Edit Products";
             this.btnEditProduct.UseVisualStyleBackColor = false;
             this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
@@ -260,7 +261,7 @@
             this.lstProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstProduct.Name = "lstProduct";
             this.lstProduct.Size = new System.Drawing.Size(320, 124);
-            this.lstProduct.TabIndex = 27;
+            this.lstProduct.TabIndex = 13;
             // 
             // lblProduct
             // 
@@ -280,7 +281,7 @@
             this.btnCancel.Location = new System.Drawing.Point(475, 646);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(143, 43);
-            this.btnCancel.TabIndex = 44;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -297,7 +298,7 @@
             this.lstAllPackage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstAllPackage.Name = "lstAllPackage";
             this.lstAllPackage.Size = new System.Drawing.Size(745, 224);
-            this.lstAllPackage.TabIndex = 45;
+            this.lstAllPackage.TabIndex = 4;
             this.lstAllPackage.SelectedIndexChanged += new System.EventHandler(this.lstAllPackage_SelectedIndexChanged);
             // 
             // btnModPkg
@@ -307,7 +308,7 @@
             this.btnModPkg.Location = new System.Drawing.Point(295, 646);
             this.btnModPkg.Name = "btnModPkg";
             this.btnModPkg.Size = new System.Drawing.Size(143, 43);
-            this.btnModPkg.TabIndex = 46;
+            this.btnModPkg.TabIndex = 6;
             this.btnModPkg.Text = "&Modify";
             this.btnModPkg.UseVisualStyleBackColor = false;
             // 
@@ -318,7 +319,7 @@
             this.btnAddPkg.Location = new System.Drawing.Point(117, 646);
             this.btnAddPkg.Name = "btnAddPkg";
             this.btnAddPkg.Size = new System.Drawing.Size(143, 43);
-            this.btnAddPkg.TabIndex = 47;
+            this.btnAddPkg.TabIndex = 5;
             this.btnAddPkg.Text = "&Add";
             this.btnAddPkg.UseVisualStyleBackColor = false;
             this.btnAddPkg.Click += new System.EventHandler(this.btnAddPkg_Click);
@@ -368,7 +369,7 @@
         private System.Windows.Forms.ListBox lstAllPackage;
         private System.Windows.Forms.Button btnModPkg;
         private System.Windows.Forms.Button btnAddPkg;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cboPkgName;
     }
 }

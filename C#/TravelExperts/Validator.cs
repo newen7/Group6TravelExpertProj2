@@ -1,6 +1,5 @@
 ﻿// ------------------------------------------------------------------
 // Pitsini Suwandechochai
-// Student ID: 000625877
 // validator for Serch, Add, Modify and Delete Package 
 // ------------------------------------------------------------------
 using System;
@@ -11,9 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 
-namespace WorkshopProject
+namespace TravelExperts
 {
-    class Validator
+    public class Validator
     {
         // The title that will appear in dialog boxes.
         private static string title = "Entry Error";    
@@ -36,6 +35,7 @@ namespace WorkshopProject
                     textBox.Focus();
                     return false;
                 }
+                return true;
             }
 
             // Checks whether the user entered data into a ComboBox.

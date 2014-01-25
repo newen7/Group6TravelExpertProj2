@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +12,16 @@ using System.Data.SqlClient;
 
 namespace TravelExperts
 {
+    // ------------------------------------------------------------------
+    // Pitsini Suwandechochai
+    // Description: Package form for searching and showing package information
+    // function to use: Search, Add, Modify and Delete package
+    //
+    // P.S.: function Edit product was develop by Paul Teixiera
+    // ------------------------------------------------------------------
     public partial class frmPackage : Form
     {
-        int chosenPkgId;
+        int chosenPkgId;    // keep id that chosen by selecting the package listbox
         Package aPackage;   // package for showing data in text boxes
 
         // Contain packageID and name) for showing in the packagelist
@@ -25,7 +33,9 @@ namespace TravelExperts
             InitializeComponent();
         }
 
+        // ------------------------------------------------------------------
         // Paul Teixiera
+        // ------------------------------------------------------------------
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
             //opens editproducts and sends back list
@@ -61,14 +71,13 @@ namespace TravelExperts
         }
 
         private void frmPackage_Load(object sender, EventArgs e)
-        {
-            //load data from GetListOfPackage()
+        {            
             try
             {
-
-                // get package data from DB
+                // get the list of packages data from DB
                 ListOfPackages = PackageDB.GetListOfPackage();
                 DisplayListOfPackage();
+                txtPkgId.Focus();
             }
             catch (DBConcurrencyException)  // number of rows affected equals zero
             {
@@ -83,14 +92,13 @@ namespace TravelExperts
             {
                 MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
             }
-            // check if the return is null -- show popup .. no data in database
+
+            
         }
 
         private void DisplayListOfPackage()
         {
-            //allPackage = PackageDB.GetListOfPackage();
-
-            // clear the listbox & combobox
+            // clear the listbox & combo box
             lstAllPackage.Items.Clear();
             cboPkgName.Items.Clear();
 
@@ -129,8 +137,7 @@ namespace TravelExperts
             catch (Exception ex)    // any other error
             {
                 MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
-            }
-            
+            }            
         }
 
         private void cboPkgName_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,6 +177,46 @@ namespace TravelExperts
             if (ListOfProducts != null)
                 foreach (Product eachProduct in ListOfProducts)
                     lstProduct.Items.Add(eachProduct);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            f (IsValidData())
+            {
+                try
+                {
+                    aPackage = PackageDB.GetPackageByID(Convert.ToInt32(txtPkgId.Text));
+                    if (aPackage != null)
+                        DisplayPackageAndProduct();
+                    else   // don't have PackageID that user try to search
+                    {
+                        MessageBox.Show("Package ID: " + txtPkgId.Text + " is not found in Database.");
+                        txtPkgId.Focus();
+                        txtPkgId.SelectAll();
+                    }
+                }
+                catch (DBConcurrencyException)  // number of rows affected equals zero
+                {
+                    MessageBox.Show("Concurrency error occurred. Some changes did not happen",
+                        "Concurrency error");
+                }
+                catch (SqlException ex)  // SQL Server returns a warning or error
+                {
+                    MessageBox.Show("Database error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)    // any other error
+                {
+                    MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+        
+        private bool IsValidData()
+        {
+            return
+                // validate packageID
+                Validator.IsPresent(txtPkgId, "Package ID: ") &&
+                Validator.IsInt32(txtPkgId, "Package ID: ");
         }
     }
 }
