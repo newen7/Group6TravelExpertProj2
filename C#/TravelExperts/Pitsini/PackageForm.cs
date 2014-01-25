@@ -13,22 +13,25 @@ namespace TravelExperts
 {
     public partial class frmPackage : Form
     {
-        List<Package> allPackage;
-        int currentPackageId;
+        int chosenPkgId;
+        Package aPackage;   // package for showing data in text boxes
 
-        //Package packageFromDB
+        // Contain packageID and name) for showing in the packagelist
         List<Package> ListOfPackages = new List<Package>();
+        List<Product> ListOfProducts = new List<Product>();
+
         public frmPackage()
         {
             InitializeComponent();
         }
 
+        // Paul Teixiera
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
             //opens editproducts and sends back list
             DialogResult result;
             frmProductInPackage ProductInPackageForm = new frmProductInPackage();
-            foreach(Product p in lstProduct.Items) //takes prodcuts in list and puts it in my from
+            foreach (Product p in ListOfProducts)   //takes prodcuts in list and puts it in my from            
             {
                 ProductInPackageForm.ProductList.Add(p);
             }  
@@ -45,7 +48,7 @@ namespace TravelExperts
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAddPkg_Click(object sender, EventArgs e)
         {
             DialogResult result;
             frmAddPackage AddPackageForm = new frmAddPackage();
@@ -59,11 +62,6 @@ namespace TravelExperts
 
         private void frmPackage_Load(object sender, EventArgs e)
         {
-            ////faked products untill New populates it herself.
-            //lstProduct.Items.Add(new Product(1, "Air", "SKYWAYS INTERNATIONAL", 5492));
-            //lstProduct.Items.Add(new Product(1, "Air", "TRADE WINDS ASSOCIATES", 6505));
-            //lstProduct.Items.Add(new Product(4, "Cruise", "SOUTH WIND TOURS LTD.", 2827));
-
             //load data from GetListOfPackage()
             try
             {
@@ -90,23 +88,88 @@ namespace TravelExperts
 
         private void DisplayListOfPackage()
         {
-            allPackage = PackageDB.GetListOfPackage();
+            //allPackage = PackageDB.GetListOfPackage();
 
-            // clear the listbox before add the list of packages in
+            // clear the listbox & combobox
             lstAllPackage.Items.Clear();
+            cboPkgName.Items.Clear();
 
-            if (allPackage != null)
-            {
-                foreach (Package eachPackage in allPackage)
+            if (ListOfPackages != null)
+                foreach (Package eachPackage in ListOfPackages)
+                {
                     lstAllPackage.Items.Add(eachPackage.PackageId + " --- " + eachPackage.PkgName);
-            }
+                    cboPkgName.Items.Add(eachPackage.PkgName);
+                }
             else
                 MessageBox.Show("Sorry, NO Package found in database.\nPlease check with your DBA.");
         }
 
         private void lstAllPackage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //currentPackageId = lstAllPackage.SelectedItem.ToString();
+            try
+            {
+                if (lstAllPackage.Items.Count > 0)
+                {
+                    string[] separators = new string[] { " --- " };
+                    chosenPkgId = Convert.ToInt32(lstAllPackage.SelectedItem.ToString().Split(separators, StringSplitOptions.None)[0]);
+
+                    aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                    DisplayPackageAndProduct();
+                }
+            }
+            catch (DBConcurrencyException)  // number of rows affected equals zero
+            {
+                MessageBox.Show("Concurrency error occurred. Some changes did not happen",
+                    "Concurrency error");
+            }
+            catch (SqlException ex)  // SQL Server returns a warning or error
+            {
+                MessageBox.Show("Database error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)    // any other error
+            {
+                MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
+            }
+            
+        }
+
+        private void cboPkgName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                aPackage = PackageDB.GetPackageByName(cboPkgName.SelectedItem.ToString());
+                DisplayPackageAndProduct();  
+            }
+            catch (DBConcurrencyException)  // number of rows affected equals zero
+            {
+                MessageBox.Show("Concurrency error occurred. Some changes did not happen",
+                    "Concurrency error");
+            }
+            catch (SqlException ex)  // SQL Server returns a warning or error
+            {
+                MessageBox.Show("Database error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)    // any other error
+            {
+                MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void DisplayPackageAndProduct()
+        {
+            txtPkgId.Text = aPackage.PackageId.ToString();
+            cboPkgName.SelectedItem = aPackage.PkgName.ToString();
+            txtStartDate.Text = aPackage.PkgStartDate.ToShortDateString();
+            txtEndDate.Text = aPackage.PkgEndDate.ToShortDateString();
+            rtxtDesc.Text = aPackage.PkgDesc;
+            txtBasePrice.Text = aPackage.PkgBasePrice.ToString("c");
+            txtAgencyAdmission.Text = aPackage.PkgAgencyCommission.ToString("c");
+
+            ListOfProducts = PackageDB.GetListOfProduct(aPackage.PackageId);
+            lstProduct.Items.Clear();
+            if (ListOfProducts != null)
+                foreach (Product eachProduct in ListOfProducts)
+                    lstProduct.Items.Add(eachProduct);
         }
     }
 }

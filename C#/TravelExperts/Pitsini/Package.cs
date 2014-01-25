@@ -20,7 +20,7 @@ namespace TravelExperts
         private string pkgDesc;
         private decimal pkgBasePrice;
         private decimal pkgAgencyCommission;
-        public List<Package> PackageList = new List<Package>();
+        public List<Product> ProductList = new List<Product>();
 
         // public properties to access to variable
         public int PackageId
@@ -60,7 +60,10 @@ namespace TravelExperts
         }
 
         // constructor
-        public Package() { }
+        public Package() 
+        {
+            packageId = 0;
+        }
 
         public Package(int newPkgId, string newPkgName)
         {

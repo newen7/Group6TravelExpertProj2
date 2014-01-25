@@ -9,3 +9,4 @@ C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\De
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csproj.GenerateResource.Cache
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.exe
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.pdb
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csprojResolveAssemblyReference.cache

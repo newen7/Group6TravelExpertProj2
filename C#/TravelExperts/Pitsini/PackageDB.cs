@@ -62,7 +62,7 @@ namespace TravelExperts
         // Description: use packageID to get one package info from DB
         // Method to used: GetPackage(ID) 
         // ------------------------------------------------------------------
-        public static Package GetPackage(int PackageId)
+        public static Package GetPackageByID(int PackageId)
         {
             SqlConnection connectDB = TravelExpertsDB.GetConnection();
 
@@ -92,7 +92,63 @@ namespace TravelExperts
                     package.PkgEndDate = (DateTime)pkgReader["PkgEndDate"];
                     package.PkgDesc = pkgReader["PkgDesc"].ToString();
                     package.PkgBasePrice = (decimal)pkgReader["PkgBasePrice"];
-                    package.PkgAgencyCommission = (decimal)pkgReader["PkgAgencyCommision"];
+                    package.PkgAgencyCommission = (decimal)pkgReader["PkgAgencyCommission"];
+
+                    return package;
+                }
+                else // if coun't find data in DB
+                {
+                    return null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connectDB.Close();
+            }
+        }
+
+        // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: use packageID to get one package info from DB
+        // Method to used: GetPackage(ID) 
+        // ------------------------------------------------------------------
+        public static Package GetPackageByName(string PackageName)
+        {
+            SqlConnection connectDB = TravelExpertsDB.GetConnection();
+
+            // @PackageID is the variable that we pass the value from textbox
+            string selectStatement = "SELECT * " +
+                                     "FROM Packages " +
+                                     "WHERE PkgName = @PackageName ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
+
+            // provide value for the parameter
+            selectCommand.Parameters.AddWithValue("@PackageName", PackageName);
+
+            // executes commmand
+            try
+            {
+                connectDB.Open();
+                SqlDataReader pkgReader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                Package package = new Package();
+
+                if (pkgReader.Read()) // if geting a row successful
+                {
+                     // create package object
+
+                    // retrive data from data reader to the object
+                    package.PackageId = (int)pkgReader["PackageId"];
+                    package.PkgName = pkgReader["PkgName"].ToString();
+                    package.PkgStartDate = (DateTime)pkgReader["PkgStartDate"];
+                    package.PkgEndDate = (DateTime)pkgReader["PkgEndDate"];
+                    package.PkgDesc = pkgReader["PkgDesc"].ToString();
+                    package.PkgBasePrice = (decimal)pkgReader["PkgBasePrice"];
+                    package.PkgAgencyCommission = (decimal)pkgReader["PkgAgencyCommission"];
+                    List<Product> ProductList = GetListOfProduct(package.PackageId);
 
                     return package;
                 }
@@ -112,12 +168,61 @@ namespace TravelExperts
 
         }
 
-        //public static List<Package> GetPackageNProductList(int PackageId)
-        //{
-        //    List<Package> ProductList = new List<Package>();
-        //    SqlConnection connection = TravelExpertsDB.GetConnection();
+        // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: use packageID to get one package info from DB
+        // Method to used: GetPackage(ID) 
+        // ------------------------------------------------------------------
+        public static List<Product> GetListOfProduct(int PackageId)
+        {
+            SqlConnection connectDB = TravelExpertsDB.GetConnection();
 
+            // @PackageID is the variable that we pass the value from textbox
+            string selectStatement = "SELECT ps.ProductId, pd.ProdName, sup.SupName, ps.SupplierId " +
+                                     "FROM Packages_Products_Suppliers pps, Products_Suppliers ps, " +
+                                          "Products pd, Suppliers sup " +
+                                     "WHERE	pps.ProductSupplierId = ps.ProductSupplierId and " +
+		                                  "ps.ProductId = pd.ProductId and ps.SupplierId = sup.SupplierId " +
+                                          "and pps.PackageId = @PackageId ";
 
-        //}
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
+
+            // provide value for the parameter
+            selectCommand.Parameters.AddWithValue("@PackageId", PackageId);
+
+            // makes new list to collect list of package names
+            List<Product> ProductList = new List<Product>();
+
+            // executes commmand
+            try
+            {
+                connectDB.Open();
+
+                //create pkgreaderObj from SqlDataReader Class and execute sql
+                SqlDataReader prodReaderObj = selectCommand.ExecuteReader();
+
+                if (prodReaderObj.HasRows) // if geting a row successful
+                {
+                    while (prodReaderObj.Read()) //while pkgReaderObj has lines to read, go through each one 
+                    {
+                        //add to package list all of the products found
+                        ProductList.Add(new Product((int)prodReaderObj[0], (string)prodReaderObj[1], (string)prodReaderObj[2], (int)prodReaderObj[3]));                        
+                    }
+                    return ProductList; //return the list that have been created
+                }
+                else // if coun't find data in DB
+                {
+                    return null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connectDB.Close();
+            }
+        }
     }
 }

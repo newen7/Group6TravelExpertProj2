@@ -51,7 +51,7 @@ namespace TravelExperts
         }
         public override string ToString()
         {
-            if (supplierName != null) return supplierName + " " + prodName;
+            if (supplierName != null) return prodName + " --- " + supplierName;
             else return prodName;
         }
         public override bool Equals(object obj) //run by listbox.contains to check if it exists this overides the REFERENCE checking with name checking (i want to check if different object references but same name exist or dont exist)
