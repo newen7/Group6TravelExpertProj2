@@ -311,6 +311,7 @@
             this.btnModPkg.TabIndex = 6;
             this.btnModPkg.Text = "&Modify";
             this.btnModPkg.UseVisualStyleBackColor = false;
+            this.btnModPkg.Click += new System.EventHandler(this.btnModPkg_Click);
             // 
             // btnAddPkg
             // 

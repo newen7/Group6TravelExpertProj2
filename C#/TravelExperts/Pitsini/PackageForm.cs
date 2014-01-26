@@ -220,5 +220,12 @@ namespace TravelExperts
                 Validator.IsPresent(txtPkgId, "Package ID: ") &&
                 Validator.IsInt32(txtPkgId, "Package ID: ");
         }
+
+        private void btnModPkg_Click(object sender, EventArgs e)
+        {
+            //DialogResult result;
+            //frmModifyPackage ModifyPackageForm = new frmModifyPackage();
+            //result = ModifyPackageForm.ShowDialog();
+        }
     }
 }
