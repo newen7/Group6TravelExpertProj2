@@ -40,3 +40,5 @@ C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\De
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmAddPackage.resources
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmModifyPackage.resources
 >>>>>>> :P Well Well...  here comes New Work!!!!
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.AddSupplierForm.resources
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.Jon.SuppliersForm.resources
