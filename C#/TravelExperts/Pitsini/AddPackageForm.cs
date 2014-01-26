@@ -17,6 +17,19 @@ namespace TravelExperts
             InitializeComponent();
         }
 
+        private int addSupplierId;
+        public int AddSupplierId
+        {
+            get
+            {
+                return addSupplierId;
+            }
+            set
+            {
+                addSupplierId = value;
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

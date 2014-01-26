@@ -59,6 +59,7 @@
             this.btnSupplier.TabIndex = 6;
             this.btnSupplier.Text = "&Suppliers";
             this.btnSupplier.UseVisualStyleBackColor = false;
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // btnProduct
             // 

@@ -28,5 +28,12 @@ namespace TravelExperts
         {
             this.Close();
         }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            TravelExperts.Jon.SuppliersForm SuppliersForm = new Jon.SuppliersForm();
+            result = SuppliersForm.ShowDialog();
+        }
     }
 }
