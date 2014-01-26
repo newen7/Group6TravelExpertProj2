@@ -49,8 +49,10 @@ namespace TravelExperts
                 if (result == DialogResult.OK)
                 {
                   //New's clear and reload functions 
-                  DisplayListOfPackage(); //this does not reset selector
-                  cboPkgName.SelectedIndex = ProductInPackageForm.PkgId-1; //fake reselector but does not adjust well for pckNumber != index
+                  //DisplayListOfPackage(); //this does not reset selector
+                  //cboPkgName.SelectedIndex = ProductInPackageForm.PkgId - 1; //fake reselector but does not adjust well for pckNumber != index
+                    aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                    DisplayPackageAndProduct();
                 }
             }
             else MessageBox.Show("Package not selected");
@@ -162,6 +164,7 @@ namespace TravelExperts
 
         private void DisplayPackageAndProduct()
         {
+            chosenPkgId = aPackage.PackageId;
             txtPkgId.Text = aPackage.PackageId.ToString();
             cboPkgName.SelectedItem = aPackage.PkgName.ToString();
             txtStartDate.Text = aPackage.PkgStartDate.ToShortDateString();
@@ -175,6 +178,7 @@ namespace TravelExperts
             if (ListOfProducts != null)
                 foreach (Product eachProduct in ListOfProducts)
                     lstProduct.Items.Add(eachProduct);
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
