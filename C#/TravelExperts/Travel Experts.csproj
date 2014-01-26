@@ -70,6 +70,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pitsini\ModifyPackageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pitsini\ModifyPackageForm.designer.cs">
+      <DependentUpon>ModifyPackageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pitsini\Package.cs" />
     <Compile Include="Pitsini\PackageDB.cs" />
     <Compile Include="Pitsini\PackageForm.cs">
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pitsini\ModifyPackageForm.resx">
+      <DependentUpon>ModifyPackageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pitsini\PackageForm.resx">
       <DependentUpon>PackageForm.cs</DependentUpon>

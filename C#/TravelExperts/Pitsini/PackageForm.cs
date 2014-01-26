@@ -224,9 +224,9 @@ namespace TravelExperts
 <<<<<<< HEAD
         private void btnModPkg_Click(object sender, EventArgs e)
         {
-            //DialogResult result;
-            //frmModifyPackage ModifyPackageForm = new frmModifyPackage();
-            //result = ModifyPackageForm.ShowDialog();
+            DialogResult result;
+            frmModifyPackage ModifyPackageForm = new frmModifyPackage();
+            result = ModifyPackageForm.ShowDialog();
         }
 =======
 >>>>>>> Large Commit From Jon
