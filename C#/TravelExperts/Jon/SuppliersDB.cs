@@ -140,9 +140,6 @@ namespace TravelExperts.Jon
             string addString = "INSERT " +
                                "INTO Suppliers (SupplierId, SupName) " +
                                "VALUES (@SupplierId, @SupName)";
-
-            
-
             try
             {
                 connection.Open();
@@ -224,6 +221,36 @@ namespace TravelExperts.Jon
             }
             return resultMessage;
         }
-    
+        //Paul Teixeira
+        public static List<Product> GetSuppliersProducts(int SupplierId) //perameters SupplierId and returns a list of products that supplier offers (used for drop downs in add/modify)
+        {
+            List<Product> ProductList = new List<Product>(); //list of products will be stored here
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string sql = "Select p.ProductId, p.ProdName, s.SupName, ps.ProductSupplierId "
+                         + "From Products p, Products_Suppliers ps, Suppliers s "
+                         + "where p.ProductId = ps.ProductId and "
+                         + "s.SupplierId = ps.SupplierId and "
+                         + "ps.SupplierId = @supId"; //sql finds all products of supplierId
+            SqlCommand selectCommand = new SqlCommand(sql, connection);
+            selectCommand.Parameters.AddWithValue("@supId", SupplierId);
+            try
+            {    //get products of package
+                connection.Open();
+                SqlDataReader readerObj = selectCommand.ExecuteReader();
+                while (readerObj.Read())//scroll through all rows
+                {// add product into list
+                    ProductList.Add(new Product((int)readerObj[0], (string)readerObj[1], (string)readerObj[2], (int)readerObj[3]));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return ProductList;//return List of products
+        }
     }
 }

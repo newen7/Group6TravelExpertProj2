@@ -33,7 +33,7 @@ namespace TravelExperts.Jon
         {
             DisplaySuppliers();
             modifyBtn.Enabled = false;
-            deleteBtn.Enabled = false;
+            deleteBtn.Enabled = false;            
         }
 
         private void DisplaySuppliers()
@@ -106,6 +106,14 @@ namespace TravelExperts.Jon
             }
             supplierIdTxt.Text = currentSupplier.SupplierId.ToString();
             nameTxt.Text = currentSupplier.SupName;
+
+            //paul - currentSupplier not working?
+
+            ProductsLst.Items.Clear();
+            foreach (Product p in SuppliersDB.GetSuppliersProducts(Convert.ToInt32(supplierIdTxt.Text)))
+            {
+                ProductsLst.Items.Add(p);
+            }
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.supplierGbx = new System.Windows.Forms.GroupBox();
+            this.EditProductsBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ProductsLst = new System.Windows.Forms.ListBox();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.suppliersLbx = new System.Windows.Forms.ListBox();
             this.closeBtn = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@
             this.lblPkgId = new System.Windows.Forms.Label();
             this.supplierIdTxt = new System.Windows.Forms.TextBox();
             this.modifyBtn = new System.Windows.Forms.Button();
-            this.ProductsLst = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.EditProductsBtn = new System.Windows.Forms.Button();
             this.supplierGbx.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,38 @@
             this.supplierGbx.TabIndex = 42;
             this.supplierGbx.TabStop = false;
             this.supplierGbx.Text = "Supplier Information";
+            // 
+            // EditProductsBtn
+            // 
+            this.EditProductsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.EditProductsBtn.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditProductsBtn.Location = new System.Drawing.Point(450, 328);
+            this.EditProductsBtn.Name = "EditProductsBtn";
+            this.EditProductsBtn.Size = new System.Drawing.Size(125, 34);
+            this.EditProductsBtn.TabIndex = 69;
+            this.EditProductsBtn.Text = "Edit Products";
+            this.EditProductsBtn.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(350, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 21);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Products:";
+            // 
+            // ProductsLst
+            // 
+            this.ProductsLst.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductsLst.FormattingEnabled = true;
+            this.ProductsLst.ItemHeight = 22;
+            this.ProductsLst.Location = new System.Drawing.Point(354, 69);
+            this.ProductsLst.Name = "ProductsLst";
+            this.ProductsLst.Size = new System.Drawing.Size(294, 246);
+            this.ProductsLst.TabIndex = 67;
             // 
             // nameTxt
             // 
@@ -179,38 +211,6 @@
             this.modifyBtn.Text = "Modify";
             this.modifyBtn.UseVisualStyleBackColor = false;
             this.modifyBtn.Click += new System.EventHandler(this.modifyBtn_Click);
-            // 
-            // ProductsLst
-            // 
-            this.ProductsLst.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductsLst.FormattingEnabled = true;
-            this.ProductsLst.ItemHeight = 22;
-            this.ProductsLst.Location = new System.Drawing.Point(354, 69);
-            this.ProductsLst.Name = "ProductsLst";
-            this.ProductsLst.Size = new System.Drawing.Size(294, 246);
-            this.ProductsLst.TabIndex = 67;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 21);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Products:";
-            // 
-            // EditProductsBtn
-            // 
-            this.EditProductsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.EditProductsBtn.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditProductsBtn.Location = new System.Drawing.Point(450, 328);
-            this.EditProductsBtn.Name = "EditProductsBtn";
-            this.EditProductsBtn.Size = new System.Drawing.Size(125, 34);
-            this.EditProductsBtn.TabIndex = 69;
-            this.EditProductsBtn.Text = "Edit Products";
-            this.EditProductsBtn.UseVisualStyleBackColor = false;
             // 
             // SuppliersForm
             // 
