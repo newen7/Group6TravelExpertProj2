@@ -10,7 +10,7 @@ using System.Web;
 
 public class Customers
 {
-    private string customerId;
+    private int customerId;
     private string custFirstName;
     private string custLastName;
     private string custAddress;
@@ -21,15 +21,21 @@ public class Customers
     private string custHomePhone;
     private string custBusPhone;
     private string custEmail;
-    private string agentId;
+    private int agentId;
+
+    // =========================
+    // Pitsini Suwandechochai
+    // create parameter - Full name of customers    [P.S. Just try to be fancy.]
+    private string fullName;
+    // =========================
+    
 
     public Customers()
     {
-
         // TODO: Add constructor logic here
     }
 
-    public string CustomerID
+    public int CustomerID
     {
         get
         {
@@ -156,7 +162,7 @@ public class Customers
             custEmail = value;
         }
     }
-    public string AgentId
+    public int AgentId
     {
         get
         {
@@ -167,4 +173,37 @@ public class Customers
             agentId = value;
         }
     }
+    // =====================================================================
+    // Pitsini - needs this for showing customer information on product page
+    public string FullName
+    {
+        get { return fullName; }
+        set { fullName = value; }
+    }
+
+    public Customers(int newCustomerId, // full constructor (with "Full name")
+        string newFullName,
+        string newCustAddress,
+        string newCustCity,
+        string newCustProv,
+        string newCustPostal,
+        string newCustCountry,
+        string newCustHomePhone,
+        string newCustBusPhone,
+        string newCustEmail,
+        int newAgentId)
+    {
+        CustomerID = newCustomerId;
+        FullName = newFullName;
+        CustAddress = newCustAddress;
+        CustCity = newCustCity;
+        CustProv = newCustProv;
+        CustPostal = newCustPostal;
+        CustCountry = newCustCountry;
+        CustHomePhone = newCustHomePhone;
+        CustBusPhone = newCustBusPhone;
+        CustEmail = newCustEmail;
+        AgentId = newAgentId;
+    }
+    // =============End - Pitsini============================================
 }

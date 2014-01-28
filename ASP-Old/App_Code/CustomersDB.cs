@@ -29,7 +29,7 @@ public static class CustomersDB
                 while (dr.Read())
                 {
                     customers = new Customers();
-                    customers.CustomerID = dr["CustomerId"].ToString();
+                    customers.CustomerID = (int)dr["CustomerId"];
                     customers.CustFirstName = dr["CustFirstName"].ToString();
                     customers.CustLastName = dr["CustLastName"].ToString();
                     customers.CustAddress = dr["CustAddress"].ToString();
@@ -40,7 +40,7 @@ public static class CustomersDB
                     customers.CustHomePhone = dr["CustHomePhone"].ToString();
                     customers.CustBusPhone = dr["CustBusPhone"].ToString();
                     customers.CustEmail = dr["CustEmail"].ToString();
-                    customers.AgentId = dr["AgentId"].ToString();
+                    customers.AgentId = (int)dr["AgentId"];
                     customersList.Add(customers);
                 }
                 dr.Close();
@@ -66,7 +66,7 @@ public static class CustomersDB
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    customers.CustomerID = dr["CustomerId"].ToString();
+                    customers.CustomerID = (int)dr["CustomerId"];
                     customers.CustFirstName = dr["CustFirstName"].ToString();
                     customers.CustLastName = dr["CustLastName"].ToString();
                     customers.CustAddress = dr["CustAddress"].ToString();
@@ -77,12 +77,49 @@ public static class CustomersDB
                     customers.CustHomePhone = dr["CustHomePhone"].ToString();
                     customers.CustBusPhone = dr["CustBusPhone"].ToString();
                     customers.CustEmail = dr["CustEmail"].ToString();
-                    customers.AgentId = dr["AgentId"].ToString();
+                    customers.AgentId = (int)dr["AgentId"];
                 }
                 dr.Close();
             }
         }
         return customers;
+    }
 
+    // ------------------------------------------------------------------
+    // Pitsini Suwandechochai
+    // Method: GetCustomerFNameById(Id)
+    // Description: query 1 customer from DB to display on "Product" page by merging 
+    //              first and last name togerther as 1 field (as 'FullName')
+    // ------------------------------------------------------------------
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public static Customers GetCustomerFNameById(int inputCustId)
+    {
+        Customers CustomerGot = new Customers();
+        string sel = "SELECT CustomerId, CustFirstName + ' ' + CustLastName as FullName, "
+                + "CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, "
+              + "CustBusPhone, CustEmail, AgentId "
+            + "FROM Customers "
+            + "WHERE CustomerId = @CustomerId";
+
+        using (SqlConnection con = TravelExpertsDB.GetConnection())
+        {
+            using (SqlCommand cmd = new SqlCommand(sel, con))
+            {
+                cmd.Parameters.AddWithValue("CustomerId", inputCustId);
+
+                con.Open();
+                SqlDataReader readerObj = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                if (readerObj.Read()) //while readerObj has lines to read, go through each one 
+                {
+                    //add to a customer
+                    CustomerGot = new Customers((int)readerObj[0], (string)readerObj[1],
+                        (string)readerObj[2], (string)readerObj[3], (string)readerObj[4],
+                        (string)readerObj[5], (string)readerObj[6], (string)readerObj[7],
+                        (string)readerObj[8], (string)readerObj[9], (int)readerObj[10]);
+                }
+                readerObj.Close();
+            }
+        }
+        return CustomerGot;
     }
 }
