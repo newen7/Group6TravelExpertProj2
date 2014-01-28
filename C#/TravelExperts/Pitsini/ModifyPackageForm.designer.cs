@@ -32,19 +32,19 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtAgencyAdmission = new System.Windows.Forms.TextBox();
+            this.txtAgencyCommission = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEndDate = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtStartDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPkgName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPkgId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,7 @@
             this.btnSave.TabIndex = 49;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -84,15 +85,15 @@
             // 
             this.groupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDownGrid;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.groupBox1.Controls.Add(this.dtpEndDate);
+            this.groupBox1.Controls.Add(this.dtpStartDate);
             this.groupBox1.Controls.Add(this.rtxtDesc);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtAgencyAdmission);
+            this.groupBox1.Controls.Add(this.txtAgencyCommission);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtBasePrice);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtEndDate);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtStartDate);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtPkgName);
             this.groupBox1.Controls.Add(this.label2);
@@ -106,25 +107,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modify Package";
             // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(174, 134);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 28);
+            this.dtpStartDate.TabIndex = 56;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 255);
+            this.label9.Location = new System.Drawing.Point(5, 255);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(146, 21);
+            this.label9.Size = new System.Drawing.Size(158, 21);
             this.label9.TabIndex = 55;
-            this.label9.Text = "Agency Admission:";
+            this.label9.Text = "Agency Commission:";
             // 
-            // txtAgencyAdmission
+            // txtAgencyCommission
             // 
-            this.txtAgencyAdmission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtAgencyAdmission.Location = new System.Drawing.Point(174, 252);
-            this.txtAgencyAdmission.Name = "txtAgencyAdmission";
-            this.txtAgencyAdmission.Size = new System.Drawing.Size(199, 28);
-            this.txtAgencyAdmission.TabIndex = 5;
-            this.txtAgencyAdmission.Text = "$400.00";
+            this.txtAgencyCommission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.txtAgencyCommission.Location = new System.Drawing.Point(174, 252);
+            this.txtAgencyCommission.Name = "txtAgencyCommission";
+            this.txtAgencyCommission.Size = new System.Drawing.Size(199, 28);
+            this.txtAgencyCommission.TabIndex = 5;
             // 
             // label10
             // 
@@ -144,47 +153,28 @@
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.Size = new System.Drawing.Size(199, 28);
             this.txtBasePrice.TabIndex = 4;
-            this.txtBasePrice.Text = "$4,000.00";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(85, 178);
+            this.label4.Location = new System.Drawing.Point(86, 179);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 21);
             this.label4.TabIndex = 51;
             this.label4.Text = "End Date:";
             // 
-            // txtEndDate
-            // 
-            this.txtEndDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtEndDate.Location = new System.Drawing.Point(174, 175);
-            this.txtEndDate.Name = "txtEndDate";
-            this.txtEndDate.Size = new System.Drawing.Size(199, 28);
-            this.txtEndDate.TabIndex = 3;
-            this.txtEndDate.Text = "01/04/2014";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(79, 138);
+            this.label5.Location = new System.Drawing.Point(80, 140);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 49;
             this.label5.Text = "Start Date:";
-            // 
-            // txtStartDate
-            // 
-            this.txtStartDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtStartDate.Location = new System.Drawing.Point(174, 135);
-            this.txtStartDate.Name = "txtStartDate";
-            this.txtStartDate.Size = new System.Drawing.Size(199, 28);
-            this.txtStartDate.TabIndex = 2;
-            this.txtStartDate.Text = "21/12/2013";
             // 
             // label3
             // 
@@ -204,7 +194,6 @@
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(199, 28);
             this.txtPkgName.TabIndex = 1;
-            this.txtPkgName.Text = "Caribbean";
             // 
             // label2
             // 
@@ -225,7 +214,6 @@
             this.txtPkgId.ReadOnly = true;
             this.txtPkgId.Size = new System.Drawing.Size(100, 28);
             this.txtPkgId.TabIndex = 44;
-            this.txtPkgId.Text = "-1";
             // 
             // label7
             // 
@@ -237,6 +225,15 @@
             this.label7.Size = new System.Drawing.Size(96, 21);
             this.label7.TabIndex = 28;
             this.label7.Text = "Description:";
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDate.Location = new System.Drawing.Point(173, 173);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(200, 28);
+            this.dtpEndDate.TabIndex = 57;
             // 
             // frmModifyPackage
             // 
@@ -250,6 +247,7 @@
             this.Name = "frmModifyPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ModifyPackageForm";
+            this.Load += new System.EventHandler(this.frmModifyPackage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -263,17 +261,17 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAgencyAdmission;
+        private System.Windows.Forms.TextBox txtAgencyCommission;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEndDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtStartDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPkgName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPkgId;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
     }
 }

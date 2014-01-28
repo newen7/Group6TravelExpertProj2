@@ -158,7 +158,7 @@ namespace TravelExperts.Jon
                     }
                 }
                 // catch any other problems not foreseen
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Couldn't delete this supplier.  It still has products associated with it.");
                 }

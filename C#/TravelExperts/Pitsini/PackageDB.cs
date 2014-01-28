@@ -224,5 +224,48 @@ namespace TravelExperts
                 connectDB.Close();
             }
         }
+
+        // Pitsini
+        // Updating method for package data 
+        // It will return "true" if updating is successful. Otherwise will return "false"
+        // ------------------------------------------------------------------
+        public static bool UpdatePackage(int packageID, Package newPackage)
+        {
+            
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string updateStatement = "UPDATE Packages SET PkgName = @NewName, " +
+                                     "PkgStartDate = @NewPkgStartdate, " +
+                                     "PkgEndDate = @NewPkgEndDate, " +
+                                     "PkgDesc = @NewPkgDesc, " +
+                                     "PkgBasePrice = @NewPkgBasePrice, " +
+                                     "PkgAgencyCommission = @NewPkgAgencyCommission " +
+                                     "Where PackageId = @PackageId ";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+            updateCommand.Parameters.AddWithValue("@NewName", newPackage.PkgName);
+            updateCommand.Parameters.AddWithValue("@NewPkgStartdate", newPackage.PkgStartDate);
+            updateCommand.Parameters.AddWithValue("@NewPkgEndDate", newPackage.PkgEndDate);
+            updateCommand.Parameters.AddWithValue("@NewPkgDesc", newPackage.PkgDesc);
+            updateCommand.Parameters.AddWithValue("@NewPkgBasePrice", newPackage.PkgBasePrice);
+            updateCommand.Parameters.AddWithValue("@NewPkgAgencyCommission", newPackage.PkgAgencyCommission);
+            updateCommand.Parameters.AddWithValue("@PackageId", packageID);
+
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }   // End update method
     }
 }

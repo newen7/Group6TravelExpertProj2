@@ -1,4 +1,10 @@
-﻿
+﻿// ------------------------------------------------------------------
+// Pitsini Suwandechochai
+// Description: Package form for searching and showing package information
+// function to use: Search, Add, Modify and Delete package
+//
+// P.S.: function "Edit Products" event button was develop by Paul Teixiera
+// ------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,17 +18,13 @@ using System.Data.SqlClient;
 
 namespace TravelExperts
 {
-    // ------------------------------------------------------------------
-    // Pitsini Suwandechochai
-    // Description: Package form for searching and showing package information
-    // function to use: Search, Add, Modify and Delete package
-    //
-    // P.S.: function Edit product was develop by Paul Teixiera
-    // ------------------------------------------------------------------
     public partial class frmPackage : Form
     {
-        int chosenPkgId;    // keep id that chosen by selecting the package listbox
+        int chosenPkgId = 0;    // keep id that chosen by selecting the package listbox
         Package aPackage;   // package for showing data in text boxes
+
+        // need to use variable from modify form
+        frmModifyPackage ModifyPackageForm = new frmModifyPackage(); 
 
         // Contain packageID and name) for showing in the packagelist
         List<Package> ListOfPackages = new List<Package>();
@@ -77,7 +79,7 @@ namespace TravelExperts
                 // get the list of packages data from DB
                 ListOfPackages = PackageDB.GetListOfPackage();
                 DisplayListOfPackage();
-                txtPkgId.Focus();
+                txtPkgId.Focus();                
             }
             catch (DBConcurrencyException)  // number of rows affected equals zero
             {
@@ -223,9 +225,28 @@ namespace TravelExperts
 
         private void btnModPkg_Click(object sender, EventArgs e)
         {
-            DialogResult result;
-            frmModifyPackage ModifyPackageForm = new frmModifyPackage();
-            result = ModifyPackageForm.ShowDialog();
+            if (chosenPkgId != 0)
+            {
+                // send packageId to modify form
+                ModifyPackageForm.selectedPkgId = chosenPkgId;
+
+                // show Modify form
+                DialogResult result;
+                result = ModifyPackageForm.ShowDialog();
+
+                // if user just came back from ModifyPkg Form
+                if (result == DialogResult.OK)
+                {
+                    
+                    chosenPkgId = ModifyPackageForm.selectedPkgId;                    
+                    aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                    DisplayPackageAndProduct();
+
+                    ModifyPackageForm.selectedPkgId = 0; // reset variable
+                }
+            }
+            else  // ask user to choose package before click modify button
+                MessageBox.Show("Please select package before modify.");
         }
     }
 }

@@ -31,7 +31,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtAgencyAdmission = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEndDate = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rtxtDesc = new System.Windows.Forms.RichTextBox();
+            this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,6 @@
             this.txtAgencyAdmission.Name = "txtAgencyAdmission";
             this.txtAgencyAdmission.Size = new System.Drawing.Size(199, 28);
             this.txtAgencyAdmission.TabIndex = 5;
-            this.txtAgencyAdmission.Text = "$400.00";
             // 
             // label10
             // 
@@ -78,15 +77,6 @@
             this.label10.Size = new System.Drawing.Size(85, 21);
             this.label10.TabIndex = 53;
             this.label10.Text = "Base Price:";
-            // 
-            // txtBasePrice
-            // 
-            this.txtBasePrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtBasePrice.Location = new System.Drawing.Point(174, 212);
-            this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Size = new System.Drawing.Size(199, 28);
-            this.txtBasePrice.TabIndex = 4;
-            this.txtBasePrice.Text = "$4,000.00";
             // 
             // label4
             // 
@@ -106,7 +96,6 @@
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(199, 28);
             this.txtEndDate.TabIndex = 3;
-            this.txtEndDate.Text = "01/04/2014";
             // 
             // label5
             // 
@@ -126,7 +115,6 @@
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(199, 28);
             this.txtStartDate.TabIndex = 2;
-            this.txtStartDate.Text = "21/12/2013";
             // 
             // label3
             // 
@@ -146,7 +134,6 @@
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(199, 28);
             this.txtPkgName.TabIndex = 1;
-            this.txtPkgName.Text = "Caribbean";
             // 
             // label2
             // 
@@ -240,6 +227,14 @@
             this.rtxtDesc.TabIndex = 6;
             this.rtxtDesc.Text = "";
             // 
+            // txtBasePrice
+            // 
+            this.txtBasePrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.txtBasePrice.Location = new System.Drawing.Point(174, 212);
+            this.txtBasePrice.Name = "txtBasePrice";
+            this.txtBasePrice.Size = new System.Drawing.Size(199, 28);
+            this.txtBasePrice.TabIndex = 4;
+            // 
             // frmAddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,7 +258,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtAgencyAdmission;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEndDate;
         private System.Windows.Forms.Label label5;
@@ -277,5 +271,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox rtxtDesc;
+        private System.Windows.Forms.TextBox txtBasePrice;
     }
 }
