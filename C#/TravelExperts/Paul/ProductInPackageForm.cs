@@ -25,8 +25,15 @@ namespace TravelExperts
             {
                 NewProductList.Add(p); //add all prodcuts to list
             }
-            EditProductsDB.UpdateProducts(PkgId, NewProductList);
-            MessageBox.Show("Successful!");
+            try
+            {
+                EditProductsDB.UpdateProducts(PkgId, NewProductList);
+                MessageBox.Show("Successful!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Cannot remove Products tied to packages/bookings /n /n" + ex);
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

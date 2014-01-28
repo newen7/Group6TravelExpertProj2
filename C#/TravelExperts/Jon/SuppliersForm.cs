@@ -107,8 +107,7 @@ namespace TravelExperts.Jon
             supplierIdTxt.Text = currentSupplier.SupplierId.ToString();
             nameTxt.Text = currentSupplier.SupName;
 
-            //paul - currentSupplier not working?
-
+            //paul
             ProductsLst.Items.Clear();
             foreach (Product p in SuppliersDB.GetSuppliersProducts(Convert.ToInt32(supplierIdTxt.Text)))
             {
@@ -186,6 +185,23 @@ namespace TravelExperts.Jon
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditProductsBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            frmProductInSupplier ProductInSupplierForm = new frmProductInSupplier();
+            if (supplierIdTxt.Text.Length > 0) //is there any other checks for this? can we make pkgID nullable type?
+            {
+                //ProductInPackageForm.PkgId = chosenPkgId; //chosenPkgId is not working?
+                ProductInSupplierForm.SupplierToEdit = new TravelExperts.Supplier(currentSupplier.SupplierId,currentSupplier.SupName); //this needs checking if I am doing validation on pkgform
+                result = ProductInSupplierForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                   suppliersLbx_SelectedIndexChanged(this,new EventArgs()); //fires event to make list box reload
+                }
+            }
+            else MessageBox.Show("Package not selected");
         }
     }
 }

@@ -58,6 +58,12 @@
     <Compile Include="Jon\SuppliersForm.Designer.cs">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Paul\ProductInSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paul\ProductInSupplierForm.Designer.cs">
+      <DependentUpon>ProductInSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pitsini\AddPackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jon\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paul\ProductInSupplierForm.resx">
+      <DependentUpon>ProductInSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pitsini\AddPackageForm.resx">
       <DependentUpon>AddPackageForm.cs</DependentUpon>

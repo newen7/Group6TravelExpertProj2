@@ -45,14 +45,11 @@ namespace TravelExperts
             frmProductInPackage ProductInPackageForm = new frmProductInPackage();
             if (txtPkgId.Text.Length>0) //is there any other checks for this? can we make pkgID nullable type?
             {
-                //ProductInPackageForm.PkgId = chosenPkgId; //chosenPkgId is not working?
                 ProductInPackageForm.PkgId = Convert.ToInt32(txtPkgId.Text); //this needs checking if I am doing validation on pkgform
                 result = ProductInPackageForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
                   //New's clear and reload functions 
-                  //DisplayListOfPackage(); //this does not reset selector
-                  //cboPkgName.SelectedIndex = ProductInPackageForm.PkgId - 1; //fake reselector but does not adjust well for pckNumber != index
                     aPackage = PackageDB.GetPackageByID(chosenPkgId);
                     DisplayPackageAndProduct();
                 }

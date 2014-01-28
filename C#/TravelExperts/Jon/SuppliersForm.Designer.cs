@@ -80,6 +80,7 @@
             this.EditProductsBtn.TabIndex = 69;
             this.EditProductsBtn.Text = "Edit Products";
             this.EditProductsBtn.UseVisualStyleBackColor = false;
+            this.EditProductsBtn.Click += new System.EventHandler(this.EditProductsBtn_Click);
             // 
             // label1
             // 
