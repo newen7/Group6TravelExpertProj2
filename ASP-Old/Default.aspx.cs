@@ -41,4 +41,8 @@ public partial class _Default : System.Web.UI.Page
         btnProduct.Text = "View products from Customer ID: " + id.ToString();        
     }
     //==============End-Pitsini==================================    
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/UpdateCustomer.aspx");
+    }
 }

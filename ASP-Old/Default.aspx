@@ -45,7 +45,7 @@
             </SelectParameters>
         </asp:ObjectDataSource>
         <br />
-        <asp:Button ID="btnUpdate" runat="server" Text="Update Customer Info" />
+        <asp:Button ID="btnUpdate" runat="server" Text="Update Customer Info" OnClick="btnUpdate_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnProduct" runat="server" Text="View Products" OnClick="btnProduct_Click" />
         <br />
