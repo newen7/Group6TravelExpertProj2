@@ -11,7 +11,7 @@
 }
 
 .new {
-    color: orange;
+    color: #FC0;
 }
 
 h3 {
@@ -29,7 +29,38 @@ p {
 }
 
 .paul {
-    color: blue;
+    color: #09F;
+    vertical-align: top;
+}
+
+.table {
+    border-radius: 5px;
+    border-color: #333;
+    margin: 10px;
+    background-color: #222;
+    width: 300px;
+    font-size: 16px;
+    font-weight: bold;
+    float:left;
+
+}
+
+.col1 {
+    width: 225px;
+    padding:2px;
+}
+
+.col2 {
+    width: 75px;
+    padding:2px;
+}
+
+.row1 {
+    background-color: #222;
+}
+
+.row2 {
+    background-color: #444;
 }
 
 .porkodi {
@@ -40,10 +71,8 @@ p {
     
 }
 
-.CPH {
-    width: 44%;
-    margin: 3%;
-    padding: 3%;
+#CPH4 {
+    text-align:right;
 }
 
 .DropDownList {
@@ -72,7 +101,7 @@ p {
     width: 250px;
 }
 
-#lblAlert {
+#lblAlert .lblAlert {
     color: red;
 }
 

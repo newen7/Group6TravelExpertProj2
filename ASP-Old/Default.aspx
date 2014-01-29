@@ -29,6 +29,8 @@
             CellSpacing="2"
             CssClass="DetailsList"
             HeaderText="Customer Information">
+            <AlternatingRowStyle BackColor="#444444" />
+
             <Fields>
                 <asp:BoundField 
                     DataField="CustomerID" 
