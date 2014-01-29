@@ -1,15 +1,16 @@
-﻿<!--
-    This was done by Paul Teixeira
-    
-    This file denotes the asp and is the gui of the update customer functionality.
-    It has listboxes and labels for each feild of the "Customer object"
--->
+﻿
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateCustomer.aspx.cs" Inherits="UpdateCustomer" MasterPageFile="~/Template.master"%>
 
 <asp:Content ID="dropdown" ContentPlaceHolderId="CPH1" runat="server">
+<!--
+This was done by Paul Teixeira
+    
+This file denotes the asp and is the gui of the update customer functionality.
+It has listboxes and labels for each feild of the "Customer object"
+-->
     <h1>Edit Customer Information</h1>
-    <div>
+    <div class="paul">
         <table style="width:50%;">
             <tr>
                 <td class="auto-style2"><asp:Label ID="Label12" runat="server" Text="Customer Id:"></asp:Label></td>
