@@ -25,4 +25,16 @@ public partial class ProductInfo : System.Web.UI.Page
     {
         Session.Add("CustID", null);
     }
+    protected void GridViewProduct_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.Footer)
+        {
+                decimal totalCost = ProductDB.GetBasePriceSummary(Convert.ToInt32(Session["CustID"]));
+                if (totalCost != 0)
+                {
+                    e.Row.Cells[6].Text = "Your total cost = ";
+                    e.Row.Cells[7].Text = totalCost.ToString("c");
+                }
+        }
+    }
 }

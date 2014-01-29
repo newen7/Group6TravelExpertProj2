@@ -10,17 +10,18 @@ using System.Web;
 public class Product
 {
     // private data
-        private int bookingId;
-        private string destination;
-        private string description;
-        private string bookingNo;
-        private decimal itineraryNo;
-        private DateTime tripStart;
-        private DateTime tripEnd;
-        private decimal basePrice;
-        private int productId;
-        private string productName;
+    private int bookingId;
+    private string destination;
+    private string description;
+    private string bookingNo;
+    private double itineraryNo;
+    private DateTime tripStart;
+    private DateTime tripEnd;
+    private decimal basePrice;
+    private int productId;
+    private string productName;
 
+    private decimal basePriceTotal;
 
     
     // public properties to access to variable
@@ -44,7 +45,7 @@ public class Product
         get { return bookingNo; }
         set { bookingNo = value; }
     }
-    public decimal ItineraryNo
+    public double ItineraryNo
     {
         get { return itineraryNo; }
         set { itineraryNo = value; }
@@ -74,6 +75,11 @@ public class Product
         get { return productName; }
         set { productName = value; }
     }
+    //public decimal BasePriceTotal
+    //{
+    //    get { return basePriceTotal; }
+    //    set { basePriceTotal = value; }
+    //}
       
       
     // constructor
@@ -81,7 +87,7 @@ public class Product
 
     // all data
     public Product(int newBookingId, string newDestination, string newDescription, string newBookingNo,
-        decimal newItineraryNo, DateTime newTripStart, DateTime newTripEnd, decimal newBasePrice,
+        double newItineraryNo, DateTime newTripStart, DateTime newTripEnd, decimal newBasePrice,
                     int newProductId, string newProductName)
     {
         BookingId = newBookingId;
@@ -94,5 +100,6 @@ public class Product
         BasePrice = newBasePrice;
         ProductId = newProductId;
         ProductName = newProductName;
+        //BasePriceTotal = newBPTotal;
     }
 }

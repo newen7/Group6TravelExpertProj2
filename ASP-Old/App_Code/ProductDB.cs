@@ -46,7 +46,7 @@ public static class ProductDB
                     eachProduct.Destination = readerObj["Destination"].ToString();
                     eachProduct.Description = readerObj["Description"].ToString();
                     eachProduct.BookingNo = readerObj["BookingNo"].ToString();
-                    eachProduct.ItineraryNo = Convert.ToDecimal(readerObj["ItineraryNo"]);
+                    eachProduct.ItineraryNo = Convert.ToDouble(readerObj["ItineraryNo"]);
                     eachProduct.TripStart = Convert.ToDateTime(readerObj["TripStart"]);
                     eachProduct.TripEnd = Convert.ToDateTime(readerObj["TripEnd"]);
                     eachProduct.BasePrice = Convert.ToDecimal(readerObj["BasePrice"]);
@@ -59,8 +59,39 @@ public static class ProductDB
                 readerObj.Close();
             }
         }
-        return productList; // sent product list to objectDataSource that requested
-        
+        return productList; // sent product list to objectDataSource that requested        
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public static decimal GetBasePriceSummary(int inputCustId)
+    {
+        //Product summary = new Product();
+        decimal summary = new decimal();
+        // @CustomerId is the variable that we pass the value from session
+        string selectStatement = "SELECT SUM(bd.BasePrice) " +
+            "FROM Bookings b, BookingDetails bd , Customers c, " +
+            "Products_Suppliers ps, Products p " +
+            "WHERE c.CustomerId = b.CustomerId and  b.BookingId = bd.BookingId and " +
+            "ps.ProductSupplierId = bd.ProductSupplierId and " +
+            "p.ProductId = ps.ProductId and  c.CustomerId = @CustomerId ";
+
+        // executes commmand        
+        using (SqlConnection connection = TravelExpertsDB.GetConnection())
+        {
+            using (SqlCommand cmd = new SqlCommand(selectStatement, connection))
+            {
+                cmd.Parameters.AddWithValue("CustomerId", inputCustId);
+
+                connection.Open();
+                SqlDataReader readerObj = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                if (readerObj.Read()) //while readerObj has lines to read, go through each one 
+                {
+                    summary = (decimal)readerObj[0];
+                }
+                readerObj.Close();
+            }
+        }
+        return summary;
     }
 }
 
