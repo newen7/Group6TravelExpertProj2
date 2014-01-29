@@ -5,25 +5,10 @@
     It has listboxes and labels for each feild of the "Customer object"
 -->
 
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateCustomer.aspx.cs" Inherits="UpdateCustomer" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateCustomer.aspx.cs" Inherits="UpdateCustomer" MasterPageFile="~/Template.master"%>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style2 {
-            width: 309px;
-        }
-        .auto-style3 {
-            width: 824px;
-        }
-    </style>
-</head>
-<body>
+<asp:Content ID="dropdown" ContentPlaceHolderId="CPH1" runat="server">
     <h1>Edit Customer Information</h1>
-    <form id="form1" runat="server">
     <div>
         <table style="width:50%;">
             <tr>
@@ -109,6 +94,4 @@
         <br />
         <asp:Button ID="CancelBtn" runat="server" OnClick="CancelBtn_Click" Text="Cancel" Width="225px" />
         <asp:Button ID="SaveBtn" runat="server" Text="Save" Width="225px" OnClick="SaveBtn_Click" />
-    </form>
-</body>
-</html>
+</asp:Content>

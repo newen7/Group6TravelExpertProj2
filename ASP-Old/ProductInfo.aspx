@@ -1,15 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductInfo.aspx.cs" Inherits="ProductInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductInfo.aspx.cs" Inherits="ProductInfo" MasterPageFile="~/Template.master"%>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+<asp:Content ID="dropdown" ContentPlaceHolderId="CPH1" runat="server">
         <h6>
             <asp:Button ID="btnBack" runat="server" PostBackUrl="~/Default.aspx" Text="&lt;&lt; Choose another customer" Width="247px" Font-Size="Medium" OnClick="btnBack_Click" />
         </h6>
@@ -101,8 +93,4 @@
                 </SelectParameters>
             </asp:ObjectDataSource>
         </p>
-    
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

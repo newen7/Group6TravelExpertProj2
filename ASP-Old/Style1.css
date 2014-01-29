@@ -1,0 +1,52 @@
+﻿body {
+}
+
+.body {
+    width: 100% auto;
+    clear:both;
+}
+
+.container {
+    margin: auto
+}
+
+.CPH {
+    width: 44%;
+    margin: 3%;
+    padding: 3%;
+}
+
+.DropDownList {
+}
+
+.DetailsList {
+    background-color: #888;
+}
+
+.EditRowStyle {
+    background-color: #333;
+     color: White;
+     font-weight: bold;
+}
+
+.HeaderStyle {
+     background-color: #333;
+     color: White;
+     font-weight: bold;
+}
+
+.FooterStyle {
+     background-color: #333;
+     color: #8C4510;
+     font-weight: bold;
+}
+
+.PagerStyle {
+    color: #8C4510;
+    text-align:Center;
+}
+
+.RowStyle {
+     background-color: #333; 
+     color:#8C4510; 
+}
