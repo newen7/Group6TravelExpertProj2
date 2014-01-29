@@ -15,47 +15,47 @@
             <Fields>
                 <asp:BoundField 
                     DataField="CustomerID" 
-                    HeaderText="CustomerID" 
+                    HeaderText="Customer ID:" 
                     SortExpression="CustomerID" />
                 <asp:BoundField 
                     DataField="FullName" 
-                    HeaderText="FullName" 
+                    HeaderText="Name:" 
                     SortExpression="FullName" />
                 <asp:BoundField 
                     DataField="CustAddress" 
-                    HeaderText="CustAddress" 
+                    HeaderText="Address:" 
                     SortExpression="CustAddress" />
                 <asp:BoundField 
                     DataField="CustCity" 
-                    HeaderText="CustCity" 
+                    HeaderText="City:" 
                     SortExpression="CustCity" />
                 <asp:BoundField 
                     DataField="CustProv" 
-                    HeaderText="CustProv" 
+                    HeaderText="Province:" 
                     SortExpression="CustProv" />
                 <asp:BoundField 
                     DataField="CustPostal" 
-                    HeaderText="CustPostal" 
+                    HeaderText="Postal:" 
                     SortExpression="CustPostal" />
                 <asp:BoundField 
                     DataField="CustCountry" 
-                    HeaderText="CustCountry" 
+                    HeaderText="Country:" 
                     SortExpression="CustCountry" />
                 <asp:BoundField 
                     DataField="CustHomePhone" 
-                    HeaderText="CustHomePhone" 
+                    HeaderText="Home Phone#:" 
                     SortExpression="CustHomePhone" />
                 <asp:BoundField 
                     DataField="CustBusPhone" 
-                    HeaderText="CustBusPhone" 
+                    HeaderText="Business Phone#:" 
                     SortExpression="CustBusPhone" />
                 <asp:BoundField 
                     DataField="CustEmail" 
-                    HeaderText="CustEmail" 
+                    HeaderText="Email:" 
                     SortExpression="CustEmail" />
                 <asp:BoundField 
                     DataField="AgentId" 
-                    HeaderText="AgentId" 
+                    HeaderText="Agent ID:" 
                     SortExpression="AgentId" />
             </Fields>
 
@@ -91,24 +91,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderId="CPH2" runat="server">
     <div class="porkodi">
-        <h3>This is Porkodi's description of her page</h3>
+        <h3>This is Pitsini&#39;s description</h3>
         <p>
-            Lorem ipsum dolor sit amet, ex mea erant adolescens, graeci moderatius no mei, cum case delectus phaedrum te. 
-            Vis rebum putent cetero te. No usu velit singulis scriptorem. Id delenit tacimates has. Consequat adversarium 
-            repudiandae his in, id nam alienum laboramus consectetuer.
-        </p>
+            This page is continued from Default.aspx [Customer Display-Porkodi&#39;s part]. When this page loades, it gets the session state is called [&quot;CustID&quot;] which stores Customer ID from the previous page and sent it to 2 ObjectDataSources.</p>
     
         <p>
-            Unum sonet conceptam ne qui, sea te electram consulatu deterruisset, diam soleat euismod duo eu. Feugait facilisi 
-            gloriatur at ius. Ea pro consul eleifend consectetuer, soleat nominavi at pro, ne tamquam copiosae nominati vel. 
-            Consetetur accommodare qui id, qui te dicta sonet. Odio ponderum probatus nam te, id dicat partem eum. Eum ea 
-            similique comprehensam.
-        </p>
+            - 1st ObjectDatasource: to show customer information on &quot;DetailsView&quot; to let user knkow it&#39;s the right customer that he/she is looking for.</p>
+        <p>
+            - 2st ObjectDataSource: to show infomation on &quot;GridView&quot; about booking details and products that displayed customer has booked. Also have Total cost owing for all products for those customer.</p>
+        <p>
+            For more explanation &gt;&gt; in the ProductInfo code file.</p>
     </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderId="CPH3" runat="server">
-    <div class="porkodi">
+    <div class="porkodi">   
             <asp:GridView 
                 ID="GridViewProduct" 
                 runat="server" 
@@ -117,8 +114,8 @@
                 OnRowDataBound="GridViewProduct_RowDataBound" 
                 ShowFooter="True"
                 CellPadding="3" 
-                GridLines="Horizontal"
-                header-text="Product Information">
+                GridLines="Horizontal" Width="945px" 
+                >
                 <AlternatingRowStyle BackColor="#444444" />
                 <Columns>
 
@@ -129,41 +126,43 @@
                     </asp:BoundField>
 
                     <asp:BoundField 
+                        DataField="ProductName" 
+                        HeaderText="Product Name" 
+                        SortExpression="ProductName">
+                    </asp:BoundField>
+
+                    <asp:BoundField 
                         DataField="Destination" 
                         HeaderText="Destination" 
                         SortExpression="Destination">
                     </asp:BoundField>
 
                     <asp:BoundField 
-                        DataField="Description" 
-                        HeaderText="Description" 
-                        SortExpression="Description">
-                    </asp:BoundField>
-
-                    <asp:BoundField 
-                        DataField="BookingNo" 
-                        HeaderText="Booking#" 
-                        SortExpression="BookingNo">
-                    </asp:BoundField>
-
-                    <asp:BoundField 
-                        DataField="ItineraryNo" 
-                        HeaderText="Itinerary#" 
-                        SortExpression="ItineraryNo">
-                    </asp:BoundField>
-
-                    <asp:BoundField 
                         DataField="TripStart" 
                         DataFormatString="{0:d}" 
-                        HeaderText="Start Date" 
+                        HeaderText="Trip Start Date" 
                         SortExpression="Trip Start">
                     </asp:BoundField>
 
                     <asp:BoundField 
                         DataField="TripEnd" 
                         DataFormatString="{0:d}" 
-                        HeaderText="End Date" 
+                        HeaderText="Trip End Date" 
                         SortExpression="TripEnd">
+                    </asp:BoundField>
+
+                    <asp:BoundField 
+                        DataField="BookingNo" 
+                        HeaderText="Booking#" 
+                        SortExpression="BookingNo">
+                    <ItemStyle HorizontalAlign="Left" />
+                    </asp:BoundField>
+
+                    <asp:BoundField 
+                        DataField="Description" 
+                        HeaderText="Description" 
+                        SortExpression="Description">
+                    <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
 
                     <asp:BoundField 
@@ -171,23 +170,12 @@
                         DataFormatString="{0:c}" 
                         HeaderText="Base Price" 
                         SortExpression="BasePrice">
-                    </asp:BoundField>
-
-                    <asp:BoundField 
-                        DataField="ProductId" 
-                        HeaderText="Product ID" 
-                        SortExpression="ProductId">
-                    </asp:BoundField>
-
-                    <asp:BoundField 
-                        DataField="ProductName" 
-                        HeaderText="Product Name" 
-                        SortExpression="ProductName">
+                    <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
 
                 </Columns>
 
-                <FooterStyle CSSClass="FooterStyle" />
+                <FooterStyle CSSClass="FooterStyle" ForeColor="Red" />
                 <HeaderStyle CSSClass="HeaderStyle" />
                 <PagerStyle CSSClass="PagerStyle" />
                 <RowStyle CSSClass="RowStyle" />

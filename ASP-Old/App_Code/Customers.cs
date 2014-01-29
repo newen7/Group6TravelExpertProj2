@@ -25,7 +25,7 @@ public class Customers
 
     // =========================
     // Pitsini Suwandechochai
-    // create parameter - Full name of customers    [P.S. Just try to be fancy.]
+    // create parameter - Full name of customers    [P.S. Just try to be fancy]
     private string fullName;
     // =========================
     
@@ -173,14 +173,18 @@ public class Customers
             agentId = value;
         }
     }
-    // =====================================================================
-    // Pitsini - needs this for showing customer information on product page
+
+    // =============================================
+    // Pitsini - added FullName parameter
+    //         - added a constructor
+    // =============================================
     public string FullName
     {
         get { return fullName; }
         set { fullName = value; }
     }
 
+    // constructor
     public Customers(int newCustomerId, // full constructor (with "Full name")
         string newFullName,
         string newCustAddress,
@@ -205,5 +209,5 @@ public class Customers
         CustEmail = newCustEmail;
         AgentId = newAgentId;
     }
-    // =============End - Pitsini============================================
+    // =============End - Pitsini===============
 }

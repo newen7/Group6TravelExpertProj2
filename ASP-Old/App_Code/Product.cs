@@ -1,15 +1,15 @@
-﻿using System;
+﻿// ------------------------------------------------------------------
+// Pitsini Suwandechochai
+// Description: sturcture of product class refer to TravelExperts DB
+// ------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Pitsini Suwandechochai
-/// sturcture of product class refer to TravelExperts DB
-/// </summary>
 public class Product
 {
-    // private data
+    // parameters
     private int bookingId;
     private string destination;
     private string description;
@@ -21,10 +21,8 @@ public class Product
     private int productId;
     private string productName;
 
-    private decimal basePriceTotal;
-
     
-    // public properties to access to variable
+    // properties to access to parameters
     public int BookingId
     {
         get { return bookingId; }
@@ -75,17 +73,11 @@ public class Product
         get { return productName; }
         set { productName = value; }
     }
-    //public decimal BasePriceTotal
-    //{
-    //    get { return basePriceTotal; }
-    //    set { basePriceTotal = value; }
-    //}
-      
-      
-    // constructor
+
+    // blank constructor
     public Product()    {    }
 
-    // all data
+    // constructor
     public Product(int newBookingId, string newDestination, string newDescription, string newBookingNo,
         double newItineraryNo, DateTime newTripStart, DateTime newTripEnd, decimal newBasePrice,
                     int newProductId, string newProductName)
@@ -100,6 +92,5 @@ public class Product
         BasePrice = newBasePrice;
         ProductId = newProductId;
         ProductName = newProductName;
-        //BasePriceTotal = newBPTotal;
     }
 }

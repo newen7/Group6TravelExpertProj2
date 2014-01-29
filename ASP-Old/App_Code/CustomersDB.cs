@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.ComponentModel;
 
+// Porkodi
 [DataObject(true)]
 public static class CustomersDB
 {
@@ -56,6 +57,7 @@ public static class CustomersDB
         return customersList;
     }
 
+    // Porkodi
     [DataObjectMethod(DataObjectMethodType.Select)]
     public static Customers GetCustomerID(string CustomerId)
     {
@@ -95,40 +97,52 @@ public static class CustomersDB
     // ------------------------------------------------------------------
     // Pitsini Suwandechochai
     // Method: GetCustomerFNameById(Id)
-    // Description: query 1 customer from DB to display on "Product" page by merging 
-    //              first and last name togerther as 1 field (as 'FullName')
+    // Description: query 1 customer from DB to display on "ProductInfo.aspx" by merging 
+    //              first and last name together as 1 field (as 'FullName')
     // ------------------------------------------------------------------
     [DataObjectMethod(DataObjectMethodType.Select)]
     public static Customers GetCustomerFNameById(int inputCustId)
     {
+        SqlConnection connection = new SqlConnection();
         Customers CustomerGot = new Customers();
         string sel = "SELECT CustomerId, CustFirstName + ' ' + CustLastName as FullName, "
                 + "CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, "
               + "CustBusPhone, CustEmail, AgentId "
             + "FROM Customers "
             + "WHERE CustomerId = @CustomerId";
-
-        using (SqlConnection con = TravelExpertsDB.GetConnection())
+        try
         {
-            using (SqlCommand cmd = new SqlCommand(sel, con))
+            using (connection = TravelExpertsDB.GetConnection())
             {
-                cmd.Parameters.AddWithValue("CustomerId", inputCustId);
-
-                con.Open();
-                SqlDataReader readerObj = cmd.ExecuteReader(CommandBehavior.SingleRow);
-                if (readerObj.Read()) //while readerObj has lines to read, go through each one 
+                using (SqlCommand cmd = new SqlCommand(sel, connection))
                 {
-                    //add to a customer
-                    CustomerGot = new Customers((int)readerObj[0], (string)readerObj[1],
-                        (string)readerObj[2], (string)readerObj[3], (string)readerObj[4],
-                        (string)readerObj[5], (string)readerObj[6], (string)readerObj[7],
-                        (string)readerObj[8], (string)readerObj[9], (int)readerObj[10]);
+                    cmd.Parameters.AddWithValue("CustomerId", inputCustId);
+
+                    connection.Open();
+                    SqlDataReader readerObj = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                    if (readerObj.Read()) //while readerObj has lines to read, go through each one 
+                    {
+                        //add to a customer
+                        CustomerGot = new Customers((int)readerObj[0], (string)readerObj[1],
+                            (string)readerObj[2], (string)readerObj[3], (string)readerObj[4],
+                            (string)readerObj[5], (string)readerObj[6], (string)readerObj[7],
+                            (string)readerObj[8], (string)readerObj[9], (int)readerObj[10]);
+                    }
+                    readerObj.Close();
                 }
-                readerObj.Close();
-            }
+            }            
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
         }
         return CustomerGot;
     }
+
     //Paul Teixeira Update Customer
     public static bool UpdateCustomer(Customers NewCustomerInfo)
     {
