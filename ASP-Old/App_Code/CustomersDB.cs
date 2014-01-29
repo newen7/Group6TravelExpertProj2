@@ -2,6 +2,13 @@
 // CreatDate: 24-01-2014
 //Select created by:(Porkodi)
 //Version 1.2
+
+/*
+ * Update Function by Paul Teixiera
+ * The update function is passed an object of Customers type and then builds an sql statment to do an update
+ * based on this information.
+ * Uses unified connection string from TravelDb and throws exception on failure to any try/catch block that called it.
+ */
 using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -57,7 +64,7 @@ public static class CustomersDB
         string sel = "SELECT CustomerId, CustFirstName, CustLastName,CustAddress,"
         + "CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, AgentId "
             + "FROM Customers WHERE CustomerId = @CustomerId";
-        using (SqlConnection con = new SqlConnection("Data Source=localhost\\sqlserver;Initial Catalog=TravelExperts;Integrated Security=True"))
+        using (SqlConnection con = TravelExpertsDB.GetConnection())
         {
             using (SqlCommand cmd = new SqlCommand(sel, con))//calling 
             {
@@ -121,5 +128,50 @@ public static class CustomersDB
             }
         }
         return CustomerGot;
+    }
+    //Paul Teixeira Update Customer
+    public static bool UpdateCustomer(Customers NewCustomerInfo)
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string updateStatement = "UPDATE Customers SET "
+                                    + "CustFirstName = @firstName, "
+                                    + "CustLastName = @lastName, "
+                                    + "CustAddress = @address, "
+                                    + "CustCity = @city, "
+                                    + "CustProv = @prov, "
+                                    + "CustPostal = @postal, "
+                                    + "CustCountry = @country, "
+                                    + "CustHomePhone = @homeph, "
+                                    + "CustBusPhone = @busph, "
+                                    + "CustEmail = @email, "
+                                    + "AgentId = @agntId "
+                                    + "WHERE CustomerId = @CustId";
+        SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+        updateCommand.Parameters.AddWithValue("@CustId", NewCustomerInfo.CustomerID);
+        updateCommand.Parameters.AddWithValue("@firstName", NewCustomerInfo.CustFirstName);
+        updateCommand.Parameters.AddWithValue("@lastName", NewCustomerInfo.CustLastName);
+        updateCommand.Parameters.AddWithValue("@address", NewCustomerInfo.CustAddress);
+        updateCommand.Parameters.AddWithValue("@city", NewCustomerInfo.CustCity);
+        updateCommand.Parameters.AddWithValue("@prov", NewCustomerInfo.CustProv);
+        updateCommand.Parameters.AddWithValue("@postal", NewCustomerInfo.CustPostal);
+        updateCommand.Parameters.AddWithValue("@country", NewCustomerInfo.CustCountry);
+        updateCommand.Parameters.AddWithValue("@homeph", NewCustomerInfo.CustHomePhone);
+        updateCommand.Parameters.AddWithValue("@busph", NewCustomerInfo.CustBusPhone);
+        updateCommand.Parameters.AddWithValue("@email", NewCustomerInfo.CustEmail);
+        updateCommand.Parameters.AddWithValue("@agntId", NewCustomerInfo.AgentId);
+        try
+        {
+            connection.Open();
+            updateCommand.ExecuteNonQuery();
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return true;
     }
 }
