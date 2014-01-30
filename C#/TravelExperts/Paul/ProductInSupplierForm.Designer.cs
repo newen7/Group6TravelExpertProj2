@@ -1,4 +1,8 @@
-﻿namespace TravelExperts
+﻿/* Paul Teixeira
+ * Modififes the products within a supplier
+ */
+
+namespace TravelExperts
 {
     partial class frmProductInSupplier
     {

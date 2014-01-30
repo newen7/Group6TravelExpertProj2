@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Login Form Done by Paul Teixeira
+ * This allows users to enter username and password and gain access to the database editing tool
+ * 
+ * Enter key on password fires login event.
+ * TO do:
+ * -Move server side hashing done by sql to client side done in .net
+ * -Sanitize inputs for safty from SQL injection
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

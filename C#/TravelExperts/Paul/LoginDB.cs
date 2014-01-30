@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Paul Teixeira
+//Simple static method returns true on authorization
+//TODO:
+//-Client side hashing
+//-SQLinjection sanitizing
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

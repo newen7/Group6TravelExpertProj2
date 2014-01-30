@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*Paul Teixiera
+ * Product class allows encapsulation of product properties passed from gui to db and back again
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

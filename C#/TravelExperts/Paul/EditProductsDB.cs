@@ -1,4 +1,12 @@
-﻿using System;
+﻿/* EditProductDB done by Paul Teixeira
+ * 
+ * Has the functionality for modfiying products of suppliers and packages
+ * 
+ * 
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Paul Teixeira
+ * Modififes the products within a package
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
