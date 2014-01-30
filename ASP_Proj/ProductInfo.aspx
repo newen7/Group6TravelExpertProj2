@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductInfo.aspx.cs" Inherits="ProductInfo" MasterPageFile="~/Template.master"%>
 <%--
-The linking of the detail files to the mnaster as well as the necessary content 
+The linking of the detail files to the master as well as the necessary content 
 and class tags was done by Jon.
     
 Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
@@ -113,13 +113,14 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
 
 <asp:Content ID="Content3" ContentPlaceHolderId="CPH3" runat="server">
     <div class="new">   
+            <p style="color:white;font-size:18px;">Product Information</p>
             <asp:GridView runat="server" 
                 DataSourceID="ObjectDataSource4"
                 AutoGenerateColumns="False" 
                 OnRowDataBound="GridViewProduct_RowDataBound" 
                 ShowFooter="True"
                 CellPadding="3" 
-                GridLines="Horizontal" 
+                GridLines="Horizontal" ID="GridViewProduct" Width="100%" 
                 >
                 <AlternatingRowStyle BackColor="#444444" />
                 <Columns>
@@ -135,6 +136,7 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
                         DataField="ProductName" 
                         HeaderText="Product Name" 
                         SortExpression="ProductName">
+                    <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
 
                     <asp:BoundField 
@@ -175,7 +177,7 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
                     <asp:BoundField 
                         DataField="BasePrice" 
                         DataFormatString="{0:c}" 
-                        HeaderText="Base Price" 
+                        HeaderText="Price" 
                         SortExpression="BasePrice">
                     <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>

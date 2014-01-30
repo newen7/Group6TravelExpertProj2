@@ -3,11 +3,11 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateCustomer.aspx.cs" Inherits="UpdateCustomer" MasterPageFile="~/Template.master"%>
 
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
-<!--
+    <!--
 This was done by Paul Teixeira
     
 This file denotes the asp and is the gui of the update customer functionality.
-It has listboxes and labels for each feild of the "Customer object"
+It has listboxes and labels for each field of the "Customer object"
 -->
 
 
@@ -99,30 +99,23 @@ Paul's detail page was the easiest to restyle as he kept to standard style pract
             </tr>
         </table>
         <br />
-        <asp:RequiredFieldValidator CSSClass="lblAlert" ID="RequiredFieldValidator1" runat="server" ControlToValidate="FirstNameTxt" EnableClientScript="False" ErrorMessage="First Name Is Required"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator CSSClass="lblAlert" ID="RequiredFieldValidator1" runat="server" ControlToValidate="FirstNameTxt" EnableClientScript="False" ErrorMessage="First Name Is Required" ForeColor="Red"></asp:RequiredFieldValidator>
         <br />
-        <asp:RequiredFieldValidator CSSClass="lblAlert" ID="RequiredFieldValidator2" runat="server" ControlToValidate="LastNameTxt" EnableClientScript="False" ErrorMessage="Last Name Is Required"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator CSSClass="lblAlert" ID="RequiredFieldValidator2" runat="server" ControlToValidate="LastNameTxt" EnableClientScript="False" ErrorMessage="Last Name Is Required" ForeColor="Red"></asp:RequiredFieldValidator>
         <br />
-        <asp:RangeValidator CSSClass="lblAlert" ID="RangeValidator1" runat="server" ControlToValidate="AgentIdTxt" EnableClientScript="False" ErrorMessage="Funny Id for an Agent!" MaximumValue="1000" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+        <asp:RangeValidator CSSClass="lblAlert" ID="RangeValidator1" runat="server" ControlToValidate="AgentIdTxt" EnableClientScript="False" ErrorMessage="Funny Id for an Agent!" MaximumValue="1000" MinimumValue="0" Type="Integer" ForeColor="Red"></asp:RangeValidator>
         <br />
     </div>
 </asp:Content>
 
 <asp:Content ID="content2" ContentPlaceHolderId="CPH2" runat="server">
     <div class="paul">
-        <h3>This is Paul's description of his page</h3>
+        <h3>This is Paul&#39;s description</h3>
         <p>
-            Lorem ipsum dolor sit amet, ex mea erant adolescens, graeci moderatius no mei, cum case delectus phaedrum te. 
-            Vis rebum putent cetero te. No usu velit singulis scriptorem. Id delenit tacimates has. Consequat adversarium 
-            repudiandae his in, id nam alienum laboramus consectetuer.
-        </p>
+            This file denotes the asp and is the gui of the update customer functionality. It has listboxes and labels for each field of the &quot;Customer object&quot;</p>
     
         <p>
-            Unum sonet conceptam ne qui, sea te electram consulatu deterruisset, diam soleat euismod duo eu. Feugait facilisi 
-            gloriatur at ius. Ea pro consul eleifend consectetuer, soleat nominavi at pro, ne tamquam copiosae nominati vel. 
-            Consetetur accommodare qui id, qui te dicta sonet. Odio ponderum probatus nam te, id dicat partem eum. Eum ea 
-            similique comprehensam.
-        </p>
+            The update function is passed an object of Customers type and then builds an sql statment to do an update based on this information. Uses unified connection string from TravelDb and throws exception on failure to any try/catch block that called it.</p>
     </div>
 </asp:Content>
 

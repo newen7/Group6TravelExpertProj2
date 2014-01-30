@@ -162,7 +162,7 @@ namespace TravelExperts
             else
                 if (result > 0)
                 {
-                    MessageBox.Show("Start date can't be less than less than.", Title);
+                    MessageBox.Show("End date can't be less than Start date", Title);
                     return false;
                 }
             return true;

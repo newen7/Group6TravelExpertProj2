@@ -291,9 +291,6 @@
             this.lstAllPackage.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.lstAllPackage.FormattingEnabled = true;
             this.lstAllPackage.ItemHeight = 20;
-            this.lstAllPackage.Items.AddRange(new object[] {
-            "1 --- Caribbean New Year",
-            "2 --- Polynesian Paradise"});
             this.lstAllPackage.Location = new System.Drawing.Point(13, 410);
             this.lstAllPackage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstAllPackage.Name = "lstAllPackage";

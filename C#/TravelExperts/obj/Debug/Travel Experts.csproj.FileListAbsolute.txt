@@ -45,3 +45,5 @@ C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\De
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.Properties.Resources.resources
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csproj.GenerateResource.Cache
 C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.LoginForm.resources
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.LoginForm.resources
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmProductInSupplier.resources

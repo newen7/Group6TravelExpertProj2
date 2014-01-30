@@ -2,7 +2,7 @@
 
 
 <%--
-The linking of the detail files to the mnaster as well as the necessary content 
+The linking of the detail files to the master as well as the necessary content 
 and class tags was done by Jon.
     
 Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
@@ -104,19 +104,21 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderId="CPH2" runat="server">
     <div class="porkodi">
-        <h3>This is Porkodi's description of her page</h3>
+        <h3>This is Porkodi&#39;s description </h3>
     <p>
-        Lorem ipsum dolor sit amet, ex mea erant adolescens, graeci moderatius no mei, cum case delectus phaedrum te. 
-        Vis rebum putent cetero te. No usu velit singulis scriptorem. Id delenit tacimates has. Consequat adversarium 
-        repudiandae his in, id nam alienum laboramus consectetuer.
+        Porkodi:	- Default page for customer
+	    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Customers class
+	    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - CustomerDB
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + GetCustomers()
+	    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + GetCustomerID(CustomerId)
     </p>
     
     <p>
-        Unum sonet conceptam ne qui, sea te electram consulatu deterruisset, diam soleat euismod duo eu. Feugait facilisi 
-        gloriatur at ius. Ea pro consul eleifend consectetuer, soleat nominavi at pro, ne tamquam copiosae nominati vel. 
-        Consetetur accommodare qui id, qui te dicta sonet. Odio ponderum probatus nam te, id dicat partem eum. Eum ea 
-        similique comprehensam.
-    </p>
+        &nbsp;</p>
     </div>
 </asp:Content>
 

@@ -20,8 +20,7 @@ public class Product
     private decimal basePrice;
     private int productId;
     private string productName;
-
-    
+        
     // properties to access to parameters
     public int BookingId
     {

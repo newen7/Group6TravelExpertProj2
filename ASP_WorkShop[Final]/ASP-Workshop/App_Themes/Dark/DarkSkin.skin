@@ -1,0 +1,12 @@
+﻿<%--
+<%------------DARK Skin ----------*/
+By: Jonathan Love               
+ Student ID: 000655580          
+
+As I had already placed everything in the CSS file I didn't really require a global control 
+file but since it is necessary for themes I created a skin and added a token control to it 
+
+--%>
+<asp:Button 
+    runat="server" CssClass="btn"
+/>
