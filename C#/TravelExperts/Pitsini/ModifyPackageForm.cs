@@ -114,7 +114,7 @@ namespace TravelExperts
         }
 
         // function for validate all input
-        private bool IsValidData()
+        public bool IsValidData()
         {
             return
                 // validate package name

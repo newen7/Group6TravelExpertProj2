@@ -225,6 +225,7 @@ namespace TravelExperts
             }
         }
 
+        // ------------------------------------------------------------------
         // Pitsini
         // Updating method for package data 
         // It will return "true" if updating is successful. Otherwise will return "false"
@@ -267,5 +268,43 @@ namespace TravelExperts
                 connection.Close();
             }
         }   // End update method
+
+        // ------------------------------------------------------------------
+        // Pitsini
+        // Insert method for package data 
+        // It will return "true" if inserting is successful. Otherwise will return "false"
+        // ------------------------------------------------------------------
+        public static bool InsertPackage(Package newPackage)
+        {
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string insertStatement = "INSERT INTO Packages(PkgName, PkgStartDate, PkgEndDate, " + 
+                                     "PkgDesc, PkgBasePrice, PkgAgencyCommission) " +
+                                     "VALUES (@newName, @newSDate,@newEDate, @newDesc, @newBasePrice, @newCommission)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@newName", newPackage.PkgName);
+            insertCommand.Parameters.AddWithValue("@newSDate", newPackage.PkgStartDate);
+            insertCommand.Parameters.AddWithValue("@newEDate", newPackage.PkgEndDate);
+            insertCommand.Parameters.AddWithValue("@newDesc", newPackage.PkgDesc);
+            insertCommand.Parameters.AddWithValue("@newBasePrice", newPackage.PkgBasePrice);
+            insertCommand.Parameters.AddWithValue("@newCommission", newPackage.PkgAgencyCommission);
+
+            try
+            {
+                connection.Open();
+                int count = insertCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }   // End Insert method
     }
 }

@@ -152,19 +152,35 @@ namespace TravelExperts
         // validate decimal have to be between min and max
         public static bool DateIsWithinRange(DateTime sDate, DateTime eDate)
         {
+            // compare between dates
             int result = DateTime.Compare(sDate, eDate);
-
-            if (result == 0)
+                        
+            if (result == 0)    // if they are the same day
             {
                 MessageBox.Show("Start date can't be the same as End date.", Title);
                 return false;
             }
             else
-                if (result > 0)
+                if (result > 0) // if sDate greater than eDate
                 {
                     MessageBox.Show("End date can't be less than Start date", Title);
                     return false;
                 }
+            return true;
+        }
+
+        // validate decimal have to be between min and max
+        public static bool IsGreaterThan(decimal bPrice, decimal cPrice)
+        {
+            //compare between decimal numbers
+            int result = decimal.Compare(bPrice, cPrice);
+
+            // if num1 less than 2
+            if (result == 0 || result < 0)
+            {
+                MessageBox.Show("Base Price cannot be grather than Agency Commission", Title);
+                return false;
+            }          
             return true;
         }
     }
