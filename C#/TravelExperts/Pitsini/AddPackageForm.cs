@@ -13,6 +13,8 @@ namespace TravelExperts
 {
     public partial class frmAddPackage : Form
     {
+        public int newJustAddId; // store new created packgeID
+
         public frmAddPackage()
         {
             InitializeComponent();
@@ -43,7 +45,7 @@ namespace TravelExperts
             if (IsValidData())
             {
                 try
-                {
+                {   
                     // prepare package data into the new package object 
                     Package newPackage = new Package();
                     newPackage.PkgName = txtPkgName.Text;
@@ -53,8 +55,9 @@ namespace TravelExperts
                     newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
                     newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgencyAdmission.Text);
 
+                    newJustAddId = PackageDB.InsertPackage(newPackage);
 
-                    if (!PackageDB.InsertPackage(newPackage))
+                    if (newJustAddId == 0)
                     {
                         // if cannot update data. It will show an error
                         MessageBox.Show("Somthing went wrong with Database. " +
@@ -64,7 +67,8 @@ namespace TravelExperts
                     else
                     {
                         // if updating is successful
-                        MessageBox.Show("Package has been inserted!!!");
+                        MessageBox.Show("Insert Successful.", "Alert");
+                        MessageBox.Show("Insert Successful.", "Alert");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
@@ -106,23 +110,23 @@ namespace TravelExperts
         {
             return
                 // validate package name
-                Validator.IsPresent(txtPkgName, "Package name: ") &&
-                Validator.IsLetter(txtPkgName, "Package Name: ") &&
+                Validator.IsNotNull(txtPkgName, "Package name: ") &&
+
+                // validate description
+                Validator.IsNotNull(rtxtDesc, "Description: ") &&
+
+                // validate start date and end date
+                Validator.IsDateWithinRange(dtpStartDate.Value, dtpEndDate.Value) &&
 
                 // validate base price
+                Validator.IsNotNull(txtBasePrice, "Base Price: ") &&
                 Validator.IsPosNum(txtBasePrice, "Base Price: ") &&
                 Validator.IsDecimal(txtBasePrice) &&
-
-                // validate start daten and end date
-                Validator.DateIsWithinRange(dtpStartDate.Value, dtpEndDate.Value) &&
-
+                
                 // validate agency commission
-                //Validator.IsGreaterThan(Convert.ToDecimal(txtBasePrice), 
-                //          Convert.ToDecimal(txtAgencyAdmission.Text)) &&
-
-                // validate for description
-                Validator.IsPresent(rtxtDesc, "Description: ");
-        }
-        
+                Validator.IsNotNull(txtAgencyAdmission, "Base Price: ") &&
+                Validator.IsPosNum(txtAgencyAdmission, "Base Price: ") &&
+                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyAdmission);
+        }        
     }
 }

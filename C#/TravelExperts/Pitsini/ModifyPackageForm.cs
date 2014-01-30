@@ -118,21 +118,24 @@ namespace TravelExperts
         {
             return
                 // validate package name
-                Validator.IsPresent(txtPkgName, "Package name: ") &&
-                Validator.IsLetter(txtPkgName, "Package Name: ") &&
+                Validator.IsNotNull(txtPkgName, "Package name: ") &&
+
+                // validate description
+                Validator.IsNotNull(rtxtDesc, "Description: ") &&
+
+                // validate start date and end date
+                Validator.IsDateWithinRange(dtpStartDate.Value, dtpEndDate.Value) &&
 
                 // validate base price
+                Validator.IsNotNull(txtBasePrice, "Base Price: ") &&
                 Validator.IsPosNum(txtBasePrice, "Base Price: ") &&
                 Validator.IsDecimal(txtBasePrice) &&
 
-                // validate start daten and end date
-                Validator.DateIsWithinRange(dtpStartDate.Value, dtpEndDate.Value) &&
-
                 // validate agency commission
-                Validator.IsPosNum(txtAgencyCommission, "Agency Commission: ") &&
-                Validator.IsDecimal(txtAgencyCommission);
+                Validator.IsNotNull(txtAgencyCommission, "Base Price: ") &&
+                Validator.IsPosNum(txtAgencyCommission, "Base Price: ") &&
+                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyCommission);
 
-            // validate for description. We don't need to be done because it is not necessary.
         }
     }
 }

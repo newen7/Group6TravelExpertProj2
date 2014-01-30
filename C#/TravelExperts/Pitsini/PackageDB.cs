@@ -274,7 +274,7 @@ namespace TravelExperts
         // Insert method for package data 
         // It will return "true" if inserting is successful. Otherwise will return "false"
         // ------------------------------------------------------------------
-        public static bool InsertPackage(Package newPackage)
+        public static int InsertPackage(Package newPackage)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             string insertStatement = "INSERT INTO Packages(PkgName, PkgStartDate, PkgEndDate, " + 
@@ -293,9 +293,13 @@ namespace TravelExperts
                 connection.Open();
                 int count = insertCommand.ExecuteNonQuery();
                 if (count > 0)
-                    return true;
+                {
+                    Package pkg = new Package();
+                    pkg = GetPackageByName(newPackage.PkgName);
+                    return pkg.PackageId;
+                }
                 else
-                    return false;
+                    return 0;
             }
             catch (SqlException ex)
             {

@@ -24,7 +24,7 @@ namespace TravelExperts
         }
 
         // Checks whether the user entered data into a text box.
-        public static bool IsPresent(Control control, string str)
+        public static bool IsNotNull(Control control, string str)
         {
             if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
             {
@@ -39,17 +39,69 @@ namespace TravelExperts
             }
 
             // Checks whether the user entered data into a ComboBox.
-            else if (control.GetType().ToString() == "System.Windows.Forms.ComboBox")
+            else if (control.GetType().ToString() == "System.Windows.Forms.RichTextBox")
             {
-                ComboBox comboBox = (ComboBox)control;
-                if (comboBox.SelectedIndex == -1)
+                RichTextBox richTextBox = (RichTextBox)control;
+                if (richTextBox.Text == "")
                 {
                     MessageBox.Show(str + " is a required field.", Title);
-                    comboBox.Focus();
+                    richTextBox.Focus();
                     return false;
-                }                
+                }
+                return true;              
             }
             return true;
+        }
+
+        // validate decimal have to be between min and max
+        public static bool IsDateWithinRange(DateTime sDate, DateTime eDate)
+        {
+            // compare between dates
+            int result = DateTime.Compare(sDate, eDate);
+
+            if (result == 0)    // if they are the same day
+            {
+                MessageBox.Show("Start date can't be the same as End date.", Title);
+                return false;
+            }
+            else
+                if (result > 0) // if sDate greater than eDate
+                {
+                    MessageBox.Show("End date can't be less than Start date", Title);
+                    return false;
+                }
+            return true;
+        }
+
+        // validate decimal have to be between min and max
+        public static bool IsPriceGreaterThan(TextBox price1, TextBox price2)
+        {
+            decimal basePrice;
+            decimal commissionPrice;
+
+            bool result1 = decimal.TryParse(price1.Text,
+                NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out basePrice);
+            bool result2 = decimal.TryParse(price2.Text,
+                NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out commissionPrice);
+            //MessageBox.Show("bp= " + basePrice + "  agen = " + commissionPrice);
+            if (result1 && result2)
+            {
+                //compare between decimal numbers
+                int result = decimal.Compare(basePrice, commissionPrice);
+
+                // if num1 less than 2
+                if (result == 0 || result < 0)
+                {
+                    MessageBox.Show("Base Price cannot be grather than Agency Commission", Title);
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Base Price andAgency Commission have to be numbers", Title);
+                return false;
+            }
         }
 
         // validate name (letter, whitespace and - only)
@@ -149,39 +201,8 @@ namespace TravelExperts
             return true;
         }
 
-        // validate decimal have to be between min and max
-        public static bool DateIsWithinRange(DateTime sDate, DateTime eDate)
-        {
-            // compare between dates
-            int result = DateTime.Compare(sDate, eDate);
-                        
-            if (result == 0)    // if they are the same day
-            {
-                MessageBox.Show("Start date can't be the same as End date.", Title);
-                return false;
-            }
-            else
-                if (result > 0) // if sDate greater than eDate
-                {
-                    MessageBox.Show("End date can't be less than Start date", Title);
-                    return false;
-                }
-            return true;
-        }
+        
 
-        // validate decimal have to be between min and max
-        public static bool IsGreaterThan(decimal bPrice, decimal cPrice)
-        {
-            //compare between decimal numbers
-            int result = decimal.Compare(bPrice, cPrice);
-
-            // if num1 less than 2
-            if (result == 0 || result < 0)
-            {
-                MessageBox.Show("Base Price cannot be grather than Agency Commission", Title);
-                return false;
-            }          
-            return true;
-        }
+        
     }
 }

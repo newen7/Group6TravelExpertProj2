@@ -20,6 +20,7 @@ namespace TravelExperts
 {
     public partial class frmPackage : Form
     {
+        int index;
         int chosenPkgId = 0;    // keep id that chosen by selecting the package listbox
         Package aPackage;   // package for showing data in text boxes
 
@@ -57,11 +58,25 @@ namespace TravelExperts
             else MessageBox.Show("Package not selected");
         }
 
+        // Pitsini
         private void btnAddPkg_Click(object sender, EventArgs e)
         {
             DialogResult result;
+            //int resultPkgID;
             frmAddPackage AddPackageForm = new frmAddPackage();
             result = AddPackageForm.ShowDialog();
+
+            // if user just came back from ModifyPkg Form
+            if (result == DialogResult.OK)
+            {
+                chosenPkgId = AddPackageForm.newJustAddId;                    
+                aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                DisplayListOfPackage();                
+                DisplayPackageAndProduct();
+
+                ModifyPackageForm.selectedPkgId = 0; // reset variable
+            }     
+        
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -90,9 +105,7 @@ namespace TravelExperts
             catch (Exception ex)    // any other error
             {
                 MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
-            }
-
-            
+            }            
         }
 
         private void DisplayListOfPackage()
@@ -122,6 +135,9 @@ namespace TravelExperts
 
                     aPackage = PackageDB.GetPackageByID(chosenPkgId);
                     DisplayPackageAndProduct();
+
+                    // store index of listbox
+                    index = lstAllPackage.SelectedIndex;
                 }
             }
             catch (DBConcurrencyException)  // number of rows affected equals zero
@@ -216,7 +232,7 @@ namespace TravelExperts
         {
             return
                 // validate packageID
-                Validator.IsPresent(txtPkgId, "Package ID: ") &&
+                Validator.IsNotNull(txtPkgId, "Package ID: ") &&
                 Validator.IsInt32(txtPkgId, "Package ID: ");
         }
 
@@ -237,6 +253,7 @@ namespace TravelExperts
                     
                     chosenPkgId = ModifyPackageForm.selectedPkgId;                    
                     aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                    DisplayListOfPackage();
                     DisplayPackageAndProduct();
 
                     ModifyPackageForm.selectedPkgId = 0; // reset variable

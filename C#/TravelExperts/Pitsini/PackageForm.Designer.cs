@@ -314,7 +314,7 @@
             // 
             this.btnAddPkg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnAddPkg.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPkg.Location = new System.Drawing.Point(117, 646);
+            this.btnAddPkg.Location = new System.Drawing.Point(117, 648);
             this.btnAddPkg.Name = "btnAddPkg";
             this.btnAddPkg.Size = new System.Drawing.Size(143, 43);
             this.btnAddPkg.TabIndex = 5;

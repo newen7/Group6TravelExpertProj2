@@ -179,6 +179,7 @@
             // dtpEndDate
             // 
             this.dtpEndDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEndDate.Location = new System.Drawing.Point(177, 141);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(200, 28);
@@ -187,6 +188,7 @@
             // dtpStartDate
             // 
             this.dtpStartDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpStartDate.Location = new System.Drawing.Point(177, 101);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 28);
