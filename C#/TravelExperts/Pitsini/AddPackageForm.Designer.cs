@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label9 = new System.Windows.Forms.Label();
-            this.txtAgencyAdmission = new System.Windows.Forms.TextBox();
+            this.txtAgencyCommission = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,13 +57,13 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "Agency Commission:";
             // 
-            // txtAgencyAdmission
+            // txtAgencyCommission
             // 
-            this.txtAgencyAdmission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtAgencyAdmission.Location = new System.Drawing.Point(177, 221);
-            this.txtAgencyAdmission.Name = "txtAgencyAdmission";
-            this.txtAgencyAdmission.Size = new System.Drawing.Size(199, 28);
-            this.txtAgencyAdmission.TabIndex = 5;
+            this.txtAgencyCommission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.txtAgencyCommission.Location = new System.Drawing.Point(177, 221);
+            this.txtAgencyCommission.Name = "txtAgencyCommission";
+            this.txtAgencyCommission.Size = new System.Drawing.Size(199, 28);
+            this.txtAgencyCommission.TabIndex = 5;
             // 
             // label10
             // 
@@ -160,7 +160,7 @@
             this.groupBox1.Controls.Add(this.dtpStartDate);
             this.groupBox1.Controls.Add(this.rtxtDesc);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtAgencyAdmission);
+            this.groupBox1.Controls.Add(this.txtAgencyCommission);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtBasePrice);
             this.groupBox1.Controls.Add(this.label4);
@@ -233,7 +233,7 @@
         #endregion
 
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAgencyAdmission;
+        private System.Windows.Forms.TextBox txtAgencyCommission;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
