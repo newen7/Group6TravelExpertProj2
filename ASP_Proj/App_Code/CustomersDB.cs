@@ -37,7 +37,7 @@ public static class CustomersDB
                 while (dr.Read())
                 {
                     customers = new Customers();
-                    customers.CustomerID = (int)dr["CustomerId"];
+                    customers.CustomerID = System.Convert.ToInt32(dr["CustomerId"]);
                     customers.CustFirstName = dr["CustFirstName"].ToString();
                     customers.CustLastName = dr["CustLastName"].ToString();
                     customers.CustAddress = dr["CustAddress"].ToString();
@@ -48,7 +48,14 @@ public static class CustomersDB
                     customers.CustHomePhone = dr["CustHomePhone"].ToString();
                     customers.CustBusPhone = dr["CustBusPhone"].ToString();
                     customers.CustEmail = dr["CustEmail"].ToString();
-                    customers.AgentId = (int)dr["AgentId"];
+                    if (dr["AgentId"].ToString().Length > 0)
+                    {
+                        customers.AgentId = System.Convert.ToInt32(dr["AgentId"]);
+                    }
+                    else
+                    {
+                        customers.AgentId = null;
+                    }
                     customersList.Add(customers);
                 }
                 dr.Close();
@@ -86,7 +93,14 @@ public static class CustomersDB
                     customers.CustHomePhone = dr["CustHomePhone"].ToString();
                     customers.CustBusPhone = dr["CustBusPhone"].ToString();
                     customers.CustEmail = dr["CustEmail"].ToString();
-                    customers.AgentId = (int)dr["AgentId"];
+                    if (dr["AgentId"].ToString().Length > 0)
+                    {
+                        customers.AgentId = System.Convert.ToInt32(dr["AgentId"]);
+                    }
+                    else
+                    {
+                        customers.AgentId = null;
+                    }
                 }
                 dr.Close();
             }
@@ -107,7 +121,7 @@ public static class CustomersDB
         Customers CustomerGot = new Customers();
         string sel = "SELECT CustomerId, CustFirstName + ' ' + CustLastName as FullName, "
                 + "CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, "
-              + "CustBusPhone, CustEmail, AgentId "
+              + "CustBusPhone, CustEmail "
             + "FROM Customers "
             + "WHERE CustomerId = @CustomerId";
         try
@@ -126,7 +140,7 @@ public static class CustomersDB
                         CustomerGot = new Customers((int)readerObj[0], (string)readerObj[1],
                             (string)readerObj[2], (string)readerObj[3], (string)readerObj[4],
                             (string)readerObj[5], (string)readerObj[6], (string)readerObj[7],
-                            (string)readerObj[8], (string)readerObj[9], (int)readerObj[10]);
+                            (string)readerObj[8], (string)readerObj[9]);
                     }
                     readerObj.Close();
                 }
@@ -157,9 +171,9 @@ public static class CustomersDB
                                     + "CustCountry = @country, "
                                     + "CustHomePhone = @homeph, "
                                     + "CustBusPhone = @busph, "
-                                    + "CustEmail = @email, "
-                                    + "AgentId = @agntId "
-                                    + "WHERE CustomerId = @CustId";
+                                    + "CustEmail = @email";
+                                    if (NewCustomerInfo.AgentId != null) updateStatement += ", AgentId = @agntId ";
+                                    updateStatement += " WHERE CustomerId = @CustId";
         SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
         updateCommand.Parameters.AddWithValue("@CustId", NewCustomerInfo.CustomerID);
         updateCommand.Parameters.AddWithValue("@firstName", NewCustomerInfo.CustFirstName);
@@ -172,11 +186,45 @@ public static class CustomersDB
         updateCommand.Parameters.AddWithValue("@homeph", NewCustomerInfo.CustHomePhone);
         updateCommand.Parameters.AddWithValue("@busph", NewCustomerInfo.CustBusPhone);
         updateCommand.Parameters.AddWithValue("@email", NewCustomerInfo.CustEmail);
-        updateCommand.Parameters.AddWithValue("@agntId", NewCustomerInfo.AgentId);
+        if (NewCustomerInfo.AgentId != null)
+        {
+            updateCommand.Parameters.AddWithValue("@agntId", NewCustomerInfo.AgentId);
+        }
         try
         {
             connection.Open();
             updateCommand.ExecuteNonQuery();
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return true;
+    }
+
+    public static bool Register(Customers NewCustomer)
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string registerString = "INSERT INTO Customers (CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail) VALUES('"
+        + NewCustomer.CustFirstName + "', '"
+        + NewCustomer.CustLastName + "', '"
+        + NewCustomer.CustAddress + "', '"
+        + NewCustomer.CustCity + "', '"
+        + NewCustomer.CustProv + "', '"
+        + NewCustomer.CustPostal + "', '"
+        + NewCustomer.CustCountry + "', '"
+        + NewCustomer.CustHomePhone + "', '"
+        + NewCustomer.CustBusPhone + "', '"
+        + NewCustomer.CustEmail+"');";
+        SqlCommand RegisterCmd = new SqlCommand(registerString, connection);
+        try
+        {
+            connection.Open();
+            RegisterCmd.ExecuteNonQuery();
         }
         catch (SqlException ex)
         {

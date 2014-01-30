@@ -10,7 +10,7 @@ using System.Web;
 
 public class Customers
 {
-    private int customerId;
+    private int? customerId;
     private string custFirstName;
     private string custLastName;
     private string custAddress;
@@ -21,7 +21,7 @@ public class Customers
     private string custHomePhone;
     private string custBusPhone;
     private string custEmail;
-    private int agentId;
+    private int? agentId;
 
     // =========================
     // Pitsini Suwandechochai
@@ -35,7 +35,7 @@ public class Customers
         // TODO: Add constructor logic here
     }
 
-    public int CustomerID
+    public int? CustomerID
     {
         get
         {
@@ -162,7 +162,7 @@ public class Customers
             custEmail = value;
         }
     }
-    public int AgentId
+    public int ?AgentId
     {
         get
         {
@@ -185,7 +185,7 @@ public class Customers
     }
 
     // constructor
-    public Customers(int newCustomerId, // full constructor (with "Full name")
+        public Customers(int newCustomerId, // full constructor (with "Full name")
         string newFullName,
         string newCustAddress,
         string newCustCity,
@@ -194,8 +194,7 @@ public class Customers
         string newCustCountry,
         string newCustHomePhone,
         string newCustBusPhone,
-        string newCustEmail,
-        int newAgentId)
+        string newCustEmail)
     {
         CustomerID = newCustomerId;
         FullName = newFullName;
@@ -206,8 +205,7 @@ public class Customers
         CustCountry = newCustCountry;
         CustHomePhone = newCustHomePhone;
         CustBusPhone = newCustBusPhone;
-        CustEmail = newCustEmail;
-        AgentId = newAgentId;
+        CustEmail = newCustEmail;       
     }
     // =============End - Pitsini===============
 }

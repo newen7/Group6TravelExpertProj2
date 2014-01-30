@@ -59,10 +59,6 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
                     DataField="CustEmail" 
                     HeaderText="Email:" 
                     SortExpression="CustEmail" />
-                <asp:BoundField 
-                    DataField="AgentId" 
-                    HeaderText="Agent ID:" 
-                    SortExpression="AgentId" />
             </Fields>
 
             <FooterStyle CSSClass="FooterStyle" />

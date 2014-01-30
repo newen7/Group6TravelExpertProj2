@@ -73,7 +73,14 @@ public partial class UpdateCustomer : System.Web.UI.Page
             CustomerToEdit.CustHomePhone = HomePhoneTxt.Text;
             CustomerToEdit.CustBusPhone = BussinessPhoneTxt.Text;
             CustomerToEdit.CustEmail = EmailTxt.Text;
-            CustomerToEdit.AgentId = Convert.ToInt32(AgentIdTxt.Text); //this one must be stored as int so i do a convert.to on it
+            if (CustomerToEdit.AgentId.ToString().Length > 0)
+            {
+                CustomerToEdit.AgentId = Convert.ToInt32(AgentIdTxt.Text);
+            }
+            else
+            {
+                CustomerToEdit.AgentId = null;
+            }
             try
             {
                 if (CustomersDB.UpdateCustomer(CustomerToEdit)) //pass object to static CustomerDB class method UpdateCustomer this returns true on success false on failure (also throws exception so i do not bother with false return)
