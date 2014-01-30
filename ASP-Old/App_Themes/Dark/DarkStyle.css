@@ -1,0 +1,217 @@
+﻿/*-----------DARK STYLE -----------*/
+/* By: Jonathan Love               */
+/* Student ID: 000655580           */
+/* Description:                    */
+/* I have broken the styles for    */
+/* this website into styles for    */
+/* Global, New, Paul amd Porkodi   */
+/* so that each can be found easily*/
+/*---------------------------------*/
+
+/* Global Styles */ 
+html {
+    background-color:#111;
+}
+
+/* sets the basic size and margin elements for the site */ 
+.body { 
+    margin: 0 auto;
+    width: 70%;
+    clear:both;
+    background-color: black;
+    color: white;
+    
+}
+
+/* main container that displays a border around all elements */ 
+.main {
+    background-color: #111;
+    height: 900px;
+    border: solid 1px #333;
+}
+
+/* defines the space that holds the banner */ 
+.mainheader {
+    height:180px;
+    margin-bottom: 20px;
+    clear:both;
+    background-color: black;
+    background-image: url('../img/bg.png');
+}
+
+/* I love H3 */ 
+h3 {
+    font-size: 18px;
+    font-weight: bolder;
+    margin: 10px 40px;
+}
+
+/* paragraph tags set as floats to flow inline with other elements */ 
+p {
+    margin:20px;
+    width: 349px;
+    font-size: 14px;
+    font-weight: bold;
+    float:left;
+}
+
+/* serves two purposes, a line break and also stops floats from being inline with anything above */ 
+.linebreak {
+    clear:both;
+    height:2px;
+    width:100%;
+    background-color: #222;
+    margin: 10px 0;
+}
+
+/* default button styling */ 
+.btn {
+    background-color: #06F;
+    margin: 10px;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* serves two purposes, a line break and also stops floats from being inline with anything above */ 
+
+.DetailsList {
+    height: 700px;
+    border-radius: 5px;
+    border-color: #333;
+    margin: 10px;
+    background-color: #222;
+    width: 300px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    float:left;
+}
+
+.EditRowStyle {
+    padding: 6px;
+    background-color: #444;
+    
+}
+
+.HeaderStyle {
+     background-color: #111;
+     font-weight: bolder;
+     text-align: center;
+     font-size:16px;
+     color: white;
+}
+
+.FooterStyle {
+     background-color: #333;
+     font-weight: bold;
+     color:red;
+     text-align: right;
+}
+
+.PagerStyle {
+
+}
+
+.RowStyle {
+     background-color: #333; 
+}
+
+.SelectedRowStyle {
+    font-weight: bold;
+}
+
+
+
+/* Styles For New's Page */ 
+.new {
+    color: chartreuse;
+}
+
+.container {
+    height: 400px;
+    float:left;
+}
+
+.btnBack {
+    width: 250px;
+}
+
+#GridViewProduct {
+    border-radius: 5px;
+    border-color: #333;
+    margin: 10px;
+    background-color: #222;
+    width: 800px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+/* Styles For Paul's Page */ 
+
+.paul {
+    color: #09F;
+    vertical-align: top;
+}
+
+#lblAlert .lblAlert {
+    color: red;
+}
+
+.table {
+    border-radius: 5px;
+    border-color: #333;
+    margin: 10px;
+    background-color: #222;
+    width: 300px;
+    font-size: 16px;
+    font-weight: bold;
+    float:left;
+
+}
+
+.col1 {
+    width: 100px;
+    padding:2px;
+}
+
+.col2 {
+    width: 100px;
+    padding:2px;
+}
+
+.row1 {
+    background-color: #222;
+}
+
+.row2 {
+    background-color: #444;
+}
+
+
+
+/* Styles For Porkodi's Page */ 
+.porkodi {
+    color: #FC0; /* a lovely shade of orange */
+}
+
+.DropDownList {
+    border-radius: 5px;
+    border-color: white;
+    margin: 10px;
+    padding: 2px;
+    background-color: #06F;
+    color: white;
+    width: 100px;
+    height: 25px;
+    font-size: 16px;
+    clear:both;
+}
+
+#CPH4 {
+    text-align: right;
+}

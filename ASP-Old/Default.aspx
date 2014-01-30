@@ -1,7 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" MasterPageFile="~/Template.master" %>
 
+
+<%--
+The linking of the detail files to the mnaster as well as the necessary content 
+and class tags was done by Jon.
+    
+Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
+--%>
+
 <asp:Content ID="dropdown" ContentPlaceHolderId="CPH1" runat="server">
-    <div class="new">
+    <div class="porkodi">
         <asp:DropDownList 
             ID="ddlCustomer" 
             runat="server" 
@@ -95,8 +103,8 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderId="CPH2" runat="server">
-    <div class="new">
-        <h3>This is New's description of her page</h3>
+    <div class="porkodi">
+        <h3>This is Porkodi's description of her page</h3>
     <p>
         Lorem ipsum dolor sit amet, ex mea erant adolescens, graeci moderatius no mei, cum case delectus phaedrum te. 
         Vis rebum putent cetero te. No usu velit singulis scriptorem. Id delenit tacimates has. Consequat adversarium 
@@ -113,9 +121,9 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderId="CPH4" runat="server">
-    <div class="new">
-        <asp:Button ID="btnUpdate" runat="server" Text="Update Customer Info" OnClick="btnUpdate_Click" CssClass="btn" />
-        <asp:Button ID="btnProduct" runat="server" Text="View Products" OnClick="btnProduct_Click" CssClass="btn" />
+    <div class="porkodi">
+        <asp:Button ID="btnUpdate" runat="server" Text="Update Customer Info" OnClick="btnUpdate_Click" />
+        <asp:Button ID="btnProduct" runat="server" Text="View Products" OnClick="btnProduct_Click" />
         <asp:Label ID="lblAlert" runat="server" Font-Bold="True"></asp:Label>
     </div>
 </asp:Content>

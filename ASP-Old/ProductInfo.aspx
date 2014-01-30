@@ -1,15 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductInfo.aspx.cs" Inherits="ProductInfo" MasterPageFile="~/Template.master"%>
-
+<%--
+The linking of the detail files to the mnaster as well as the necessary content 
+and class tags was done by Jon.
+    
+Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
+--%>
 
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
-    <div class="porkodi">
+    <div class="new">
+        <div class="container">
         <asp:DetailsView ID="DetailsView" runat="server"
             CellPadding="3" 
             AutoGenerateRows="False"
             DataSourceID="ObjectDataSource1" 
             GridLines="Horizontal"
             CssClass="DetailsList"
-            HeaderText="Product Information">
+            HeaderText="Customer Information">
             <AlternatingRowStyle BackColor="#444444" />
                
             <Fields>
@@ -70,6 +76,7 @@
             <PagerStyle CSSClass="PagerStyle" />
             <RowStyle CSSClass="RowStyle" />
         </asp:DetailsView>
+        </div>
         
         <asp:ObjectDataSource 
             ID="ObjectDataSource1" 
@@ -90,7 +97,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderId="CPH2" runat="server">
-    <div class="porkodi">
+    <div class="new">
         <h3>This is Pitsini&#39;s description</h3>
         <p>
             This page is continued from Default.aspx [Customer Display-Porkodi&#39;s part]. When this page loades, it gets the session state is called [&quot;CustID&quot;] which stores Customer ID from the previous page and sent it to 2 ObjectDataSources.</p>
@@ -105,16 +112,14 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderId="CPH3" runat="server">
-    <div class="porkodi">   
-            <asp:GridView 
-                ID="GridViewProduct" 
-                runat="server" 
-                DataSourceID="ObjectDataSource4" 
+    <div class="new">   
+            <asp:GridView runat="server" 
+                DataSourceID="ObjectDataSource4"
                 AutoGenerateColumns="False" 
                 OnRowDataBound="GridViewProduct_RowDataBound" 
                 ShowFooter="True"
                 CellPadding="3" 
-                GridLines="Horizontal" Width="945px" 
+                GridLines="Horizontal" 
                 >
                 <AlternatingRowStyle BackColor="#444444" />
                 <Columns>
@@ -123,6 +128,7 @@
                         DataField="BookingId" 
                         HeaderText="Booking ID" 
                         SortExpression="BookingId">
+                        <ItemStyle HorizontalAlign="Center"/>
                     </asp:BoundField>
 
                     <asp:BoundField 
@@ -135,19 +141,20 @@
                         DataField="Destination" 
                         HeaderText="Destination" 
                         SortExpression="Destination">
+                        <ItemStyle Width="150px" HorizontalAlign="Center"/>
                     </asp:BoundField>
 
                     <asp:BoundField 
                         DataField="TripStart" 
                         DataFormatString="{0:d}" 
-                        HeaderText="Trip Start Date" 
+                        HeaderText="Start Date" 
                         SortExpression="Trip Start">
                     </asp:BoundField>
 
                     <asp:BoundField 
                         DataField="TripEnd" 
                         DataFormatString="{0:d}" 
-                        HeaderText="Trip End Date" 
+                        HeaderText="End Date" 
                         SortExpression="TripEnd">
                     </asp:BoundField>
 
@@ -175,7 +182,7 @@
 
                 </Columns>
 
-                <FooterStyle CSSClass="FooterStyle" ForeColor="Red" />
+                <FooterStyle CSSClass="FooterStyle" />
                 <HeaderStyle CSSClass="HeaderStyle" />
                 <PagerStyle CSSClass="PagerStyle" />
                 <RowStyle CSSClass="RowStyle" />
@@ -205,12 +212,12 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderId="CPH4" runat="server">
-    <div class="porkodi">
+    <div class="new">
         <asp:Button 
             ID="btnBack" 
             runat="server" 
             PostBackUrl="~/Default.aspx" 
             Text="&lt;&lt; Choose another customer"  
-            OnClick="btnBack_Click" CssClass="btn" />
+            OnClick="btnBack_Click" />
     </div>
 </asp:Content>

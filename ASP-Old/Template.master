@@ -1,15 +1,29 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Template.master.cs" Inherits="Template" %>
+﻿<%------------DARK STYLE ----------*/
+By: Jonathan Love               
+ Student ID: 000655580          
+ Description:                   
+ Master template for use in three detail 
+ pages.  I have defined four separate 
+ content zones (CPH1, CPH2, CPH3, CPH4)
+ for use in the detail pages
+/*---------------------------------*/--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Template.master.cs" Inherits="Template" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Style1.css" rel="stylesheet" />
     <title></title>
 </head>
+
 <body class="body">
+    <div class="main">
+    <div class="mainheader"></div>
     <form id="form1" runat="server">
     <div class="container">
+
+        <%--Figuring out master and detail pages was difficult for me but now I understand--%>
         <asp:ContentPlaceHolder id="CPH1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -25,6 +39,7 @@
         <asp:ContentPlaceHolder id="CPH4" runat="server">
         
         </asp:ContentPlaceHolder>
+    </div>
     </div>
     </form>
 </body>

@@ -9,6 +9,15 @@ This was done by Paul Teixeira
 This file denotes the asp and is the gui of the update customer functionality.
 It has listboxes and labels for each feild of the "Customer object"
 -->
+
+
+<%--The linking of the detail files to the mnaster as well as the necessary content 
+and class tags was done by Jon.
+    
+Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
+Paul's detail page was the easiest to restyle as he kept to standard style practices and tried not to style --%>
+
+
     <div class="paul">
         <table class="table">
             <tr class="HeaderStyle">
@@ -119,7 +128,7 @@ It has listboxes and labels for each feild of the "Customer object"
 
 <asp:Content ID="content4" ContentPlaceHolderId="CPH4" runat="server">
     <div class="paul">
-        <asp:Button ID="CancelBtn" runat="server" OnClick="CancelBtn_Click" Text="Cancel" Width="225px" CssClass="btn" />
-        <asp:Button ID="SaveBtn" runat="server" Text="Save" Width="225px" OnClick="SaveBtn_Click" CssClass="btn" />
+        <asp:Button ID="CancelBtn" runat="server" OnClick="CancelBtn_Click" Text="Cancel" Width="225px" />
+        <asp:Button ID="SaveBtn" runat="server" Text="Save" Width="225px" OnClick="SaveBtn_Click" />
     </div>
 </asp:Content>
