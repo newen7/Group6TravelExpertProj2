@@ -13,9 +13,9 @@ namespace TravelExperts.Jon
     public partial class SuppliersForm : Form
     {
         // variables
-        Supplier currentSupplier = new Supplier(-1, " ");
+        private static Supplier currentSupplier = new Supplier(-1, " ");
 
-        public Supplier CurrentSupplier
+        public static Supplier CurrentSupplier
         {
             get { return currentSupplier; }
             set { currentSupplier = value; }
@@ -44,6 +44,11 @@ namespace TravelExperts.Jon
             {
                 suppliersLbx.Items.Add(supplier.SupName);
             }
+            if (CurrentSupplier.SupplierId != -1)
+            {
+                suppliersLbx.SelectedIndex = CurrentSupplier.SupplierId;
+            }
+            
             supplierIdTxt.Clear();
             nameTxt.Clear();
         }
@@ -64,7 +69,6 @@ namespace TravelExperts.Jon
                     // Supplier ID is not in the database
                     MessageBox.Show("The Supplier ID you entered is not in the database.", "DB Error");
                 }
-                    //using TravelExperts.Jon
                 else
                 {
                     // if a valid Supplier was returned from the database display it to the user
@@ -166,18 +170,17 @@ namespace TravelExperts.Jon
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            int addSupplierId = -2;
-            TravelExperts.AddSupplierForm AddSupplierForm = new AddSupplierForm();
-            AddSupplierForm.AddSupplierId = addSupplierId;
+            int x = -2;
+            AddSupplierForm AddSupplierForm = new AddSupplierForm();
+            AddSupplierForm.CurrentSupplier.SupplierId = x;
             AddSupplierForm.ShowDialog();
             DisplaySuppliers();
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
         {
-            int addSupplierId = currentSupplier.SupplierId;
-            TravelExperts.AddSupplierForm AddSupplierForm = new AddSupplierForm();
-            AddSupplierForm.AddSupplierId = addSupplierId;
+            AddSupplierForm AddSupplierForm = new AddSupplierForm();
+            AddSupplierForm.CurrentSupplier = currentSupplier;
             AddSupplierForm.ShowDialog();
             DisplaySuppliers();
         }

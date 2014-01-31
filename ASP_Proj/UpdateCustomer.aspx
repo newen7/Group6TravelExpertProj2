@@ -2,6 +2,10 @@
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateCustomer.aspx.cs" Inherits="UpdateCustomer" MasterPageFile="~/Template.master"%>
 
+<asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
+    Update Customer
+</asp:Content>
+
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
     <!--
 This was done by Paul Teixeira

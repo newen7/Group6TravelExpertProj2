@@ -61,7 +61,7 @@ namespace TravelExperts
 
             if (result == 0)    // if they are the same day
             {
-                MessageBox.Show("Start date can't be the same as End date.", Title);                
+                MessageBox.Show("Start date can't be the same as End date.", Title);
                 return false;
             }
             else
@@ -93,7 +93,6 @@ namespace TravelExperts
                 if (result == 0 || result < 0)
                 {
                     MessageBox.Show("Base Price cannot be grather than Agency Commission", Title);
-                    price1.Focus();
                     return false;
                 }
                 return true;
@@ -101,7 +100,6 @@ namespace TravelExperts
             else
             {
                 MessageBox.Show("Base Price andAgency Commission have to be numbers", Title);
-                price1.Focus();
                 return false;
             }
         }

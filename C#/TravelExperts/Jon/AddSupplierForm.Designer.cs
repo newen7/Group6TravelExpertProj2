@@ -1,4 +1,4 @@
-﻿namespace TravelExperts
+﻿namespace TravelExperts.Jon
 {
     partial class AddSupplierForm
     {

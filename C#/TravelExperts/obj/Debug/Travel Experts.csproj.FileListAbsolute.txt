@@ -34,7 +34,6 @@ C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\De
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\bin\Debug\Travel Experts.exe
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\bin\Debug\Travel Experts.pdb
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\Travel Experts.csprojResolveAssemblyReference.cache
-C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.AddSupplierForm.resources
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.Jon.SuppliersForm.resources
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmProductInSupplier.resources
 C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmAddPackage.resources
@@ -47,3 +46,8 @@ C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\De
 C:\Users\653708\Desktop\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.LoginForm.resources
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.LoginForm.resources
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.frmProductInSupplier.resources
+C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.LoginForm.resources
+C:\Users\655580\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.Jon.AddSupplierForm.resources
+C:\Users\655580\Desktop\Group Work Backup\C#\TravelExperts\bin\Debug\Travel Experts.exe.config
+C:\Users\655580\Desktop\Group Work Backup\C#\TravelExperts\obj\Debug\Travel Experts.exe
+C:\Users\655580\Desktop\Group Work Backup\C#\TravelExperts\obj\Debug\Travel Experts.pdb

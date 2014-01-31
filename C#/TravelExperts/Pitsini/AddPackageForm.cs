@@ -53,7 +53,7 @@ namespace TravelExperts
                     newPackage.PkgEndDate = Convert.ToDateTime(dtpEndDate.Text);
                     newPackage.PkgDesc = rtxtDesc.Text;
                     newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
-                    newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgencyCommission.Text);
+                    newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgencyAdmission.Text);
 
                     newJustAddId = PackageDB.InsertPackage(newPackage);
 
@@ -102,7 +102,7 @@ namespace TravelExperts
             dtpEndDate.Text = "";
             rtxtDesc.Text = "";
             txtBasePrice.Text = "";
-            txtAgencyCommission.Text = "";
+            txtAgencyAdmission.Text = "";
         }
 
         // function for validate all input
@@ -124,9 +124,9 @@ namespace TravelExperts
                 Validator.IsDecimal(txtBasePrice) &&
                 
                 // validate agency commission
-                Validator.IsNotNull(txtAgencyCommission, "Agency Commission: ") &&
-                Validator.IsPosNum(txtAgencyCommission, "Agency Commission: ") &&
-                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyCommission);
+                Validator.IsNotNull(txtAgencyAdmission, "Base Price: ") &&
+                Validator.IsPosNum(txtAgencyAdmission, "Base Price: ") &&
+                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyAdmission);
         }        
     }
 }

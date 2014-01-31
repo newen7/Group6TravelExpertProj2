@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelExperts
+
+namespace TravelExperts.Jon
 {
     // ------------------------------------------------------------------
     // Jon's Add Supplier Form
@@ -21,30 +22,25 @@ namespace TravelExperts
     {
         // variables
         private string windowIs; // shows whether the user clicked on the add or modify button in the parent form
-        private int addSupplierId; // stores the ID of the supplier being added or modified
+        private static Supplier currentSupplier = new Supplier(-1, " "); // stores the ID of the supplier being added or modified
         public AddSupplierForm() // 
         {
             InitializeComponent();
         }
 
-        // property for the private variable addSupplierId
-        public int AddSupplierId
+        // property for the private variable currentSupplier
+        public static Supplier CurrentSupplier
         {
-            get
-            {
-                return addSupplierId;
-            }
-            set
-            {
-                addSupplierId = value;
-            }
+            get { return currentSupplier; }
+            set { currentSupplier = value; }
         }
 
         // when the form loads
         private void AddSupplierForm_Load(object sender, EventArgs e)
         {
+            CurrentSupplier = SuppliersForm.CurrentSupplier;
             // if the user is trying to add a new supplier
-            if (AddSupplierId == -2)
+            if (CurrentSupplier.SupplierId == -2)
             {
                 // change the title bar to reflect what we are trying to do
                 this.Text = "Add Supplier";
@@ -80,7 +76,7 @@ namespace TravelExperts
                 supplierIdTxt.ReadOnly = true;
 
                 // Read the supplier name the user is trying to modify into the name text box
-                supplierIdTxt.Text = AddSupplierId.ToString();
+                supplierIdTxt.Text = CurrentSupplier.SupplierId.ToString();
             }
 
         }
@@ -101,13 +97,14 @@ namespace TravelExperts
                 if (name != "")
                 {
                     // call the AddSupplier() method in the SuppliersDB class and pass it the entered name
-                    addResult = TravelExperts.Jon.SuppliersDB.AddSupplier(name);
+                    addResult = SuppliersDB.AddSupplier(name);
 
                     // if more than 0 rows were affected (realistically only one will be)
                     if (addResult > 0)
                     {
                         // Add succeeded
                         this.Close();
+                        SuppliersForm.CurrentSupplier = AddSupplierForm.CurrentSupplier;
 
                     }
 
@@ -133,17 +130,15 @@ namespace TravelExperts
                 // this variable will be set to true if/when an update to the DB succeeds
                 bool updateResult = false;
 
-                // instantiate a new Supplier Object and use the default constructor (currently the only one)
-                // to set initial values of the supplier ID passed from the parent form and name supplied by the user
-                Jon.Supplier updateSupplier = new Jon.Supplier(addSupplierId, name);
-
                 // if the name field is not empty
                 if (name != "")
                 {
+                    CurrentSupplier.SupName = nameTxt.Text;
+
                     // call the UpdateSupplier() method in the SuppliersDB class and pass it the new object
                     // when this is attempted the DB will return true or false depending on success or failure
                     // to update the records.  Store that boolean value in updateResult
-                    updateResult = TravelExperts.Jon.SuppliersDB.UpdateSupplier(updateSupplier);
+                    updateResult = SuppliersDB.UpdateSupplier(CurrentSupplier);
 
                     // if the DB update succeeded
                     if (updateResult)

@@ -5,6 +5,9 @@ and class tags was done by Jon.
     
 Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
 --%>
+<asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
+    Product Info
+</asp:Content>
 
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
     <div class="new">

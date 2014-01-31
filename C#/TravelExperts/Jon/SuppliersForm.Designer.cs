@@ -221,7 +221,7 @@
             this.ClientSize = new System.Drawing.Size(698, 391);
             this.Controls.Add(this.supplierGbx);
             this.Name = "SuppliersForm";
-            this.Text = "SuppliersForm";
+            this.Text = "Suppliers";
             this.Load += new System.EventHandler(this.SuppliersForm_Load);
             this.supplierGbx.ResumeLayout(false);
             this.supplierGbx.PerformLayout();
