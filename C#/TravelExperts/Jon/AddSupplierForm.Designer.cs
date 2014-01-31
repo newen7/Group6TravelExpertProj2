@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.addModSupplierGbx = new System.Windows.Forms.GroupBox();
+            this.supplierIdLbl = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.lblPkgName = new System.Windows.Forms.Label();
-            this.supplierIdLbl = new System.Windows.Forms.Label();
-            this.supplierIdTxt = new System.Windows.Forms.TextBox();
+            this.supplierLbl = new System.Windows.Forms.Label();
             this.addModSupplierGbx.SuspendLayout();
             this.SuspendLayout();
             // 
             // addModSupplierGbx
             // 
+            this.addModSupplierGbx.Controls.Add(this.supplierIdLbl);
             this.addModSupplierGbx.Controls.Add(this.closeBtn);
             this.addModSupplierGbx.Controls.Add(this.saveBtn);
             this.addModSupplierGbx.Controls.Add(this.nameTxt);
             this.addModSupplierGbx.Controls.Add(this.lblPkgName);
-            this.addModSupplierGbx.Controls.Add(this.supplierIdLbl);
-            this.addModSupplierGbx.Controls.Add(this.supplierIdTxt);
+            this.addModSupplierGbx.Controls.Add(this.supplierLbl);
             this.addModSupplierGbx.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold);
             this.addModSupplierGbx.Location = new System.Drawing.Point(13, 13);
             this.addModSupplierGbx.Name = "addModSupplierGbx";
@@ -53,6 +53,15 @@
             this.addModSupplierGbx.TabIndex = 0;
             this.addModSupplierGbx.TabStop = false;
             this.addModSupplierGbx.Text = "Add Supplier";
+            // 
+            // supplierIdLbl
+            // 
+            this.supplierIdLbl.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supplierIdLbl.Location = new System.Drawing.Point(120, 45);
+            this.supplierIdLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.supplierIdLbl.Name = "supplierIdLbl";
+            this.supplierIdLbl.Size = new System.Drawing.Size(97, 21);
+            this.supplierIdLbl.TabIndex = 73;
             // 
             // closeBtn
             // 
@@ -83,7 +92,6 @@
             this.nameTxt.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.nameTxt.Location = new System.Drawing.Point(86, 79);
             this.nameTxt.Name = "nameTxt";
-            this.nameTxt.ReadOnly = true;
             this.nameTxt.Size = new System.Drawing.Size(243, 28);
             this.nameTxt.TabIndex = 70;
             // 
@@ -98,24 +106,16 @@
             this.lblPkgName.TabIndex = 69;
             this.lblPkgName.Text = "Name:";
             // 
-            // supplierIdLbl
+            // supplierLbl
             // 
-            this.supplierIdLbl.AutoSize = true;
-            this.supplierIdLbl.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplierIdLbl.Location = new System.Drawing.Point(24, 45);
-            this.supplierIdLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.supplierIdLbl.Name = "supplierIdLbl";
-            this.supplierIdLbl.Size = new System.Drawing.Size(97, 21);
-            this.supplierIdLbl.TabIndex = 68;
-            this.supplierIdLbl.Text = "Supplier ID:";
-            // 
-            // supplierIdTxt
-            // 
-            this.supplierIdTxt.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.supplierIdTxt.Location = new System.Drawing.Point(124, 42);
-            this.supplierIdTxt.Name = "supplierIdTxt";
-            this.supplierIdTxt.Size = new System.Drawing.Size(57, 28);
-            this.supplierIdTxt.TabIndex = 67;
+            this.supplierLbl.AutoSize = true;
+            this.supplierLbl.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supplierLbl.Location = new System.Drawing.Point(24, 45);
+            this.supplierLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.supplierLbl.Name = "supplierLbl";
+            this.supplierLbl.Size = new System.Drawing.Size(97, 21);
+            this.supplierLbl.TabIndex = 68;
+            this.supplierLbl.Text = "Supplier ID:";
             // 
             // AddSupplierForm
             // 
@@ -138,9 +138,9 @@
         private System.Windows.Forms.GroupBox addModSupplierGbx;
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Label lblPkgName;
-        private System.Windows.Forms.Label supplierIdLbl;
-        private System.Windows.Forms.TextBox supplierIdTxt;
+        private System.Windows.Forms.Label supplierLbl;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Label supplierIdLbl;
     }
 }

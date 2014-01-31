@@ -168,12 +168,11 @@ namespace TravelExperts.Jon
         }
 
         // Inserts one supplier by supplierId
-        public static int AddSupplier(string supName)
+        public static Supplier AddSupplier(string supName)
         {
             
-            int maxId = 13597;
+            int maxId = -1;
             Supplier supplier = new Supplier(maxId, supName);
-            int result = 0;
 
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
@@ -195,6 +194,8 @@ namespace TravelExperts.Jon
             string addString = "INSERT " +
                                "INTO Suppliers (SupplierId, SupName) " +
                                "VALUES (@SupplierId, @SupName)";
+         
+
             try
             {
                 connection.Open();
@@ -221,14 +222,18 @@ namespace TravelExperts.Jon
                     // this also took me over an hour to figure out... sigh... :)
                     connection.Open();
 
+                    
                     // add the ID
                     addCommand.Parameters.AddWithValue("@SupplierId", maxId);
 
                     // add the name
                     addCommand.Parameters.AddWithValue("@SupName", supName);
 
-                    // return the result which in this case will be the number of rows affected
-                    result = addCommand.ExecuteNonQuery();
+                    addCommand.ExecuteNonQuery();
+
+                    // Set the supplier object with the new values
+                    supplier.SupplierId = maxId;
+                    supplier.SupName = supName;
                 }
             }
             catch (Exception ex)
@@ -240,7 +245,8 @@ namespace TravelExperts.Jon
                 // close the second connection
                 connection.Close();
             }
-            return result;
+            // return the supplier object
+            return supplier;
         }
 
         // Deletes one supplier by supplierId

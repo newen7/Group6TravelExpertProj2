@@ -13,6 +13,7 @@ namespace TravelExperts.Jon
     public partial class SuppliersForm : Form
     {
         // variables
+        int currentSelection;
         private static Supplier currentSupplier = new Supplier(-1, " ");
 
         public static Supplier CurrentSupplier
@@ -31,6 +32,8 @@ namespace TravelExperts.Jon
 
         private void SuppliersForm_Load(object sender, EventArgs e)
         {
+            CurrentSupplier = SuppliersForm.CurrentSupplier;
+            currentSelection = CurrentSupplier.SupplierId;
             DisplaySuppliers();
             modifyBtn.Enabled = false;
             deleteBtn.Enabled = false;            
@@ -46,7 +49,7 @@ namespace TravelExperts.Jon
             }
             if (CurrentSupplier.SupplierId != -1)
             {
-                suppliersLbx.SelectedIndex = CurrentSupplier.SupplierId;
+                suppliersLbx.SetSelected((currentSelection), true);
             }
             
             supplierIdTxt.Clear();
@@ -68,6 +71,8 @@ namespace TravelExperts.Jon
                 {
                     // Supplier ID is not in the database
                     MessageBox.Show("The Supplier ID you entered is not in the database.", "DB Error");
+                    suppliersLbx.SetSelected((currentSelection), true);
+
                 }
                 else
                 {
@@ -83,6 +88,8 @@ namespace TravelExperts.Jon
             {
                 // Package ID is not a positive integer
                 MessageBox.Show("The Supplier ID must be a positive integer");
+                currentSelection = CurrentSupplier.SupplierId;
+                supplierIdTxt.Text = currentSelection.ToString();
             }
         }
 
@@ -91,7 +98,9 @@ namespace TravelExperts.Jon
             supplierIdTxt.Clear();
             if (suppliersLbx.SelectedIndex > -1)
             {
+
                 // enable the modify and delete buttons
+                currentSelection = CurrentSupplier.SupplierId;
                 modifyBtn.Enabled = true;
                 deleteBtn.Enabled = true;
             }
@@ -170,19 +179,23 @@ namespace TravelExperts.Jon
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            int x = -2;
             AddSupplierForm AddSupplierForm = new AddSupplierForm();
-            AddSupplierForm.CurrentSupplier.SupplierId = x;
+            AddSupplierForm.WindowIs = "add";
             AddSupplierForm.ShowDialog();
+            Supplier x = CurrentSupplier;
             DisplaySuppliers();
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
         {
+
             AddSupplierForm AddSupplierForm = new AddSupplierForm();
+            AddSupplierForm.WindowIs = "modify";
+            currentSelection = suppliersLbx.SelectedIndex;
             AddSupplierForm.CurrentSupplier = currentSupplier;
             AddSupplierForm.ShowDialog();
             DisplaySuppliers();
+            suppliersLbx.SelectedItem = CurrentSupplier;
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

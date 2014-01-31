@@ -23,10 +23,6 @@ namespace TravelExperts.Jon
         // variables
         private string windowIs; // shows whether the user clicked on the add or modify button in the parent form
         private static Supplier currentSupplier = new Supplier(-1, " "); // stores the ID of the supplier being added or modified
-        public AddSupplierForm() // 
-        {
-            InitializeComponent();
-        }
 
         // property for the private variable currentSupplier
         public static Supplier CurrentSupplier
@@ -35,48 +31,56 @@ namespace TravelExperts.Jon
             set { currentSupplier = value; }
         }
 
+        public string WindowIs
+        {
+            get { return windowIs; }
+            set { windowIs = value; }
+        }
+
+        public AddSupplierForm() // 
+        {
+            InitializeComponent();
+        }
+
         // when the form loads
         private void AddSupplierForm_Load(object sender, EventArgs e)
         {
             CurrentSupplier = SuppliersForm.CurrentSupplier;
             // if the user is trying to add a new supplier
-            if (CurrentSupplier.SupplierId == -2)
+            if (windowIs == "add")
             {
                 // change the title bar to reflect what we are trying to do
                 this.Text = "Add Supplier";
 
-                // set the windowIs variable so we know what operation the user is trying to accomplish
-                windowIs = "add";
+                // enable the name text box so that the user can input text into it
                 nameTxt.ReadOnly = false;
+                nameTxt.Focus();
 
                 // hide the supplier ID controls
+                supplierLbl.Visible = false;
                 supplierIdLbl.Visible = false;
-                supplierIdTxt.Visible = false;
-
-                nameTxt.Enabled = true;
-
             }
 
             // if the user is trying to modify an existing supplier
-            else
+            else if (windowIs == "modify")
             {
                 // change the title bar to reflect what we are trying to do
                 this.Text = "Modify Supplier";
-
-                // set the windowIs variable so we know what operation the user is trying to accomplish
-                windowIs = "modify";
 
                 // change the title in the group box (looks sexy, default is add)
                 addModSupplierGbx.Text = "Modify Supplier";
 
                 // enable the name text box so that the user can input text into it
                 nameTxt.ReadOnly = false;
-
-                // leave the ID field visible but don't allow the user to alter it
-                supplierIdTxt.ReadOnly = true;
+                nameTxt.Text = CurrentSupplier.SupName;
 
                 // Read the supplier name the user is trying to modify into the name text box
-                supplierIdTxt.Text = CurrentSupplier.SupplierId.ToString();
+                supplierIdLbl.Text = CurrentSupplier.SupplierId.ToString();
+                nameTxt.Focus();
+            }
+            else
+            {
+                MessageBox.Show("WTF!!!");
             }
 
         }
@@ -90,29 +94,27 @@ namespace TravelExperts.Jon
             // if the user is trying to add a new supplier
             if (windowIs == "add")
             {
-                // will hold the result of the DB add attempt (number of rows affected)
-                int addResult;
-
                 // if the name field is not empty
                 if (name != "")
                 {
                     // call the AddSupplier() method in the SuppliersDB class and pass it the entered name
-                    addResult = SuppliersDB.AddSupplier(name);
+                    CurrentSupplier = SuppliersDB.AddSupplier(name);
 
                     // if more than 0 rows were affected (realistically only one will be)
-                    if (addResult > 0)
+                    if (CurrentSupplier.SupplierId > -1)
                     {
                         // Add succeeded
+                        AddSupplierForm.CurrentSupplier.SupName = nameTxt.Text;
+                        SuppliersForm.CurrentSupplier = CurrentSupplier;
                         this.Close();
-                        SuppliersForm.CurrentSupplier = AddSupplierForm.CurrentSupplier;
-
+                        
                     }
 
                     else
                     {
                         // Add failed
                         MessageBox.Show("Not added.  DB Error");
-                        supplierIdTxt.Focus();
+                        nameTxt.Focus();
                     }
                 }
 
