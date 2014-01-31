@@ -12,13 +12,20 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
     <div class="new">
         <div class="container">
+        <asp:Button 
+            ID="btnSignOut" 
+            runat="server" 
+            PostBackUrl="~/Default.aspx" 
+            Text="Sign Out"  
+            OnClick="btnBack_Click" />
+            <br />
         <asp:DetailsView ID="DetailsView" runat="server"
             CellPadding="3" 
             AutoGenerateRows="False"
             DataSourceID="ObjectDataSource1" 
             GridLines="Horizontal"
             CssClass="DetailsList"
-            HeaderText="Customer Information">
+            HeaderText="Customer Information" >
             <AlternatingRowStyle BackColor="#444444" />
                
             <Fields>
@@ -92,21 +99,19 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
             </SelectParameters>
 
         </asp:ObjectDataSource>
+        <br />
+        <asp:Button ID="Button1" runat="server" PostBackUrl="~/CustomerUpdates.aspx" Text="Update your information" Width="189px" />
     </div>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderId="CPH2" runat="server">
     <div class="new">
-        <h3>This is Pitsini&#39;s description</h3>
+        <h3>
+            <asp:Label ID="lblWelcome" runat="server"></asp:Label>
+        </h3>
         <p>
-            This page is continued from Default.aspx [Customer Display-Porkodi&#39;s part]. When this page loades, it gets the session state is called [&quot;CustID&quot;] which stores Customer ID from the previous page and sent it to 2 ObjectDataSources.</p>
-    
-        <p>
-            - 1st ObjectDatasource: to show customer information on &quot;DetailsView&quot; to let user knkow it&#39;s the right customer that he/she is looking for.</p>
-        <p>
-            - 2st ObjectDataSource: to show infomation on &quot;GridView&quot; about booking details and products that displayed customer has booked. Also have Total cost owing for all products for those customer.</p>
-        <p>
-            For more explanation &gt;&gt; in the ProductInfo code file.</p>
+            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/Img01.jpg" />
+        </p>
     </div>
 </asp:Content>
 
@@ -214,11 +219,5 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
 
 <asp:Content ID="Content2" ContentPlaceHolderId="CPH4" runat="server">
     <div class="new">
-        <asp:Button 
-            ID="btnBack" 
-            runat="server" 
-            PostBackUrl="~/Default.aspx" 
-            Text="&lt;&lt; Choose another customer"  
-            OnClick="btnBack_Click" />
     </div>
 </asp:Content>

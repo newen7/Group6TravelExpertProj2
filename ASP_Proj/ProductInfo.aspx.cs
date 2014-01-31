@@ -44,13 +44,18 @@ public partial class ProductInfo : System.Web.UI.Page
             Session.Add("CustID", id);
         }
         else
+        {
             id = Convert.ToInt32(Session["CustID"]);
+
+            string name = CustomersDB.GetCustomerID(id.ToString()).CustFirstName;
+            lblWelcome.Text = "Welcome, " + name;
+        }
     }
 
     // on click event -- "Choose another customer" button
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Session.Add("CustID", null);    // reset Session State
+        Session.Add("CustID", null);    // reset Session State as customer wants to signout
     }
 
     // event -- after a row has been databound [in GridView]
@@ -67,5 +72,7 @@ public partial class ProductInfo : System.Web.UI.Page
                 e.Row.Cells[7].Text = totalCost.ToString("c");
             }
         }   // end - if statement
+        
     }
+    
 }
