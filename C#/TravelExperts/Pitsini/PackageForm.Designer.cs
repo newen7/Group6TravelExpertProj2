@@ -33,7 +33,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.rtxtDesc = new System.Windows.Forms.RichTextBox();
             this.lblAgencyAdmission = new System.Windows.Forms.Label();
-            this.txtAgencyAdmission = new System.Windows.Forms.TextBox();
+            this.txtAgencyCommission = new System.Windows.Forms.TextBox();
             this.lblBasePrice = new System.Windows.Forms.Label();
             this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.lblEndDate = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.rtxtDesc);
             this.groupBox1.Controls.Add(this.lblAgencyAdmission);
-            this.groupBox1.Controls.Add(this.txtAgencyAdmission);
+            this.groupBox1.Controls.Add(this.txtAgencyCommission);
             this.groupBox1.Controls.Add(this.lblBasePrice);
             this.groupBox1.Controls.Add(this.txtBasePrice);
             this.groupBox1.Controls.Add(this.lblEndDate);
@@ -89,7 +89,7 @@
             this.cboPkgName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPkgName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
             this.cboPkgName.FormattingEnabled = true;
-            this.cboPkgName.Location = new System.Drawing.Point(167, 99);
+            this.cboPkgName.Location = new System.Drawing.Point(171, 99);
             this.cboPkgName.Name = "cboPkgName";
             this.cboPkgName.Size = new System.Drawing.Size(213, 28);
             this.cboPkgName.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnSearch.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(273, 54);
+            this.btnSearch.Location = new System.Drawing.Point(277, 54);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(107, 34);
             this.btnSearch.TabIndex = 61;
@@ -121,27 +121,27 @@
             // 
             this.lblAgencyAdmission.AutoSize = true;
             this.lblAgencyAdmission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgencyAdmission.Location = new System.Drawing.Point(13, 259);
+            this.lblAgencyAdmission.Location = new System.Drawing.Point(5, 259);
             this.lblAgencyAdmission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAgencyAdmission.Name = "lblAgencyAdmission";
-            this.lblAgencyAdmission.Size = new System.Drawing.Size(146, 21);
+            this.lblAgencyAdmission.Size = new System.Drawing.Size(158, 21);
             this.lblAgencyAdmission.TabIndex = 55;
-            this.lblAgencyAdmission.Text = "Agency Admission:";
+            this.lblAgencyAdmission.Text = "Agency Commission:";
             // 
-            // txtAgencyAdmission
+            // txtAgencyCommission
             // 
-            this.txtAgencyAdmission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtAgencyAdmission.Location = new System.Drawing.Point(167, 256);
-            this.txtAgencyAdmission.Name = "txtAgencyAdmission";
-            this.txtAgencyAdmission.ReadOnly = true;
-            this.txtAgencyAdmission.Size = new System.Drawing.Size(213, 28);
-            this.txtAgencyAdmission.TabIndex = 11;
+            this.txtAgencyCommission.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
+            this.txtAgencyCommission.Location = new System.Drawing.Point(171, 256);
+            this.txtAgencyCommission.Name = "txtAgencyCommission";
+            this.txtAgencyCommission.ReadOnly = true;
+            this.txtAgencyCommission.Size = new System.Drawing.Size(213, 28);
+            this.txtAgencyCommission.TabIndex = 11;
             // 
             // lblBasePrice
             // 
             this.lblBasePrice.AutoSize = true;
             this.lblBasePrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasePrice.Location = new System.Drawing.Point(73, 219);
+            this.lblBasePrice.Location = new System.Drawing.Point(78, 223);
             this.lblBasePrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBasePrice.Name = "lblBasePrice";
             this.lblBasePrice.Size = new System.Drawing.Size(85, 21);
@@ -151,7 +151,7 @@
             // txtBasePrice
             // 
             this.txtBasePrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtBasePrice.Location = new System.Drawing.Point(167, 216);
+            this.txtBasePrice.Location = new System.Drawing.Point(171, 216);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.ReadOnly = true;
             this.txtBasePrice.Size = new System.Drawing.Size(213, 28);
@@ -161,7 +161,7 @@
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(81, 182);
+            this.lblEndDate.Location = new System.Drawing.Point(86, 186);
             this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(78, 21);
@@ -171,7 +171,7 @@
             // txtEndDate
             // 
             this.txtEndDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtEndDate.Location = new System.Drawing.Point(167, 179);
+            this.txtEndDate.Location = new System.Drawing.Point(171, 179);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.ReadOnly = true;
             this.txtEndDate.Size = new System.Drawing.Size(213, 28);
@@ -181,7 +181,7 @@
             // 
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartDate.Location = new System.Drawing.Point(74, 142);
+            this.lblStartDate.Location = new System.Drawing.Point(79, 146);
             this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(84, 21);
@@ -191,7 +191,7 @@
             // txtStartDate
             // 
             this.txtStartDate.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtStartDate.Location = new System.Drawing.Point(167, 139);
+            this.txtStartDate.Location = new System.Drawing.Point(171, 139);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.ReadOnly = true;
             this.txtStartDate.Size = new System.Drawing.Size(213, 28);
@@ -201,7 +201,7 @@
             // 
             this.lblPkgName.AutoSize = true;
             this.lblPkgName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPkgName.Location = new System.Drawing.Point(104, 102);
+            this.lblPkgName.Location = new System.Drawing.Point(109, 106);
             this.lblPkgName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgName.Name = "lblPkgName";
             this.lblPkgName.Size = new System.Drawing.Size(55, 21);
@@ -212,7 +212,7 @@
             // 
             this.lblPkgId.AutoSize = true;
             this.lblPkgId.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPkgId.Location = new System.Drawing.Point(67, 61);
+            this.lblPkgId.Location = new System.Drawing.Point(72, 65);
             this.lblPkgId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgId.Name = "lblPkgId";
             this.lblPkgId.Size = new System.Drawing.Size(92, 21);
@@ -222,7 +222,7 @@
             // txtPkgId
             // 
             this.txtPkgId.Font = new System.Drawing.Font("Palatino Linotype", 11.25F);
-            this.txtPkgId.Location = new System.Drawing.Point(167, 58);
+            this.txtPkgId.Location = new System.Drawing.Point(171, 58);
             this.txtPkgId.Name = "txtPkgId";
             this.txtPkgId.Size = new System.Drawing.Size(100, 28);
             this.txtPkgId.TabIndex = 1;
@@ -335,7 +335,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPackage";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Package  ";
             this.Load += new System.EventHandler(this.frmPackage_Load);
             this.groupBox1.ResumeLayout(false);
@@ -354,7 +354,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.RichTextBox rtxtDesc;
         private System.Windows.Forms.Label lblAgencyAdmission;
-        private System.Windows.Forms.TextBox txtAgencyAdmission;
+        private System.Windows.Forms.TextBox txtAgencyCommission;
         private System.Windows.Forms.Label lblBasePrice;
         private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.Label lblEndDate;

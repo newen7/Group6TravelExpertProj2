@@ -20,8 +20,8 @@ namespace TravelExperts
 {
     public partial class frmPackage : Form
     {
-        int index;
-        int chosenPkgId = 0;    // keep id that chosen by selecting the package listbox
+        int index = 0;
+        int chosenPkgId = 1;    // keep id that chosen by selecting the package listbox
         Package aPackage;   // package for showing data in text boxes
 
         // need to use variable from modify form
@@ -68,13 +68,36 @@ namespace TravelExperts
 
             // if user just came back from ModifyPkg Form
             if (result == DialogResult.OK)
-            {
-                chosenPkgId = AddPackageForm.newJustAddId;                    
-                aPackage = PackageDB.GetPackageByID(chosenPkgId);
-                DisplayListOfPackage();                
-                DisplayPackageAndProduct();
+            { 
+                try
+                {
+                    // get the list of packages data from DB
+                    ListOfPackages = PackageDB.GetListOfPackage();
 
-                ModifyPackageForm.selectedPkgId = 0; // reset variable
+                    chosenPkgId = AddPackageForm.newJustAddId;
+                    aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                    DisplayListOfPackage();
+                    DisplayPackageAndProduct();
+
+                    // get first package as a default
+                    lstAllPackage.SelectedIndex = lstAllPackage.Items.Count - 1;
+                    index = lstAllPackage.SelectedIndex;
+                    lstAllPackage.SelectedIndex = index;
+
+                }
+                catch (DBConcurrencyException)  // number of rows affected equals zero
+                {
+                    MessageBox.Show("Concurrency error occurred. Some changes did not happen",
+                        "Concurrency error");
+                }
+                catch (SqlException ex)  // SQL Server returns a warning or error
+                {
+                    MessageBox.Show("Database error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)    // any other error
+                {
+                    MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
+                } 
             }     
         
         }
@@ -87,11 +110,17 @@ namespace TravelExperts
         private void frmPackage_Load(object sender, EventArgs e)
         {            
             try
-            {
+            {         
                 // get the list of packages data from DB
                 ListOfPackages = PackageDB.GetListOfPackage();
-                DisplayListOfPackage();
-                txtPkgId.Focus();                
+                DisplayListOfPackage();                
+                txtPkgId.Focus();
+
+                // get first package as a default
+                lstAllPackage.SelectedIndex = index;
+                aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                DisplayPackageAndProduct();              
+
             }
             catch (DBConcurrencyException)  // number of rows affected equals zero
             {
@@ -130,12 +159,14 @@ namespace TravelExperts
             {
                 if (lstAllPackage.Items.Count > 0)
                 {
+                    
+
                     string[] separators = new string[] { " --- " };
                     chosenPkgId = Convert.ToInt32(lstAllPackage.SelectedItem.ToString().Split(separators, StringSplitOptions.None)[0]);
 
                     aPackage = PackageDB.GetPackageByID(chosenPkgId);
                     DisplayPackageAndProduct();
-
+                    
                     // store index of listbox
                     index = lstAllPackage.SelectedIndex;
                 }
@@ -160,7 +191,12 @@ namespace TravelExperts
             try
             {
                 aPackage = PackageDB.GetPackageByName(cboPkgName.SelectedItem.ToString());
-                DisplayPackageAndProduct();  
+                DisplayPackageAndProduct();
+
+                // collect index of combo box and PackageID
+                index = cboPkgName.SelectedIndex;
+                chosenPkgId = aPackage.PackageId;
+                lstAllPackage.SelectedIndex = index;    // hilights on listbox in the same packager
             }
             catch (DBConcurrencyException)  // number of rows affected equals zero
             {
@@ -178,7 +214,7 @@ namespace TravelExperts
         }
 
         private void DisplayPackageAndProduct()
-        {
+        {            
             chosenPkgId = aPackage.PackageId;
             txtPkgId.Text = aPackage.PackageId.ToString();
             cboPkgName.SelectedItem = aPackage.PkgName.ToString();
@@ -186,7 +222,7 @@ namespace TravelExperts
             txtEndDate.Text = aPackage.PkgEndDate.ToShortDateString();
             rtxtDesc.Text = aPackage.PkgDesc;
             txtBasePrice.Text = aPackage.PkgBasePrice.ToString("c");
-            txtAgencyAdmission.Text = aPackage.PkgAgencyCommission.ToString("c");
+            txtAgencyCommission.Text = aPackage.PkgAgencyCommission.ToString("c");
 
             ListOfProducts = PackageDB.GetListOfProduct(aPackage.PackageId);
             lstProduct.Items.Clear();
@@ -198,16 +234,19 @@ namespace TravelExperts
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(IsValidData())
+            if (IsValidData())
             {
                 try
                 {
                     aPackage = PackageDB.GetPackageByID(Convert.ToInt32(txtPkgId.Text));
                     if (aPackage != null)
+                    {
                         DisplayPackageAndProduct();
+                    }
                     else   // don't have PackageID that user try to search
                     {
                         MessageBox.Show("Package ID: " + txtPkgId.Text + " is not found in Database.");
+
                         txtPkgId.Focus();
                         txtPkgId.SelectAll();
                     }
@@ -226,6 +265,8 @@ namespace TravelExperts
                     MessageBox.Show("Other unanticipated error # " + ex.Message, ex.GetType().ToString());
                 }
             }
+       
+                ResetData();            
         }
         
         private bool IsValidData()
@@ -242,6 +283,7 @@ namespace TravelExperts
             {
                 // send packageId to modify form
                 ModifyPackageForm.selectedPkgId = chosenPkgId;
+                                 
 
                 // show Modify form
                 DialogResult result;
@@ -249,18 +291,32 @@ namespace TravelExperts
 
                 // if user just came back from ModifyPkg Form
                 if (result == DialogResult.OK)
-                {
-                    
-                    chosenPkgId = ModifyPackageForm.selectedPkgId;                    
-                    aPackage = PackageDB.GetPackageByID(chosenPkgId);
-                    DisplayListOfPackage();
-                    DisplayPackageAndProduct();
+                {                    
+                    chosenPkgId = ModifyPackageForm.selectedPkgId;        
 
                     ModifyPackageForm.selectedPkgId = 0; // reset variable
+
+                    // get the list of packages data from DB
+                    ListOfPackages = PackageDB.GetListOfPackage();
+                    DisplayListOfPackage();
+                    txtPkgId.Focus();
+
+                    // get first package as a default
+                    lstAllPackage.SelectedIndex = index;
+                    aPackage = PackageDB.GetPackageByID(chosenPkgId);
+                    DisplayPackageAndProduct();
                 }
             }
             else  // ask user to choose package before click modify button
                 MessageBox.Show("Please select package before modify.");
+        }
+
+        // clear all data
+        private void ResetData()
+        {
+            lstAllPackage.SelectedIndex = index;
+            aPackage = PackageDB.GetPackageByID(chosenPkgId);
+            DisplayPackageAndProduct();
         }
     }
 }

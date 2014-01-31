@@ -19,20 +19,7 @@ namespace TravelExperts
         {
             InitializeComponent();
         }
-
-        //private int addSupplierId;
-        //public int AddSupplierId
-        //{
-        //    get
-        //    {
-        //        return addSupplierId;
-        //    }
-        //    set
-        //    {
-        //        addSupplierId = value;
-        //    }
-        //}
-
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -53,7 +40,7 @@ namespace TravelExperts
                     newPackage.PkgEndDate = Convert.ToDateTime(dtpEndDate.Text);
                     newPackage.PkgDesc = rtxtDesc.Text;
                     newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
-                    newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgencyAdmission.Text);
+                    newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgencyCommission.Text);
 
                     newJustAddId = PackageDB.InsertPackage(newPackage);
 
@@ -61,13 +48,12 @@ namespace TravelExperts
                     {
                         // if cannot update data. It will show an error
                         MessageBox.Show("Somthing went wrong with Database. " +
-                            "Please check with your Admin.", "Database Error");
+                            "Please check with your Administrator.", "Database Error");
                         this.DialogResult = DialogResult.Retry;
                     }
                     else
                     {
                         // if updating is successful
-                        MessageBox.Show("Insert Successful.", "Alert");
                         MessageBox.Show("Insert Successful.", "Alert");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -102,7 +88,7 @@ namespace TravelExperts
             dtpEndDate.Text = "";
             rtxtDesc.Text = "";
             txtBasePrice.Text = "";
-            txtAgencyAdmission.Text = "";
+            txtAgencyCommission.Text = "";
         }
 
         // function for validate all input
@@ -124,9 +110,9 @@ namespace TravelExperts
                 Validator.IsDecimal(txtBasePrice) &&
                 
                 // validate agency commission
-                Validator.IsNotNull(txtAgencyAdmission, "Base Price: ") &&
-                Validator.IsPosNum(txtAgencyAdmission, "Base Price: ") &&
-                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyAdmission);
+                Validator.IsNotNull(txtAgencyCommission, "Agency Commission: ") &&
+                Validator.IsPosNum(txtAgencyCommission, "Agency Commission: ") &&
+                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyCommission);
         }        
     }
 }
