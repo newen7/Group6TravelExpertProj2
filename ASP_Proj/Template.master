@@ -31,8 +31,9 @@ By: Jonathan Love
     <div class="container">
 
         <%--Figuring out master and detail pages was difficult for me but now I understand--%>
+
         <asp:ContentPlaceHolder id="menu" runat="server">
-        
+
         </asp:ContentPlaceHolder>
 
         <asp:ContentPlaceHolder id="CPH1" runat="server">

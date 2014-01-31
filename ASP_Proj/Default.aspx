@@ -12,6 +12,17 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
     Main Page
 </asp:Content>
 
+<asp:Content ID="menu" ContentPlaceHolderId="menu" runat="server">
+    <div class="menu">
+        <ul>
+            <li><a class="active" href="Default.aspx">Home</a></li>
+            <div id="separator"></div>
+            <li><a href="Registration.aspx">Registration</a></li>
+            <li><a href="Login.aspx">Login</a></li>
+        </ul>
+    </div>
+</asp:Content>
+
 <asp:Content ID="dropdown" ContentPlaceHolderId="CPH1" runat="server">
 
 </asp:Content>
