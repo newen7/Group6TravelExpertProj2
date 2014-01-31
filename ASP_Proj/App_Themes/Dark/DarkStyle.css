@@ -27,7 +27,7 @@ html {
 /* main container that displays a border around all elements */ 
 .main {
     background-color: #111;
-    height: 900px;
+    height: 1200px;
     border: solid 1px #333;
 }
 
@@ -45,6 +45,25 @@ html {
     background-color: #333;
     font-weight:bold;
     font-size:18px;
+}
+
+.circle {
+    width:300px;
+    height:300px;
+    border-radius:50% 0;
+    border: 5px solid #FB0;
+    float:left;
+    margin: 20px 60px;
+    overflow:hidden;
+}
+
+.caption {
+    margin: -15px 60px 10px 60px;
+    width:300px;
+    float:left;
+    text-align:center;
+    font-weight:bold;
+    
 }
 
 ul {
@@ -80,8 +99,27 @@ a:hover, a:active, .active a:link, .active a:visited  {
 #separator {
     float:left;
     height:45px;
-    width: 600px;
+    width: 604px;
     background-color:#333;
+    text-align:right;
+}
+
+.login {
+    margin: 40px 0px 40px 40px;
+    width: 300px;
+    float:left;
+}
+
+.login h3 {
+    margin-left:-5px;
+}
+
+.login .label {
+    margin: 30px 5px;
+}
+
+.login .textbox {
+    margin: 30px 5px;
 }
 
 /* I love H3 */ 
@@ -185,7 +223,7 @@ p {
 
 #GridViewProduct {
     border-radius: 5px;
-    border-color: #333;
+    border: solid 1px #333;
     margin: 10px;
     background-color: #222;
     width: 800px;
@@ -203,16 +241,32 @@ p {
     vertical-align: top;
 }
 
-#lblAlert .lblAlert {
+.paul h3 {
+    color:#fff;
+}
+
+.paul .errors {
+    margin-top:40px;
+    width:300px;
+    height:300px;
+    float:left;
+    background-image:url('..img/arr4.jpg');
+
+}
+
+.lblAlert {
     color: red;
+    font-size:20px;
+    margin-left:20px;
+    font-weight:bold;
 }
 
 .table {
     border-radius: 5px;
-    border-color: #333;
+    border: solid 1px #333;
     margin: 10px;
     background-color: #222;
-    width: 300px;
+    width: 400px;
     font-size: 16px;
     font-weight: bold;
     float:left;
@@ -226,15 +280,17 @@ p {
 
 .col2 {
     width: 100px;
-    padding:2px;
+    padding:2px 5px;
 }
 
 .row1 {
     background-color: #222;
+    height:45px;
 }
 
 .row2 {
     background-color: #444;
+    height:45px;
 }
 
 
