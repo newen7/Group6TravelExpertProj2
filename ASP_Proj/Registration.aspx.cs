@@ -32,7 +32,7 @@ public partial class UpdateCustomer : System.Web.UI.Page
     }
     protected void SaveBtn_Click(object sender, EventArgs e) //on save button click
     {
-        if (IsValid)//checks isValid to confirm that the validators(agentId range,firstname & lastname required) in the aspx did not return a false
+        if (IsValid)//checks isValid to confirm that the validators in the aspx did not return a false
         {
             NewCustomer = new Customers();//sets the object from global scope to a new blank constructor (clearing the object for repurposing)
             NewCustomer.CustomerID = null;
@@ -50,7 +50,7 @@ public partial class UpdateCustomer : System.Web.UI.Page
             NewCustomer.AgentId = null; //this one must be stored as int so i do a convert.to on it
             try
             {
-                if (CustomersDB.Register(NewCustomer)) //pass object to static CustomerDB class method UpdateCustomer this returns true on success false on failure (also throws exception so i do not bother with false return)
+                if (CustomersDB.Register(UsernameTxt.Text,Password1Txt.Text,NewCustomer)) //pass object to static CustomerDB class method UpdateCustomer this returns true on success false on failure (also throws exception so i do not bother with false return)
                 {
                     HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=\"JavaScript\">alert(\"Registration Complete, Welcome to Travel Experts \n \")</SCRIPT>");//inject a javascript alert which will tell user of the saves success
                     Response.Redirect("~/Default.aspx");//then return user to previous page
@@ -67,4 +67,19 @@ public partial class UpdateCustomer : System.Web.UI.Page
           //if not valid, possibly do something else? javascript "Update could not be made?" Exception would catch above this and Exceptions are generally more verbose
         }
     }
-}
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+       switch(CountryTxt.SelectedItem.ToString())
+       {
+           case "Canada":
+                RegularExpressionValidator4.ValidationExpression = "^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$"; //reg expression for canada
+               break;
+           case "United States":
+                RegularExpressionValidator4.ValidationExpression = "^\\d{5}(-\\d{4})?$";//regexpression for states
+               break;
+           default:
+               RegularExpressionValidator4.ValidationExpression = "(^\\d{5}(-\\d{4})?$)|(^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$)"; //just incase it does both us and canada
+               break;
+        }
+    }
+    }
