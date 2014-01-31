@@ -205,37 +205,37 @@ public static class CustomersDB
         }
         return true;
     }
-
-    public static bool Register(Customers NewCustomer)
-    {
-        SqlConnection connection = TravelExpertsDB.GetConnection();
-        string registerString = "INSERT INTO Customers (CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail) VALUES('"
-        + NewCustomer.CustFirstName + "', '"
-        + NewCustomer.CustLastName + "', '"
-        + NewCustomer.CustAddress + "', '"
-        + NewCustomer.CustCity + "', '"
-        + NewCustomer.CustProv + "', '"
-        + NewCustomer.CustPostal + "', '"
-        + NewCustomer.CustCountry + "', '"
-        + NewCustomer.CustHomePhone + "', '"
-        + NewCustomer.CustBusPhone + "', '"
-        + NewCustomer.CustEmail+"');";
-        SqlCommand RegisterCmd = new SqlCommand(registerString, connection);
-        try
-        {
-            connection.Open();
-            RegisterCmd.ExecuteNonQuery();
-        }
-        catch (SqlException ex)
-        {
-            throw ex;
-        }
-        finally
-        {
-            connection.Close();
-        }
-        return true;
-    }
+    //==============ask paul===================================
+    //public static bool Register(Customers NewCustomer)
+    //{
+    //    SqlConnection connection = TravelExpertsDB.GetConnection();
+    //    string registerString = "INSERT INTO Customers (CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail) VALUES('"
+    //    + NewCustomer.CustFirstName + "', '"
+    //    + NewCustomer.CustLastName + "', '"
+    //    + NewCustomer.CustAddress + "', '"
+    //    + NewCustomer.CustCity + "', '"
+    //    + NewCustomer.CustProv + "', '"
+    //    + NewCustomer.CustPostal + "', '"
+    //    + NewCustomer.CustCountry + "', '"
+    //    + NewCustomer.CustHomePhone + "', '"
+    //    + NewCustomer.CustBusPhone + "', '"
+    //    + NewCustomer.CustEmail+"');";
+    //    SqlCommand RegisterCmd = new SqlCommand(registerString, connection);
+    //    try
+    //    {
+    //        connection.Open();
+    //        RegisterCmd.ExecuteNonQuery();
+    //    }
+    //    catch (SqlException ex)
+    //    {
+    //        throw ex;
+    //    }
+    //    finally
+    //    {
+    //        connection.Close();
+    //    }
+    //    return true;
+    //}
 
     // ------------------------------------------------------------------
     // Pitsini Suwandechochai
@@ -281,4 +281,74 @@ public static class CustomersDB
         }
         return gotCustId;
     }
+
+    //paul
+        public static string GetSalt(string username)
+     {
+         SqlConnection connection = TravelExpertsDB.GetConnection();
+                    string checkstring = "Select Salt from Customers WHERE Username = '"+username+"';";
+        SqlCommand CheckCmd = new SqlCommand(checkstring, connection);
+         try
+         {
+             connection.Open();
+            SqlDataReader readerObj = CheckCmd.ExecuteReader(CommandBehavior.SingleRow);
+            if (readerObj.Read()) //if it reads a user then checkuser returns true
+            {
+                return readerObj[0].ToString();
+            }
+            else return "";
+         }
+        catch
+         {
+            throw;
+         }
+         finally
+         {
+             connection.Close();
+         }
+    }
+    public static bool Register(string username, string password, Customers NewCustomer)
+    {
+        string theSalt = GetSalt(username);
+        if (theSalt.Length==0)
+        {
+            string newSalt = "Salt"; //make this random 5 alphanumeric
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string registerString = "INSERT INTO Customers (Username,Password,Salt,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail) VALUES('"
+            + username + "', "
+            + "CONVERT(NVARCHAR(32),HashBytes('SHA1', '" + password + "' +'"+newSalt+"'),2), '"
+            + newSalt + "', '"
+            + NewCustomer.CustFirstName + "', '"
+            + NewCustomer.CustLastName + "', '"
+            + NewCustomer.CustAddress + "', '"
+            + NewCustomer.CustCity + "', '"
+            + NewCustomer.CustProv + "', '"
+            + NewCustomer.CustPostal + "', '"
+            + NewCustomer.CustCountry + "', '"
+            + NewCustomer.CustHomePhone + "', '"
+            + NewCustomer.CustBusPhone + "', '"
+            + NewCustomer.CustEmail + "');";
+            SqlCommand RegisterCmd = new SqlCommand(registerString, connection);
+            try
+            {
+                connection.Open();
+                RegisterCmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return true;
+        }
+        else
+        {//salt exsists which means user does too
+            return false;
+        }
+     }
+ 
+
 }
