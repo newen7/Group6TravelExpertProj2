@@ -7,7 +7,14 @@
 </asp:Content>
 
 <asp:Content ID="menu" ContentPlaceHolderId="menu" runat="server">
-    
+    <div class="menu">
+        <ul>
+            <li><a href="Default.aspx">Home</a></li>
+            <li id="separator"></li>
+            <li><a class="active" href="Registration.aspx">Registration</a></li>
+            <li><a href="Login.aspx">Login</a></li>
+        </ul>
+    </div>
 </asp:Content>
 
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">

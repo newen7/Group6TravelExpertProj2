@@ -16,7 +16,7 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
     <div class="menu">
         <ul>
             <li><a class="active" href="Default.aspx">Home</a></li>
-            <div id="separator"></div>
+            <li id="separator"></li>
             <li><a href="Registration.aspx">Registration</a></li>
             <li><a href="Login.aspx">Login</a></li>
         </ul>

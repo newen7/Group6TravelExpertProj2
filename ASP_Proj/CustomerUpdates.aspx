@@ -1,18 +1,30 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerUpdates.aspx.cs" Inherits="CustomerUpdates" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerUpdates.aspx.cs" Inherits="CustomerUpdates" MasterPageFile="~/Template.master"%>
 
-<!DOCTYPE html>
+<asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
+    Customer Updates
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+<asp:Content ID="menu" ContentPlaceHolderId="menu" runat="server">
+    <div class="menu">
+
+    </div>
+</asp:Content>
+
+<asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
+    <div class="new">
+        <div class="container">
         <br />
-        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="ObjectDataSource2" Height="50px" Width="277px">
-            <EditRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+        <asp:DetailsView 
+            ID="DetailsView" 
+            runat="server" 
+            AutoGenerateEditButton="True" 
+            AutoGenerateRows="False" 
+            CellPadding="4" 
+            DataSourceID="ObjectDataSource2"
+            HeaderText="Customer Information">
+
+            <AlternatingRowStyle BackColor="#444444" />
+            <EditRowStyle CSSClass="EditRowStyle" />
             <Fields>
                 <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
                 <asp:BoundField DataField="CustFirstName" HeaderText="CustFirstName" SortExpression="CustFirstName" />
@@ -27,22 +39,24 @@
                 <asp:BoundField DataField="CustEmail" HeaderText="CustEmail" SortExpression="CustEmail" />
                 <asp:BoundField DataField="AgentId" HeaderText="AgentId" SortExpression="AgentId" />
             </Fields>
-            <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-            <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-            <RowStyle BackColor="White" ForeColor="#330099" />
+            <FooterStyle CSSClass="FooterStyle" />
+            <HeaderStyle CSSClass="HeaderStyle" />
+            <PagerStyle CSSClass="PagerStyle" />
+            <RowStyle CSSClass="RowStyle" />
         </asp:DetailsView>
-        <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetCustomerID" TypeName="CustomersDB">
+        <asp:ObjectDataSource 
+            ID="ObjectDataSource2" 
+            runat="server" 
+            OldValuesParameterFormatString="original_{0}" 
+            SelectMethod="GetCustomerID" 
+            TypeName="CustomersDB">
             <SelectParameters>
-                <asp:SessionParameter Name="CustomerId" SessionField="CustID" Type="String" />
+                <asp:SessionParameter 
+                    Name="CustomerId" 
+                    SessionField="CustID" 
+                    Type="String" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <br />
-        <br />
-        <br />
-        <br />
-    
+        </div>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>

@@ -9,16 +9,17 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
     Product Info
 </asp:Content>
 
+<asp:Content ID="menu" ContentPlaceHolderId="menu" runat="server">
+    <div class="menu">
+        <asp:Button ID="Button1" runat="server" PostBackUrl="~/CustomerUpdates.aspx" Text="Update your information" Width="189px" />
+        <asp:Button ID="btnSignOut" runat="server" PostBackUrl="~/Default.aspx" Text="Sign Out"  OnClick="btnBack_Click" />
+    </div>
+</asp:Content>
+
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
+
     <div class="new">
         <div class="container">
-        <asp:Button 
-            ID="btnSignOut" 
-            runat="server" 
-            PostBackUrl="~/Default.aspx" 
-            Text="Sign Out"  
-            OnClick="btnBack_Click" />
-            <br />
         <asp:DetailsView ID="DetailsView" runat="server"
             CellPadding="3" 
             AutoGenerateRows="False"
@@ -82,8 +83,8 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
             <PagerStyle CSSClass="PagerStyle" />
             <RowStyle CSSClass="RowStyle" />
         </asp:DetailsView>
-        </div>
         
+     </div>   
         <asp:ObjectDataSource 
             ID="ObjectDataSource1" 
             runat="server" 
@@ -99,9 +100,7 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
             </SelectParameters>
 
         </asp:ObjectDataSource>
-        <br />
-        <asp:Button ID="Button1" runat="server" PostBackUrl="~/CustomerUpdates.aspx" Text="Update your information" Width="189px" />
-    </div>
+</div>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderId="CPH2" runat="server">
@@ -110,7 +109,7 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
             <asp:Label ID="lblWelcome" runat="server"></asp:Label>
         </h3>
         <p>
-            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/Img01.jpg" />
+            <img alt="beach" src="img/Img01.jpg" style="width: 480px; height: 360px" />
         </p>
     </div>
 </asp:Content>
@@ -219,5 +218,6 @@ Many inline styles had to be removed and either duplicated in the CSS or improve
 
 <asp:Content ID="Content2" ContentPlaceHolderId="CPH4" runat="server">
     <div class="new">
+
     </div>
 </asp:Content>
