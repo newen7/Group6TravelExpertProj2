@@ -52,13 +52,13 @@ Paul's detail page was the easiest to restyle as he kept to standard style pract
             <tr class="row2">
                 <td class="col1"><asp:Label ID="Label12" runat="server" Text="Password:"></asp:Label></td>
                 <td class="col2" style="width: 166px">
-                    <asp:TextBox ID="Password1Txt" runat="server" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="Password1Txt" runat="server" Width="100%" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr class="row1">
                 <td class="col1"><asp:Label ID="Label13" runat="server" Text="Password again:"></asp:Label></td>
                 <td class="col2" style="width: 166px">
-                    <asp:TextBox ID="Password2Txt" runat="server" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="Password2Txt" runat="server" Width="100%" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr class="row2">

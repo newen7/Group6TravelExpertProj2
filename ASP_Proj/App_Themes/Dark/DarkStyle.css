@@ -247,7 +247,7 @@ p {
 
 .paul .errors {
     margin-top:40px;
-    width:300px;
+    width:400px;
     height:300px;
     float:left;
     background-image:url('..img/arr4.jpg');
@@ -298,6 +298,7 @@ p {
 /* Styles For Porkodi's Page */ 
 .porkodi {
     color: #FC0; /* a lovely shade of orange */
+    margin-left:20px;
 }
 
 .DropDownList {

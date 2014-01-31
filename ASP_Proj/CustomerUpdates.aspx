@@ -11,7 +11,7 @@
 </asp:Content>
 
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
-    <div class="new">
+    <div class="porkodi">
         <div class="container">
         <br />
         <asp:DetailsView 
@@ -59,4 +59,7 @@
         </asp:ObjectDataSource>
         </div>
     </div>
+    <p>
+        <img src="img/Img02.jpg" />
+    </p>
 </asp:Content>
