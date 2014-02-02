@@ -1,10 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductInfo.aspx.cs" Inherits="ProductInfo" MasterPageFile="~/Template.master"%>
-<%--
-The linking of the detail files to the master as well as the necessary content 
-and class tags was done by Jon.
-    
-Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
---%>
+
+<%----- Product Info Detail page -----
+By: Jonathan Love               
+ Student ID: 000655580          
+ Description:                   
+ sets the title and provides structure for the 
+ content via the master template.  The controls
+ belong to my other team members but the 
+ structure (header, menu, various content zones)
+ and styling is all Jon
+/*--------------------------------------------%>
 <asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
     Product Info
 </asp:Content>

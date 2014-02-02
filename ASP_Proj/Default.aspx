@@ -1,12 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" MasterPageFile="~/Template.master" %>
 
-
-<%--
-The linking of the detail files to the master as well as the necessary content 
-and class tags was done by Jon.
-    
-Many inline styles had to be removed and either duplicated in the CSS or improved/streamlined
---%>
+<%----- Default (index) Detail page -----
+By: Jonathan Love               
+ Student ID: 000655580          
+ Description:                   
+ sets the title and provides structure for the 
+ content via the master template.  The design,  
+ structure (header, menu, various content zones)
+ and styling is all Jon.  Many inline styles had 
+ to be removed and either duplicated in the CSS 
+ or improved/streamlined
+/*--------------------------------------------%>
 
 <asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
     Main Page

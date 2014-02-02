@@ -1,5 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerUpdates.aspx.cs" Inherits="CustomerUpdates" MasterPageFile="~/Template.master"%>
-
+<%----- Customer updates Detail page -----
+By: Jonathan Love               
+ Student ID: 000655580          
+ Description:                   
+ sets the title and provides structure for the 
+ content via the master template.  The controls
+ belong to my other team members but the 
+ structure (header, menu, various content zones)
+ and styling is all Jon
+/*--------------------------------------------%>
 <asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
     Customer Updates
 </asp:Content>

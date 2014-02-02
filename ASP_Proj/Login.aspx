@@ -1,5 +1,17 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" MasterPageFile="~/Template.master"%>
 
+<%----- Login Detail page -----
+By: Jonathan Love               
+ Student ID: 000655580          
+ Description:                   
+ sets the title and provides structure for the 
+ content via the master template.  The design,  
+ structure (header, menu, various content zones)
+ and styling is all Jon.  Many inline styles had 
+ to be removed and either duplicated in the CSS 
+ or improved/streamlined
+/*--------------------------------------------%>
+
 <asp:Content ID="title" ContentPlaceHolderId="header" runat="server">
     Login
 </asp:Content>

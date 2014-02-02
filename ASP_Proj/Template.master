@@ -1,4 +1,4 @@
-﻿<%------------DARK STYLE ----------*/
+﻿<%----- Master Template for 5 Detail pages -----
 By: Jonathan Love               
  Student ID: 000655580          
  Description:                   
@@ -6,7 +6,7 @@ By: Jonathan Love
  pages.  I have defined four separate 
  content zones (CPH1, CPH2, CPH3, CPH4)
  for use in the detail pages
-/*---------------------------------*/--%>
+/*--------------------------------------------%>
 
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="Template.master.cs" Inherits="Template" %>
 
