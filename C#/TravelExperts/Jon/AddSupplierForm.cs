@@ -72,7 +72,6 @@ namespace TravelExperts.Jon
 
                 // enable the name text box so that the user can input text into it
                 nameTxt.ReadOnly = false;
-                nameTxt.Text = CurrentSupplier.SupName;
 
                 // Read the supplier name the user is trying to modify into the name text box
                 supplierIdLbl.Text = CurrentSupplier.SupplierId.ToString();
