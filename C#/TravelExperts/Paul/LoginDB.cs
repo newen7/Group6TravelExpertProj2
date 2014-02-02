@@ -1,7 +1,7 @@
 ﻿//Paul Teixeira
 //Simple static method returns true on authorization
 //TODO:
-//-Client side hashing
+//-Client side hashing (currently passwords are sent clear text to the sql server, in the future i would try to setup SSL to secure from sniffing)
 //-SQLinjection sanitizing
 
 using System;
@@ -20,7 +20,7 @@ namespace TravelExperts
         {
             SqlConnection connection = TravelExpertsDB.GetConnection(); //get connection string from main TravelExpertsDB static class
             List<Product> ProductList = new List<Product>();
-            string sql = "Select AgentId from Login where Username = '"+username+"' and Password = CONVERT(NVARCHAR(32),HashBytes('SHA1', '"+password+"' +Salt),2)";
+            string sql = "Select AgentId from Login where Username = '"+username+"' and Password = CONVERT(NVARCHAR(32),HashBytes('SHA1', '"+password+"' +Salt),2)"; //the login string, here salt is retreived by the sql server (it knows what the salt is why tell it again)
             SqlCommand logincmd = new SqlCommand(sql, connection);
             try
             {

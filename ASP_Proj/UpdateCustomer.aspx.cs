@@ -1,4 +1,9 @@
 ﻿/*
+ * 
+        PLEASE STOP HERE THIS IS NOT PORKODIS UPDATE CUSTOMER FUNCTION THIS IS NOT IN USE FOR THE THREADED PROJECT
+
+        THIS WAS A BACKUP INCASE WE COULD NOT USE PORKODIS ON PRESENTATION DAY
+ * 
  * Paul Teixeira
  * This file is the behaviour of my updateCustomer functionality
  * On load, (and not on postbacks) it fills these textboxes with information retreived by customerId from the database

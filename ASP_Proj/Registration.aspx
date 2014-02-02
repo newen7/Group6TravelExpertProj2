@@ -1,6 +1,4 @@
-﻿
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Registration.aspx.cs" Inherits="UpdateCustomer" MasterPageFile="~/Template.master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Registration.aspx.cs" Inherits="UpdateCustomer" MasterPageFile="~/Template.master"%>
 
 <asp:Content ID="header" ContentPlaceHolderId="header" runat="server">
     Registration
@@ -128,7 +126,8 @@ Paul's detail page was the easiest to restyle as he kept to standard style pract
         </table>
 
         <div class="errors">
-        
+            <asp:Label ID="Label14" runat="server" ForeColor="Red" Text="Username already in use!" Visible="False"></asp:Label>
+          <br />
         <asp:RequiredFieldValidator 
             CSSClass="lblAlert" 
             ID="RequiredFieldValidator8" 
@@ -219,15 +218,6 @@ Paul's detail page was the easiest to restyle as he kept to standard style pract
             EnableClientScript="False" 
             ErrorMessage="Home Phone Is Required">
         </asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator 
-            ID="RegularExpressionValidator7" 
-            runat="server" 
-            ControlToValidate="UsernameTxt" 
-            CssClass="lblAlert" 
-            ErrorMessage="One word only for username please" 
-            ValidationExpression="^[A-Za-z]+$" 
-            EnableClientScript="False">
-        </asp:RegularExpressionValidator>
         <br />
         <asp:RegularExpressionValidator 
             ID="RegularExpressionValidator1" 
@@ -266,7 +256,7 @@ Paul's detail page was the easiest to restyle as he kept to standard style pract
             CssClass="lblAlert" 
             ErrorMessage="Postal Code format incorrect" 
             EnableClientScript="False" 
-            ValidationExpression="^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$">
+            ValidationExpression="^[A-Za-z]{1}\d{1}[A-Za-z]{1} *\d{1}[A-Za-z]{1}\d{1}$">
         </asp:RegularExpressionValidator>
         <br />
         <asp:RegularExpressionValidator 

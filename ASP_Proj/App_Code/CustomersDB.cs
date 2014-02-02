@@ -1,13 +1,14 @@
-﻿//CoustomersDB
-// CreatDate: 24-01-2014
-//Select created by:(Porkodi)
-//Version 1.2
-
-/*
+﻿/*
  * Update Function by Paul Teixiera
  * The update function is passed an object of Customers type and then builds an sql statment to do an update
  * based on this information.
  * Uses unified connection string from TravelDb and throws exception on failure to any try/catch block that called it.
+ * 
+ * Register Function by Paul Teixeira
+ * It accepts a username,password(cleartext) and customer object to register a new user with the website
+ * I considered hashing the password client side and passing a hashed string to the server, but this would reveal not only the
+ * hashing algorithim used in the database, but the salt as well. I decieded to hash it only server side, and preserve security 
+ * by using SSL (which would encrypt ALL data TO the server includeing the cleartext password)
  */
 using System.Data;
 using System.Collections.Generic;
@@ -205,37 +206,6 @@ public static class CustomersDB
         }
         return true;
     }
-    //==============ask paul===================================
-    //public static bool Register(Customers NewCustomer)
-    //{
-    //    SqlConnection connection = TravelExpertsDB.GetConnection();
-    //    string registerString = "INSERT INTO Customers (CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail) VALUES('"
-    //    + NewCustomer.CustFirstName + "', '"
-    //    + NewCustomer.CustLastName + "', '"
-    //    + NewCustomer.CustAddress + "', '"
-    //    + NewCustomer.CustCity + "', '"
-    //    + NewCustomer.CustProv + "', '"
-    //    + NewCustomer.CustPostal + "', '"
-    //    + NewCustomer.CustCountry + "', '"
-    //    + NewCustomer.CustHomePhone + "', '"
-    //    + NewCustomer.CustBusPhone + "', '"
-    //    + NewCustomer.CustEmail+"');";
-    //    SqlCommand RegisterCmd = new SqlCommand(registerString, connection);
-    //    try
-    //    {
-    //        connection.Open();
-    //        RegisterCmd.ExecuteNonQuery();
-    //    }
-    //    catch (SqlException ex)
-    //    {
-    //        throw ex;
-    //    }
-    //    finally
-    //    {
-    //        connection.Close();
-    //    }
-    //    return true;
-    //}
 
     // ------------------------------------------------------------------
     // Pitsini Suwandechochai
@@ -282,7 +252,8 @@ public static class CustomersDB
         return gotCustId;
     }
 
-    //paul
+    // Pauls GetSalt function returns the salt of the Username this could allow me to do client side hashing (see comment above)
+    // it also functions as my "Check user exists" funciton, for if a salt is returned the user DOES exist
         public static string GetSalt(string username)
      {
          SqlConnection connection = TravelExpertsDB.GetConnection();
@@ -307,16 +278,26 @@ public static class CustomersDB
              connection.Close();
          }
     }
+    //Paul Teixeira
+    //and ofcourse my registration function, it does an check if exists then insert into customers table
+    //returning true if registered, and false if username is already used, throw exception for any other errors
     public static bool Register(string username, string password, Customers NewCustomer)
     {
         string theSalt = GetSalt(username);
         if (theSalt.Length==0)
         {
-            string newSalt = "Salt"; //make this random 5 alphanumeric
+            //this function creates a random salt for the salting of hashes stored in the database
+            string haystack = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //a string of charecters i will choose from
+            string newSalt="";//blank string
+            System.Random rand = new System.Random();//i use this to reandomly select from the haystack above
+            for (int i = 0; i < 6; i++) //do it 5 times
+            {
+                newSalt += haystack[rand.Next(haystack.Length)];//get random charecter from the beggining and the end of the haystack and add to the salt
+            }
             SqlConnection connection = TravelExpertsDB.GetConnection();
             string registerString = "INSERT INTO Customers (Username,Password,Salt,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail) VALUES('"
             + username + "', "
-            + "CONVERT(NVARCHAR(32),HashBytes('SHA1', '" + password + "' +'"+newSalt+"'),2), '"
+            + "CONVERT(NVARCHAR(32),HashBytes('SHA1', '" + password + "' +'"+newSalt+"'),2), '" //sql statment to hash the password with the salt
             + newSalt + "', '"
             + NewCustomer.CustFirstName + "', '"
             + NewCustomer.CustLastName + "', '"

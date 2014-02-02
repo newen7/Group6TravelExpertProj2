@@ -59,11 +59,11 @@ namespace TravelExperts
             if (supplierName != null) return prodName + " --- " + supplierName; //i grudgenly accept your silly thing
             else return prodName;
         }
-        public override bool Equals(object obj) //run by listbox.contains to check if it exists this overides the REFERENCE checking with name checking (i want to check if different object references but same name exist or dont exist)
+        public override bool Equals(object obj) //run by listbox.contains to check if it exists this overides the REFERENCE checking with name checking (Because normally this function compares the reference of two objects, even though the same product has the same internal information, the differnet references of two simlar products say they are DIFFERENT objects (which is valid but not what i need), i override to say that if the ToString is the same, then the objects are the same)
         {
-            if (obj != System.DBNull.Value)
+            if (obj != System.DBNull.Value) //check if its not null ofcourse
             {
-                return ((Product)obj).ToString() == this.ToString();
+                return ((Product)obj).ToString() == this.ToString();//cast it to product and compare ToStrings of this product and perameters prodcut
             }
             else return false;
         }

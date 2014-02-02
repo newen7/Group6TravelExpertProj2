@@ -1,12 +1,10 @@
 ﻿/*
  * Paul Teixeira
- * This file is the behaviour of my updateCustomer functionality
- * On load, (and not on postbacks) it fills these textboxes with information retreived by customerId from the database
- * On save, it validates firstname and last name (as per assignment) 
- * loads the information from the textboxes into a Customers object and passes this object to
- * CustomerDB.UpdateCustomer(CustomerObject)
+ * Registration page, this allows a new customer to register with the travel experts by entering all required information
+ * validation for postol code depends on country switch statement below
+ * information is passed to Register(string,string,customer) function in DB which checks username doesnt exist and registers the new customer
  * 
- * Cancel returns to previous page without updating and save will return to previous page after saving
+ * Cancel returns to previous page without registering
  */
 
 using System;
@@ -50,10 +48,17 @@ public partial class UpdateCustomer : System.Web.UI.Page
             NewCustomer.AgentId = null; //this one must be stored as int so i do a convert.to on it
             try
             {
-                if (CustomersDB.Register(UsernameTxt.Text,Password1Txt.Text,NewCustomer)) //pass object to static CustomerDB class method UpdateCustomer this returns true on success false on failure (also throws exception so i do not bother with false return)
+                if (CustomersDB.Register(UsernameTxt.Text, Password1Txt.Text, NewCustomer)) //pass object to static CustomerDB class method register this returns true on success false on failure if the username is already taken, other failures(SQL,OVERLOAD,ETC) are caught by try/catch
                 {
+                    Label14.Visible = false;
                     HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=\"JavaScript\">alert(\"Registration Complete, Welcome to Travel Experts \n \")</SCRIPT>");//inject a javascript alert which will tell user of the saves success
                     Response.Redirect("~/Default.aspx");//then return user to previous page
+                }
+                else
+                {
+                    //username already exists
+                    Label14.Visible = true;
+                    UsernameTxt.Focus();
                 }
             }
             catch (Exception ex)
@@ -62,23 +67,19 @@ public partial class UpdateCustomer : System.Web.UI.Page
                 throw ex; //just throw that exception to the debugger for now
             }
         }
-        else
-        {
-          //if not valid, possibly do something else? javascript "Update could not be made?" Exception would catch above this and Exceptions are generally more verbose
-        }
     }
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e) //if user selects new country, update regex to match postol code for that country
     {
        switch(CountryTxt.SelectedItem.ToString())
        {
            case "Canada":
-                RegularExpressionValidator4.ValidationExpression = "^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$"; //reg expression for canada
+                RegularExpressionValidator4.ValidationExpression = "^[A-Za-z]{1}\\d{1}[A-Za-z]{1} *\\d{1}[A-Za-z]{1}\\d{1}$"; //reg expression for canada
                break;
            case "United States":
                 RegularExpressionValidator4.ValidationExpression = "^\\d{5}(-\\d{4})?$";//regexpression for states
                break;
            default:
-               RegularExpressionValidator4.ValidationExpression = "(^\\d{5}(-\\d{4})?$)|(^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$)"; //just incase it does both us and canada
+               RegularExpressionValidator4.ValidationExpression = "(^\\d{5}(-\\d{4})?$)|(^[A-Za-z]{1}\\d{1}[A-Za-z]{1} *\\d{1}[A-Za-z]{1}\\d{1}$)"; //just incase it does both us and canada
                break;
         }
     }

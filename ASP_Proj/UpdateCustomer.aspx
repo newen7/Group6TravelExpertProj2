@@ -8,6 +8,12 @@
 
 <asp:Content ID="content0" ContentPlaceHolderId="CPH1" runat="server">
     <!--
+
+        PLEASE STOP HERE THIS IS NOT PORKODIS UPDATE CUSTOMER FUNCTION THIS IS NOT IN USE FOR THE THREADED PROJECT
+
+        THIS WAS A BACKUP INCASE WE COULD NOT USE PORKODIS ON PRESENTATION DAY
+
+
 This was done by Paul Teixeira
     
 This file denotes the asp and is the gui of the update customer functionality.
