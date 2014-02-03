@@ -1,4 +1,8 @@
-﻿using System;
+﻿// ------------------------------------------------------------------
+// Pitsini Suwandechochai
+// Description: PackageDB Class
+// ------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +22,12 @@ namespace TravelExperts
         {
             SqlConnection connectDB = TravelExpertsDB.GetConnection();
 
+            // select statement
             string selectStatement = "SELECT * " +
                                      "FROM Packages ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
 
-            // makes new list to collect list of package names
+            // makes new list to collect list of package
             List<Package> PackageList = new List<Package>();
 
             // executes commmand
@@ -36,7 +41,7 @@ namespace TravelExperts
                 {
                     while (pkgReaderObj.Read()) //while pkgReaderObj has lines to read, go through each one 
                     {
-                        //add to package list all of the products found
+                        //add to package list all of the products are found
                         PackageList.Add(new Package((int)pkgReaderObj[0], (string)pkgReaderObj[1]));
                     }
 
@@ -47,7 +52,7 @@ namespace TravelExperts
                     return null;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException ex) // SQL Server returns a warning or error
             {
                 throw ex;
             }
@@ -66,13 +71,13 @@ namespace TravelExperts
         {
             SqlConnection connectDB = TravelExpertsDB.GetConnection();
 
-            // @PackageID is the variable that we pass the value from textbox
+            // select statement
             string selectStatement = "SELECT * " +
                                      "FROM Packages " +
                                      "WHERE PackageId = @PackageID ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
 
-            // provide value for the parameter
+            // @PackageID is a variable that we pass the value from textbox
             selectCommand.Parameters.AddWithValue("@PackageID", PackageId);
 
             // executes commmand
@@ -101,7 +106,7 @@ namespace TravelExperts
                     return null;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException ex) // SQL Server returns a warning or error
             {
                 throw ex;
             }
@@ -113,20 +118,20 @@ namespace TravelExperts
 
         // ------------------------------------------------------------------
         // Pitsini Suwandechochai
-        // Description: use packageID to get one package info from DB
-        // Method to used: GetPackage(ID) 
+        // Description: use PackageName to get one package info from DB
+        // Method to used: GetPackageByName(PackageName) 
         // ------------------------------------------------------------------
         public static Package GetPackageByName(string PackageName)
         {
             SqlConnection connectDB = TravelExpertsDB.GetConnection();
 
-            // @PackageID is the variable that we pass the value from textbox
+            // select statement
             string selectStatement = "SELECT * " +
                                      "FROM Packages " +
                                      "WHERE PkgName = @PackageName ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
 
-            // provide value for the parameter
+            // @PackageName is a variable that we pass the value from textbox
             selectCommand.Parameters.AddWithValue("@PackageName", PackageName);
 
             // executes commmand
@@ -138,8 +143,6 @@ namespace TravelExperts
 
                 if (pkgReader.Read()) // if geting a row successful
                 {
-                     // create package object
-
                     // retrive data from data reader to the object
                     package.PackageId = (int)pkgReader["PackageId"];
                     package.PkgName = pkgReader["PkgName"].ToString();
@@ -157,7 +160,7 @@ namespace TravelExperts
                     return null;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException ex) // SQL Server returns a warning or error
             {
                 throw ex;
             }
@@ -170,14 +173,14 @@ namespace TravelExperts
 
         // ------------------------------------------------------------------
         // Pitsini Suwandechochai
-        // Description: use packageID to get one package info from DB
-        // Method to used: GetPackage(ID) 
+        // Description: use PackageId to get one package info from DB
+        // Method to used: GetListOfProduct(PackageId) 
         // ------------------------------------------------------------------
         public static List<Product> GetListOfProduct(int PackageId)
         {
             SqlConnection connectDB = TravelExpertsDB.GetConnection();
 
-            // @PackageID is the variable that we pass the value from textbox
+            // select statement
             string selectStatement = "SELECT ps.ProductId, pd.ProdName, sup.SupName, ps.SupplierId " +
                                      "FROM Packages_Products_Suppliers pps, Products_Suppliers ps, " +
                                           "Products pd, Suppliers sup " +
@@ -187,7 +190,7 @@ namespace TravelExperts
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, connectDB);
 
-            // provide value for the parameter
+            // @PackageID is the variable that we pass the value from textbox
             selectCommand.Parameters.AddWithValue("@PackageId", PackageId);
 
             // makes new list to collect list of package names
@@ -215,7 +218,7 @@ namespace TravelExperts
                     return null;
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException ex) // SQL Server returns a warning or error
             {
                 throw ex;
             }
@@ -226,14 +229,16 @@ namespace TravelExperts
         }
 
         // ------------------------------------------------------------------
-        // Pitsini
-        // Updating method for package data 
+        // Pitsini Suwandechochai
+        // Description: Updating method for package data 
         // It will return "true" if updating is successful. Otherwise will return "false"
         // ------------------------------------------------------------------
         public static bool UpdatePackage(int packageID, Package newPackage)
         {
             
             SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            // update statement
             string updateStatement = "UPDATE Packages SET PkgName = @NewName, " +
                                      "PkgStartDate = @NewPkgStartdate, " +
                                      "PkgEndDate = @NewPkgEndDate, " +
@@ -241,7 +246,10 @@ namespace TravelExperts
                                      "PkgBasePrice = @NewPkgBasePrice, " +
                                      "PkgAgencyCommission = @NewPkgAgencyCommission " +
                                      "Where PackageId = @PackageId ";
+
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+
+            // variables that user would like to update
             updateCommand.Parameters.AddWithValue("@NewName", newPackage.PkgName);
             updateCommand.Parameters.AddWithValue("@NewPkgStartdate", newPackage.PkgStartDate);
             updateCommand.Parameters.AddWithValue("@NewPkgEndDate", newPackage.PkgEndDate);
@@ -253,13 +261,15 @@ namespace TravelExperts
             try
             {
                 connection.Open();
+
+                // run command
                 int count = updateCommand.ExecuteNonQuery();
                 if (count > 0)
                     return true;
                 else
                     return false;
             }
-            catch (SqlException ex)
+            catch (SqlException ex) // SQL Server returns a warning or error
             {
                 throw ex;
             }
@@ -267,7 +277,7 @@ namespace TravelExperts
             {
                 connection.Close();
             }
-        }   // End update method
+        }   
 
         // ------------------------------------------------------------------
         // Pitsini
@@ -277,10 +287,15 @@ namespace TravelExperts
         public static int InsertPackage(Package newPackage)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            // insert statement
             string insertStatement = "INSERT INTO Packages(PkgName, PkgStartDate, PkgEndDate, " + 
                                      "PkgDesc, PkgBasePrice, PkgAgencyCommission) " +
                                      "VALUES (@newName, @newSDate,@newEDate, @newDesc, @newBasePrice, @newCommission)";
+
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+
+            // variables that user would like to insert
             insertCommand.Parameters.AddWithValue("@newName", newPackage.PkgName);
             insertCommand.Parameters.AddWithValue("@newSDate", newPackage.PkgStartDate);
             insertCommand.Parameters.AddWithValue("@newEDate", newPackage.PkgEndDate);
@@ -291,6 +306,8 @@ namespace TravelExperts
             try
             {
                 connection.Open();
+
+                // run command
                 int count = insertCommand.ExecuteNonQuery();
                 if (count > 0)
                 {

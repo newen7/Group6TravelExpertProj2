@@ -72,6 +72,7 @@
             this.btnProduct.TabIndex = 5;
             this.btnProduct.Text = "P&roducts";
             this.btnProduct.UseVisualStyleBackColor = false;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnPackage
             // 
@@ -113,7 +114,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Travel Expert Database Editor";
-             this.ResumeLayout(false);
+            this.ResumeLayout(false);
             this.PerformLayout();
 
         }

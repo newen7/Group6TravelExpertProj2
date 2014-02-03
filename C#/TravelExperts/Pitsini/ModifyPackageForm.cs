@@ -1,4 +1,8 @@
-﻿using System;
+﻿// ------------------------------------------------------------------
+// Pitsini Suwandechochai
+// Description: Modify Package form for editing package information
+// ------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,21 +18,21 @@ namespace TravelExperts
 {    
     public partial class frmModifyPackage : Form
     {
-        public int selectedPkgId = 0;   // get packageId from previous form
-        Package ChosenPackage;  // object from Package class
-
-          // bring packageID from Main form
+        public int selectedPkgId = 0;   // this variable gets packageId from previous form
+        Package ChosenPackage;          // object from Package class
+                
         public frmModifyPackage()
         {
             InitializeComponent();
         }
 
+        //Event - when user click "Cancel" button
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // save package data to DB
+        // Event - when user click "Save" button
         private void btnSave_Click(object sender, EventArgs e)
         {
             // validate data
@@ -44,9 +48,9 @@ namespace TravelExperts
                                                 decimal.Parse(txtAgencyCommission.Text,
                                                 NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat));
 
+                    // if cannot update data. It will show an error
                     if (!PackageDB.UpdatePackage(selectedPkgId, newPackage))
-                    {
-                        // if cannot update data. It will show an error
+                    {                        
                         MessageBox.Show("Another user has updated or " +
                             "deleted that customer.", "Database Error");
                         this.DialogResult = DialogResult.Retry;
@@ -75,6 +79,7 @@ namespace TravelExperts
             }
         }
 
+        // Event - When the form is loaded
         private void frmModifyPackage_Load(object sender, EventArgs e)
         {
             if (selectedPkgId != 0)
@@ -101,7 +106,7 @@ namespace TravelExperts
             }
         }
 
-        // displays data from DB
+        // function -- displays a package user wants to modify from DB
         private void DisplayPackage()
         {
             txtPkgId.Text = selectedPkgId.ToString();
@@ -112,17 +117,14 @@ namespace TravelExperts
             txtBasePrice.Text = ChosenPackage.PkgBasePrice.ToString("c");
             txtAgencyCommission.Text = ChosenPackage.PkgAgencyCommission.ToString("c");
         }
-
-        // function for validate all input
+        
+        // function -- check validate all input
         public bool IsValidData()
         {
             return
                 // validate package name
                 Validator.IsNotNull(txtPkgName, "Package name: ") &&
-
-                // validate description
-                Validator.IsNotNull(rtxtDesc, "Description: ") &&
-
+                
                 // validate start date and end date
                 Validator.IsDateWithinRange(dtpStartDate.Value, dtpEndDate.Value) &&
 
@@ -134,7 +136,10 @@ namespace TravelExperts
                 // validate agency commission
                 Validator.IsNotNull(txtAgencyCommission, "Base Price: ") &&
                 Validator.IsPosNum(txtAgencyCommission, "Base Price: ") &&
-                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyCommission);
+                Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyCommission) &&
+                        
+                // validate description
+                Validator.IsNotNull(rtxtDesc, "Description: ");
 
         }
     }

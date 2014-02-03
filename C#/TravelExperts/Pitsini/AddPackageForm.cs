@@ -1,4 +1,8 @@
-﻿using System;
+﻿// ------------------------------------------------------------------
+// Pitsini Suwandechochai
+// Description: Add Package form for adding the new package to database
+// ------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,15 +23,24 @@ namespace TravelExperts
         {
             InitializeComponent();
         }
-        
+
+        // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: Event - when user click "Cancel" button
+        // ------------------------------------------------------------------
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: Event - when user click "Save" button
+        // ------------------------------------------------------------------
         private void btnSave_Click(object sender, EventArgs e)
         {
             frmModifyPackage modForm = new frmModifyPackage();
+
             // validate data
             if (IsValidData())
             {
@@ -42,19 +55,21 @@ namespace TravelExperts
                     newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
                     newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgencyCommission.Text);
 
+                    // insert package object into database
                     newJustAddId = PackageDB.InsertPackage(newPackage);
 
+                    // if inserting is fail
                     if (newJustAddId == 0)
-                    {
-                        // if cannot update data. It will show an error
+                    {                        
                         MessageBox.Show("Somthing went wrong with Database. " +
                             "Please check with your Administrator.", "Database Error");
                         this.DialogResult = DialogResult.Retry;
                     }
+                    
+                    // inserting is success
                     else
                     {
-                        // if updating is successful
-                        MessageBox.Show("Insert Successful.", "Alert");
+                        MessageBox.Show("Add package is Successful!", "Alert");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
@@ -75,12 +90,19 @@ namespace TravelExperts
             }
         }
 
+        // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: Event - When the form is loaded
+        // ------------------------------------------------------------------
         private void frmAddPackage_Load(object sender, EventArgs e)
         {
             ClearForm();
         }
 
-        // clears data in this form
+        // ------------------------------------------------------------------
+        // Pitsini Suwandechochai
+        // Description: function -- clears data in this form
+        // ------------------------------------------------------------------
         private void ClearForm()
         {
             txtPkgName.Text = "";
@@ -112,6 +134,8 @@ namespace TravelExperts
                 // validate agency commission
                 Validator.IsNotNull(txtAgencyCommission, "Agency Commission: ") &&
                 Validator.IsPosNum(txtAgencyCommission, "Agency Commission: ") &&
+
+                // validate base price and agency commission
                 Validator.IsPriceGreaterThan(txtBasePrice, txtAgencyCommission);
         }        
     }

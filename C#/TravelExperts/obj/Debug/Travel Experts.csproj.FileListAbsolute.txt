@@ -51,3 +51,5 @@ C:\Users\655580\Desktop\Group Work Backup\C#\TravelExperts\bin\Debug\Travel Expe
 C:\Users\655580\Desktop\Group Work Backup\C#\TravelExperts\obj\Debug\Travel Experts.exe
 C:\Users\655580\Desktop\Group Work Backup\C#\TravelExperts\obj\Debug\Travel Experts.pdb
 C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts.Jon.AddSupplierForm.resources
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts_Porkodi.ProductAddForm.resources
+C:\Users\625877\Documents\GitHub\Group6TravelExpertProj2\C#\TravelExperts\obj\Debug\TravelExperts_Porkodi.ProductFrom.resources
