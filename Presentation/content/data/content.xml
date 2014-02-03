@@ -1,0 +1,964 @@
+<zuiprezi>
+  <version>8</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-11470.751870223026" y="-11434.776032669444" width="22941.50374044605" height="22869.55206533889"/>
+      <aspectratio>off</aspectratio>
+      <languages>
+        <language>en</language>
+      </languages>
+      <mode type="normal"/>
+    </settings>
+    <object id="148_13415665" type="button" x="1088.6051479377345" y="1949.4022747063689" r="0" s="13.56819040270679" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1282.8579704787576</w>
+        <h>648.6779678892982</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <frametype value="OVERVIEW"/>
+      </layout>
+    </object>
+    <object id="1_69545121" type="button" x="-3573.1" y="1087.15" r="0" s="6.722825489848705" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1163.2259791239185</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="0_4096537" type="text" x="-3291.856063919147" y="-344.6255898752727" r="0" s="19.328708554758165" class="head head-background">
+      <height>32.68359375</height>
+      <width>359.7058011034723</width>
+      <p>
+        <text><![CDATA[Project Workshop - Team6]]></text>
+      </p>
+    </object>
+    <object id="0_4" type="button" x="-3598.4560639191477" y="1571.474410124727" r="0" s="4.630242502990567" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>1068.9425217004227</w>
+        <h>610</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <frametype value="SECTION"/>
+      </layout>
+    </object>
+    <object id="1_4" type="button" x="1338.774816078611" y="-3968.425155858709" r="0" s="2.5" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>855.1615891826184</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <frametype value="SECTION"/>
+      </layout>
+    </object>
+    <object id="2_4" type="button" x="3398.0129323388596" y="-395.58431929846074" r="0" s="3.307316073564692" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>1052.1464226289518</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <frametype value="SECTION"/>
+      </layout>
+    </object>
+    <object id="3_4" type="button" x="8403.485467083325" y="-1870.2372284395176" r="0" s="2.475753426006543" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>1052.1464226289518</w>
+        <h>600</h>
+      </size>
+      <meta>
+        <notModifiedByUser>from-template</notModifiedByUser>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <frametype value="SECTION"/>
+      </layout>
+    </object>
+    <object id="7_4" type="text" x="-3599.0234765472455" y="535.7029409837238" r="0" s="12.53337193487624" class="head">
+      <height>32.68359375</height>
+      <width>233.7462435952064</width>
+      <p align="center">
+        <text color="1657497"><![CDATA[Travel Experts]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="0_4"/>
+      </layout>
+    </object>
+    <object id="0_30863873" type="text" x="1359.75" y="-4427.75" r="0" s="6.873727769306603" class="strong">
+      <height>28.8</height>
+      <width>290.796143553921</width>
+      <p align="center">
+        <text color="9851954"><![CDATA[What we are going to talk about today]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="1_4"/>
+      </layout>
+    </object>
+    <object id="2_69545121" type="button" x="1335.6999999999998" y="-3793.05" r="0" s="1.4009391891891891" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>1351.1177347242924</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="1_30863873" type="text" x="1296.119245551837" y="-3806.157041596912" r="0" s="2.741178243174459" class="body">
+      <height>217.152</height>
+      <width>642.4221214502834</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Summary of what we have accomplished since we won your contract]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[A status demo of the technology we have been working on]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[An overview of the pros and cons we encountered along the way with this technology]]></text>
+      </p>
+      <layout>
+        <layout-element role="body" parent-id="1_4"/>
+      </layout>
+    </object>
+    <object id="2_30863873" type="text" x="3428.7902598881647" y="-1160.532501710449" r="0" s="7.1448426772597955" class="head">
+      <height>32.68359375</height>
+      <width>409.346143553921</width>
+      <p align="center">
+        <text color="1657497"><![CDATA[What we have been doing]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="2_4"/>
+      </layout>
+    </object>
+    <object id="3_30863873" type="text" x="3464.799589386964" y="-852.1717371933139" r="0" s="6.495311524781631" class="strong">
+      <height>28.8</height>
+      <width>460.1224307472455</width>
+      <p>
+        <text><![CDATA[1. An application for Agents to maintain the database]]></text>
+      </p>
+      <layout>
+        <layout-element role="body" parent-id="2_4"/>
+      </layout>
+    </object>
+    <object id="4_30863873" type="text" x="8446.153839399121" y="-2390.3655356790637" r="0" s="6.807062029718856" class="head">
+      <height>32.68359375</height>
+      <width>409.346143553921</width>
+      <p align="center">
+        <text color="1657497"><![CDATA[What we have been doing]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="3_4"/>
+      </layout>
+    </object>
+    <object id="0" type="image" x="-3598.4951606363625" y="1832.3668041010576" r="0" s="5.244017899910713">
+      <source w="480" h="360">1240061768<url>1240061768.png</url></source>
+      <sourceUrl>http://0103.static.prezi.com.s3.amazonaws.com/media/f/5/d/3f0820abe975fe5264dc2c165aa889c521200.png</sourceUrl>
+    <resource><id>1240061768</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/5/d/3f0820abe975fe5264dc2c165aa889c521200.png</url></resource></object>
+    <object id="1" type="button" x="2458.041837710103" y="-113.587517369424" r="0" s="1.736191385583897" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>604.624929498026</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="2" type="text" x="2473.696163283026" y="-132.36176097611252" r="0" s="4.070403998513099" class="body">
+      <height>162.86399999999998</height>
+      <width>219.9722923508162</width>
+      <p listType="bullet" indent="1">
+        <text color="9851954"><![CDATA[Graphical interface     (User-friendly)]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="9851954"><![CDATA[Viewing and modifying the data]]></text>
+      </p>
+    </object>
+    <object id="3" type="image" x="3987.403763699861" y="-113.587517369424" r="0" s="1.5129153815677423">
+      <source w="779" h="719">1240128953<url>1240128953.jpg</url></source>
+      <sourceUrl>snap1.jpg</sourceUrl>
+    <resource><id>1240128953</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/9/e/f/9145a13e5be8a83f96ad9d4319cd22c6019df.jpg</url></resource></object>
+    <object id="4" type="text" x="8426.161563068077" y="-2123.662149427764" r="0" s="4.63950823198688" class="strong">
+      <height>28.8</height>
+      <width>460.1224307472455</width>
+      <p>
+        <text><![CDATA[1. An application for Agents to maintain the database]]></text>
+      </p>
+      <layout>
+        <layout-element role="body" parent-id="2_4"/>
+      </layout>
+    </object>
+    <object id="5" type="button" x="8258.93631785255" y="-1594.2317760384483" r="0" s="1.240136703988498" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>750.6055478407266</w>
+        <h>628.2279032484996</h>
+      </size>
+    </object>
+    <object id="6" type="text" x="8266.242408249724" y="-1585.505099413731" r="0" s="5.103459055185567" class="body">
+      <height>81.43199999999999</height>
+      <width>161.66773935812046</width>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Packages]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Products]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Suppliers]]></text>
+      </p>
+    </object>
+    <object id="7" type="button" x="1088.6051479377345" y="1949.4022747063689" r="0" s="15.691429505168433" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1231.1557788944722</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="8" type="button" x="9619.8815450268" y="3344.628093010614" r="0" s="3.623263288531893" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>830.198328259758</w>
+        <h>622.64874619482</h>
+      </size>
+    </object>
+    <object id="9" type="text" x="9619.219287480366" y="2501.905338406263" r="0" s="8.085251499618726" class="head">
+      <height>32.68359375</height>
+      <width>409.346143553921</width>
+      <p align="center">
+        <text color="1657497"><![CDATA[What we have been doing]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="2_4"/>
+      </layout>
+    </object>
+    <object id="10" type="button" x="8866.623360860378" y="3677.3989821791383" r="0" s="1.7116514570904615" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>604.624929498026</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="11" type="text" x="8874.119789196066" y="3673.043111845577" r="0" s="4.012871503021934" class="body">
+      <height>162.86399999999998</height>
+      <width>219.9722923508162</width>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Graphical interface     (User-friendly)]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Viewing and modifying the data]]></text>
+      </p>
+    </object>
+    <object id="13" type="text" x="9429.693903638325" y="2833.461569426332" r="0" s="7.350228636017024" class="strong">
+      <height>28.8</height>
+      <width>286.8589417926116</width>
+      <p>
+        <text><![CDATA[2. A server-side Web application]]></text>
+      </p>
+      <layout>
+        <layout-element role="body" parent-id="2_4"/>
+      </layout>
+    </object>
+    <object id="14" type="image" x="10229.84769671631" y="3677.398982179136" r="0" s="1.2174048576751924">
+      <source w="1260" h="893">1240203813<url>1240203813.jpg</url></source>
+      <sourceUrl>snap2.jpg</sourceUrl>
+    <resource><id>1240203813</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/c/b/2ef9f7cdfe84920afcb0f69e4b2b9faa88213.jpg</url></resource></object>
+    <object id="15" type="button" x="9621.04549916149" y="7496.569685784678" r="0" s="2.7782843276017823" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>1128.324010705831</w>
+        <h>738.3640560966666</h>
+      </size>
+    </object>
+    <object id="21" type="text" x="9691.363512503274" y="6809.755117419201" r="0" s="8.693807848151181" class="head">
+      <height>32.68359375</height>
+      <width>409.346143553921</width>
+      <p align="center">
+        <text color="1657497"><![CDATA[What we have been doing]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="3_4"/>
+      </layout>
+    </object>
+    <object id="23" type="button" x="9691.524997381668" y="7863.87546157151" r="0" s="1.8742823736635923" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>1003.3146292813832</w>
+        <h>509.6166666667044</h>
+      </size>
+    </object>
+    <object id="24" type="text" x="9659.85665643744" y="7882.954198952763" r="0" s="6.518009119497182" class="body">
+      <height>108.576</height>
+      <width>283.9209718995804</width>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Customer Registration]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Sign-Up page]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Travel product list]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="5974240"><![CDATA[Updating information]]></text>
+      </p>
+    </object>
+    <object id="25" type="text" x="9408.151991006658" y="7139.178711272511" r="0" s="7.350228636017024" class="strong">
+      <height>28.8</height>
+      <width>286.8589417926116</width>
+      <p>
+        <text><![CDATA[2. A server-side Web application]]></text>
+      </p>
+      <layout>
+        <layout-element role="body" parent-id="2_4"/>
+      </layout>
+    </object>
+    <object id="26" type="button" x="3820.058199453131" y="6524.109156044634" r="0" s="3.44945464828407" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>979.6167957602936</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="27" type="text" x="3649.05" y="5770.55" r="0" s="14" class="strong">
+      <height>28.8</height>
+      <width>241.2427334631044</width>
+      <p align="center">
+        <text color="4420372"><![CDATA[Why .NET]]></text>
+      </p>
+      <meta>
+        <parentTemplate>on-the-road-quick</parentTemplate>
+      </meta>
+      <layout>
+        <layout-element role="title" parent-id="1_4"/>
+      </layout>
+    </object>
+    <object id="28" type="button" x="1093.2576572863309" y="9872.547501931447" r="0" s="5.1627757063295" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>949.0909090909092</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="29" type="text" x="1156.9613590829763" y="8710.85961211305" r="0" s="11.946338717470036" class="head">
+      <height>32.68359375</height>
+      <width>245.4995083022498</width>
+      <p>
+        <text color="1531238"><![CDATA[Trusted Technology]]></text>
+      </p>
+    </object>
+    <object id="32" type="button" x="1950.424405744983" y="10226.870005408256" r="0" s="4.486113349711504" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>618.49169921875</w>
+        <h>321.98723967596425</h>
+      </size>
+    </object>
+    <object id="30" type="text" x="1851.2648106525928" y="10228.953176064251" r="0" s="9.902851457825951" class="body">
+      <height>108.576</height>
+      <width>267.36</width>
+      <p listType="bullet" indent="1">
+        <text color="1531238"><![CDATA[Microsoft technology]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1531238"><![CDATA[Already established]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1531238"><![CDATA[Not going anywhere]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text color="1531238"><![CDATA[Speed for users]]></text>
+      </p>
+    </object>
+    <object id="31" type="image" x="-450.7498989722003" y="10188.292590160554" r="0" s="4.16374151607895">
+      <source w="320" h="480">1240271168<url>1240271168.jpg</url></source>
+      <sourceUrl>3.jpg</sourceUrl>
+    <resource><id>1240271168</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/c/c/6/3403f128a558b6888f89aaf3f830f70986b11.jpg</url></resource></object>
+    <object id="33" type="button" x="-8085.329531989712" y="9122.821410968972" r="0" s="7.7065154056682434" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>798.1198589894242</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="36" type="image" x="-6567.94684015466" y="8018.573729945832" r="0" s="5.4342032175272355">
+      <source w="425" h="282">1240299533<url>1240299533.png</url></source>
+      <sourceUrl>http://0103.static.prezi.com.s3.amazonaws.com/media/6/9/a/9f00952d11fc84429b7dea8d102e457b9e3ac.png</sourceUrl>
+    <resource><id>1240299533</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/6/9/a/9f00952d11fc84429b7dea8d102e457b9e3ac.png</url></resource></object>
+    <object id="37" type="button" x="-8076.779531989714" y="10123.814661827051" r="0" s="3.841552649499579" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>1439.973672663449</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="34" type="text" x="-8080.275288930932" y="10237.469197773717" r="0" s="14.83721345731297" class="body">
+      <height>135.72</height>
+      <width>375.0662658337511</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[User MS Support]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Very familiar with the interface ]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Meaning less training]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[easier learning curve]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+    </object>
+    <object id="35" type="text" x="-9441.85" y="7577.85" r="0" s="22.03118604434948" class="head">
+      <height>32.68359375</height>
+      <width>118.25465595958488</width>
+      <p>
+        <text color="8856395"><![CDATA[Familiar]]></text>
+      </p>
+    </object>
+    <object id="38" type="button" x="-7976.844277186256" y="-3964.5979327068208" r="0" s="6.412016136973336" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>1089.795918367347</w>
+        <h>629.08544921875</h>
+      </size>
+    </object>
+    <object id="39" type="text" x="-8146.65" y="-5497.45" r="0" s="23.274671786472247" class="head">
+      <height>32.68359375</height>
+      <width>166.15737971706167</width>
+      <p>
+        <text color="9851954"><![CDATA[Development]]></text>
+      </p>
+    </object>
+    <object id="41" type="button" x="-8082.288123515367" y="-3565.8139314257232" r="0" s="4.3643053793970275" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>1068.5908319185062</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="40" type="text" x="-8153.444148846844" y="-3619.571917596478" r="0" s="11.863663626060392" class="body">
+      <height>162.864</height>
+      <width>354.1891993476177</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Multi-Language Support for developers]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Standard for developers (Tools:  ]]></text>
+      </p>
+      <p indent="3">
+        <text><![CDATA[- VS]]></text>
+      </p>
+      <p indent="3">
+        <text><![CDATA[- .NET framework]]></text>
+      </p>
+    </object>
+    <object id="42" type="button" x="-3696.250859328289" y="-9580.178500485426" r="0" s="6.181991773946727" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>798.1651376146789</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="44" type="button" x="-3696.95904752199" y="-9802.702341188622" r="0" s="3.2450465516360043" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>890.8952090093529</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="43" type="text" x="-3697.701885149078" y="-9905.683094333188" r="0" s="43.0403364686936" class="strong">
+      <height>28.8</height>
+      <width>-40.44</width>
+      <p>
+        <text color="6557470"><![CDATA[Demo]]></text>
+      </p>
+    </object>
+    <object id="0_69545121" type="text" x="3627.95" y="6475.200000000001" r="0" s="8.5" class="body">
+      <height>81.43199999999999</height>
+      <width>-256.67999999999995</width>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Trusted Technology]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Familiar Interface]]></text>
+      </p>
+      <p listType="bullet" indent="1">
+        <text><![CDATA[Quick Development]]></text>
+      </p>
+    </object>
+  </zui-table>
+  <background>
+    <layer depth="2.499131413160313" fadescale="0.8803058488300777">
+      <object id="background695313921" type="image" x="157.64041143707263" y="-225.20258495580305" r="0" s="10.835792621495914">
+        <source w="2500" h="2445">695313921<url>695313921.jpg</url></source>
+        <sourceUrl>106452309_ps2.jpg</sourceUrl>
+      <resource><id>695313921</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/8/f/0/f75b4e3a9609617e489abb737afcf89a7098b.jpg</url></resource></object>
+    </layer>
+  </background>
+  <path>
+    <s>
+      <eagle o="1_69545121"/>
+    </s>
+    <s>
+      <eagle o="0_4"/>
+    </s>
+    <s>
+      <eagle o="1_4"/>
+    </s>
+    <s>
+      <eagle o="2_4"/>
+    </s>
+    <s>
+      <eagle o="3"/>
+    </s>
+    <s>
+      <eagle o="3_4"/>
+    </s>
+    <s>
+      <eagle o="8"/>
+    </s>
+    <s>
+      <eagle o="14"/>
+    </s>
+    <s>
+      <eagle o="15"/>
+    </s>
+    <s>
+      <eagle o="26"/>
+    </s>
+    <s>
+      <eagle o="28"/>
+    </s>
+    <s>
+      <eagle o="33"/>
+    </s>
+    <s>
+      <eagle o="38"/>
+    </s>
+    <s>
+      <eagle o="42"/>
+    </s>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('Raleway-B.keg');
+	fontFamily: body;
+	font-class: body;
+	font-style: normal;
+	font-weight: bold;
+	font-family: Raleway;
+}
+
+@font-face
+{
+	src: url('OpenSans-B.keg');
+	fontFamily: head;
+	font-class: head;
+	font-style: normal;
+	font-weight: bold;
+	font-family: OpenSans;
+}
+
+@font-face
+{
+	src: url('YanoneKaffeesatz.keg');
+	fontFamily: strong;
+	font-class: strong;
+	font-style: normal;
+	font-weight: normal;
+	font-family: YanoneKaffeesatz;
+}
+
+@font-face
+{
+	src: url('Raleway-Thin.keg');
+	font-style: normal;
+	font-weight: normal;
+	font-family: Raleway;
+}
+
+@font-face
+{
+	src: url('Raleway-I.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: Raleway;
+}
+
+@font-face
+{
+	src: url('Raleway-BI.keg');
+	font-style: italic;
+	font-weight: bold;
+	font-family: Raleway;
+}
+
+@font-face
+{
+	src: url('OpenSans.keg');
+	font-style: normal;
+	font-weight: normal;
+	font-family: OpenSans;
+}
+
+@font-face
+{
+	src: url('OpenSans-I.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: OpenSans;
+}
+
+@font-face
+{
+	src: url('OpenSans-BI.keg');
+	font-style: italic;
+	font-weight: bold;
+	font-family: OpenSans;
+}
+
+@font-face
+{
+	src: url('YanoneKaffeesatz-B.keg');
+	font-style: normal;
+	font-weight: bold;
+	font-family: YanoneKaffeesatz;
+}
+
+@font-face
+{
+	src: url('YanoneKaffeesatz-I.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: YanoneKaffeesatz;
+}
+
+.line1
+{
+	borderAlpha: 1;
+	borderColor: #c9d150;
+	borderThickness: 0;
+	color: #c9d150;
+	gradEndAlpha: 0.9;
+	gradEndColor: #c9d150;
+	gradStartAlpha: 1;
+	gradStartColor: #c9d150;
+}
+
+.line2
+{
+	color: #b2efec;
+	gradEndColor: #b2efec;
+	gradStartColor: #b2efec;
+}
+
+.line3
+{
+	color: #fff;
+	gradEndColor: #fff;
+	gradStartColor: #fff;
+}
+
+.line4
+{
+	color: #d04141;
+	gradEndColor: #d04141;
+	gradStartColor: #d04141;
+}
+
+.line5
+{
+	color: #333;
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+.poly1
+{
+	borderColor: #c9d150;
+	borderThickness: 3;
+	gradEndAlpha: 1;
+	gradEndColor: #c9d150;
+	gradStartAlpha: 1;
+	gradStartColor: #c9d150;
+}
+
+.poly2
+{
+	borderAlpha: 1;
+	borderColor: #b2efec;
+	borderThickness: 0;
+	gradEndAlpha: 1;
+	gradEndColor: #b2efec;
+	gradStartAlpha: 1;
+	gradStartColor: #b2efec;
+}
+
+.poly3
+{
+	borderColor: #fff;
+	borderThickness: 3;
+	gradEndAlpha: 1;
+	gradEndColor: #fff;
+	gradStartAlpha: 1;
+	gradStartColor: #fff;
+}
+
+.poly4
+{
+	borderAlpha: 1;
+	borderColor: #d04141;
+	borderThickness: 0;
+	gradEndAlpha: 1;
+	gradEndColor: #d04141;
+	gradStartAlpha: 1;
+	gradStartColor: #d04141;
+}
+
+.poly5
+{
+	borderColor: #333;
+	borderThickness: 3;
+	gradEndAlpha: 1;
+	gradEndColor: #333;
+	gradStartAlpha: 1;
+	gradStartColor: #333;
+}
+
+Background
+{
+	gradEnd: #5b750e;
+	gradStart: #758a88;
+}
+
+Grid
+{
+	color: #87a561;
+}
+
+ZArrow
+{
+	borderAlpha: 0;
+	borderColor: #f8981d;
+	borderThickness: 0;
+	color: #f8981d;
+	gradEndAlpha: 1;
+	gradEndColor: #f8981d;
+	gradStartAlpha: 1;
+	gradStartColor: #f8981d;
+	lockTintAlpha: 0;
+	lockTintColor: #f8981d;
+	radius: 0;
+	thickness: 10;
+}
+
+ZCircle
+{
+	borderAlpha: 1;
+	borderColor: #008080;
+	borderThickness: 0;
+	gradEndAlpha: 1;
+	gradEndColor: #008080;
+	gradStartAlpha: 1;
+	gradStartColor: #008080;
+	lockTintAlpha: 0;
+	lockTintColor: #ffffe6;
+	radius: 0;
+	thickness: 100;
+}
+
+ZCurveLine
+{
+	alpha: 1;
+	color: #000;
+	thickness: 2;
+}
+
+ZFrame.bracket
+{
+	borderAlpha: 1;
+	borderColor: #fff;
+	borderThickness: 1;
+	gradEndAlpha: 1;
+	gradEndColor: #fff;
+	gradStartAlpha: 0.4;
+	gradStartColor: #fff;
+	padding: 1.03;
+	thickness: 8;
+}
+
+ZFrame.circle
+{
+	borderAlpha: 1;
+	borderColor: #fff;
+	borderThickness: 3;
+	gradEndAlpha: 1;
+	gradEndColor: #fff;
+	gradStartAlpha: 0.4;
+	gradStartColor: #fff;
+	padding: 1.03;
+	thickness: 7;
+}
+
+ZFrame.roundrect
+{
+	borderAlpha: 0;
+	borderColor: #fff;
+	borderThickness: 0;
+	gradEndAlpha: 0.7;
+	gradEndColor: #fff;
+	gradStartAlpha: 0.7;
+	gradStartColor: #fff;
+	padding: 1.03;
+	radius: 0;
+}
+
+ZLabel
+{
+	lockTintAlpha: 0.15;
+	padding: 1.2;
+}
+
+ZLabel.body
+{
+	color: #000;
+	fontFamily: body;
+}
+
+ZLabel.body-background
+{
+	background-alpha: 0.9;
+	background-color: #fff;
+	background-padding: 4;
+}
+
+ZLabel.head
+{
+	color: #000;
+	fontFamily: head;
+}
+
+ZLabel.head-background
+{
+	background-alpha: 0.7;
+	background-color: #c8e016;
+	background-padding: 4;
+}
+
+ZLabel.strong
+{
+	color: #000;
+	fontFamily: strong;
+}
+
+ZLabel.strong-background
+{
+	background-alpha: 0.9;
+	background-color: #bff;
+	background-padding: 4;
+}
+
+ZLine
+{
+	borderColor: #f8981d;
+	color: #f8981d;
+	gradEndColor: #f8981d;
+	gradStartColor: #f8981d;
+	lockTintAlpha: 0;
+}
+
+ZMarker
+{
+	alpha: 0.5;
+	color: #eee10b;
+	thickness: 25;
+}
+
+ZPath
+{
+	alpha: 1;
+	color: #40abe6;
+	textColor: #fff;
+	thickness: 3;
+}
+
+ZPath Ball.base
+{
+	alpha: 1;
+	fillColor: #40abe6;
+	radius: 12;
+}
+
+ZPath Ball.mid
+{
+	alpha: .5;
+	fillColor: #40abe6;
+	radius: 8;
+}
+
+ZPoly
+{
+	borderAlpha: 1;
+	borderColor: #f8981d;
+	borderThickness: 0;
+	color: #f8981d;
+	gradEndAlpha: 1;
+	gradEndColor: #f8981d;
+	gradStartAlpha: 1;
+	gradStartColor: #f8981d;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+]]></style>
+  <hash>469f20eb</hash>
+<sync><oid>prv3g39dxgfu</oid><title>travel-experts</title><hash>469f20eb</hash></sync><config>aopvBZ44GRAfUpUlh/ozvKwq3o8Uyo3NBq3npLQlzXFuB7bpjIeKwnkxEJHeqeiTTBLxoJYxxDzUYUQxKEVLSwG8hdtV1FIP7V05hMaYy4f5GzvFBH7JQ3289o9Qj12TpzuGIj+F2D29cmjCO5Q1ruks+pearQqdgOPhq22bLc0MyWjaXmj+lOqFxvrF2FcSpi9oV7ZjZKJp228Kfmdd+thkAxu0s49JhyKxLM/87NU3gogJyyFuL4o1AWrirt8upJx2tIDL727uykxWm/MZ8m76dYcmjz0JThl2t2Ale9O560q1yzmPrFRzsmCwW45HHsnZIo/D2E5PAeacIuooKw==</config></zuiprezi>
