@@ -114,53 +114,53 @@ public static class CustomersDB
     }
 
     //Paul Teixeira Update Customer
-    //public static bool UpdateCustomer(Customers NewCustomerInfo)
-    //{
-    //    SqlConnection connection = TravelExpertsDB.GetConnection();
-    //    string updateStatement = "UPDATE Customers SET "
-    //                                + "CustFirstName = @firstName, "
-    //                                + "CustLastName = @lastName, "
-    //                                + "CustAddress = @address, "
-    //                                + "CustCity = @city, "
-    //                                + "CustProv = @prov, "
-    //                                + "CustPostal = @postal, "
-    //                                + "CustCountry = @country, "
-    //                                + "CustHomePhone = @homeph, "
-    //                                + "CustBusPhone = @busph, "
-    //                                + "CustEmail = @email";
-    //                                if (NewCustomerInfo.AgentId != null) updateStatement += ", AgentId = @agntId ";
-    //                                updateStatement += " WHERE CustomerId = @CustId";
-    //    SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-    //    updateCommand.Parameters.AddWithValue("@CustId", NewCustomerInfo.CustomerID);
-    //    updateCommand.Parameters.AddWithValue("@firstName", NewCustomerInfo.CustFirstName);
-    //    updateCommand.Parameters.AddWithValue("@lastName", NewCustomerInfo.CustLastName);
-    //    updateCommand.Parameters.AddWithValue("@address", NewCustomerInfo.CustAddress);
-    //    updateCommand.Parameters.AddWithValue("@city", NewCustomerInfo.CustCity);
-    //    updateCommand.Parameters.AddWithValue("@prov", NewCustomerInfo.CustProv);
-    //    updateCommand.Parameters.AddWithValue("@postal", NewCustomerInfo.CustPostal);
-    //    updateCommand.Parameters.AddWithValue("@country", NewCustomerInfo.CustCountry);
-    //    updateCommand.Parameters.AddWithValue("@homeph", NewCustomerInfo.CustHomePhone);
-    //    updateCommand.Parameters.AddWithValue("@busph", NewCustomerInfo.CustBusPhone);
-    //    updateCommand.Parameters.AddWithValue("@email", NewCustomerInfo.CustEmail);
-    //    if (NewCustomerInfo.AgentId != null)
-    //    {
-    //        updateCommand.Parameters.AddWithValue("@agntId", NewCustomerInfo.AgentId);
-    //    }
-    //    try
-    //    {
-    //        connection.Open();
-    //        updateCommand.ExecuteNonQuery();
-    //    }
-    //    catch (SqlException ex)
-    //    {
-    //        throw ex;
-    //    }
-    //    finally
-    //    {
-    //        connection.Close();
-    //    }
-    //    return true;
-    //}
+    public static bool UpdateCustomer(Customers NewCustomerInfo)
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string updateStatement = "UPDATE Customers SET "
+                                    + "CustFirstName = @firstName, "
+                                    + "CustLastName = @lastName, "
+                                    + "CustAddress = @address, "
+                                    + "CustCity = @city, "
+                                    + "CustProv = @prov, "
+                                    + "CustPostal = @postal, "
+                                    + "CustCountry = @country, "
+                                    + "CustHomePhone = @homeph, "
+                                    + "CustBusPhone = @busph, "
+                                    + "CustEmail = @email";
+        if (NewCustomerInfo.AgentId != null) updateStatement += ", AgentId = @agntId ";
+        updateStatement += " WHERE CustomerId = @CustId";
+        SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+        updateCommand.Parameters.AddWithValue("@CustId", NewCustomerInfo.CustomerID);
+        updateCommand.Parameters.AddWithValue("@firstName", NewCustomerInfo.CustFirstName);
+        updateCommand.Parameters.AddWithValue("@lastName", NewCustomerInfo.CustLastName);
+        updateCommand.Parameters.AddWithValue("@address", NewCustomerInfo.CustAddress);
+        updateCommand.Parameters.AddWithValue("@city", NewCustomerInfo.CustCity);
+        updateCommand.Parameters.AddWithValue("@prov", NewCustomerInfo.CustProv);
+        updateCommand.Parameters.AddWithValue("@postal", NewCustomerInfo.CustPostal);
+        updateCommand.Parameters.AddWithValue("@country", NewCustomerInfo.CustCountry);
+        updateCommand.Parameters.AddWithValue("@homeph", NewCustomerInfo.CustHomePhone);
+        updateCommand.Parameters.AddWithValue("@busph", NewCustomerInfo.CustBusPhone);
+        updateCommand.Parameters.AddWithValue("@email", NewCustomerInfo.CustEmail);
+        if (NewCustomerInfo.AgentId != null)
+        {
+            updateCommand.Parameters.AddWithValue("@agntId", NewCustomerInfo.AgentId);
+        }
+        try
+        {
+            connection.Open();
+            updateCommand.ExecuteNonQuery();
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return true;
+    }
 
     // ------------------------------------------------------------------
     // Pitsini Suwandechochai

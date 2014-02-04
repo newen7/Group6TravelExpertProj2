@@ -16,7 +16,7 @@ By: Jonathan Love
 
 <asp:Content ID="menu" ContentPlaceHolderId="menu" runat="server">
     <div class="menu" style="text-align:right;">
-        <asp:Button ID="Button1" runat="server" PostBackUrl="~/CustomerUpdates.aspx" Text="Update your information" Width="189px" />
+        <asp:Button ID="Button1" runat="server" PostBackUrl="~/UpdateCustomer.aspx" Text="Update your information" Width="189px" />
         <asp:Button ID="btnSignOut" runat="server" PostBackUrl="~/Default.aspx" Text="Sign Out"  OnClick="btnBack_Click" />
     </div>
 </asp:Content>
